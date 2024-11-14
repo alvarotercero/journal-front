@@ -1,0 +1,14 @@
+.hamburger {
+    /* display: none; */
+
+    div {
+        background-color: black;
+        margin: 2px 0;
+        width: 1.5625rem;
+        height: 3 px;
+    }
+}
+
+ul {
+    display: flex;
+}
