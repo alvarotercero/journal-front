@@ -7,7 +7,7 @@
         "noticia1 noticia1 noticia1 noticia2"
         "noticia1 noticia1 noticia1 noticia2"
         "noticia1 noticia1 noticia1 noticia3"
-        "noticia4 noticia5 noticia6 noticia7";
+        "noticia1 noticia1 noticia1 noticia3";
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 10px;
@@ -32,24 +32,4 @@
 .grid article:nth-child(3) {
     background-color: aqua;
     grid-area: noticia3;
-}
-
-.grid article:nth-child(4) {
-    background-color: yellowgreen;
-    grid-area: noticia4;
-}
-
-.grid article:nth-child(5) {
-    background-color: aquamarine;
-    grid-area: noticia5;
-}
-
-.grid article:nth-child(6) {
-    background-color: navajowhite;
-    grid-area: noticia6;
-}
-
-.grid article:nth-child(7) {
-    background-color: aqua;
-    grid-area: noticia7;
 }
