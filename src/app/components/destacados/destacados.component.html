@@ -1,0 +1,17 @@
+<section class="slider">
+    <div class="noticias-destacadas">
+        @for (noticia of arrNoticiasDestacadas; track noticia.id; let i = $index) {
+        {{i}}
+        <app-noticias-card [miNoticia]="noticia" [class.active]="i === currentIndex"></app-noticias-card>
+        <!-- <app-noticia *ngFor="let noticia of noticias; let i = index" [img]="noticia.img" [title]="noticia.title"
+            [content]="noticia.content" [class.active]="i === currentIndex">
+        </app-noticia> -->
+        }
+
+    </div>
+
+    <div class="controls">
+        <button (click)="prevNoticia()">Anterior</button>
+        <button (click)="nextNoticia()">Siguiente</button>
+    </div>
+</section>
