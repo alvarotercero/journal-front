@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { NOTICIAS } from '../../pages/page-home/mock_noticias';
-import { NoticiaSliderItemComponent } from "../noticia-slider-item/noticia-slider-item.component";
+import { NoticiaSliderItemComponent } from '../noticia-slider-item/noticia-slider-item.component';
 
 
 @Component({

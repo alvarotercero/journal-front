@@ -1,0 +1,9 @@
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.flex article figure img {
+    height: 10px;
+}

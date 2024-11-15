@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(./reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=News+Cycle&display=swap');
 
 .container {
     max-width: 75rem;

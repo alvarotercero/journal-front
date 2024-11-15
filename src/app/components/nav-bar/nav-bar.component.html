@@ -1,12 +1,12 @@
-<nav>
+<nav class="container">
     <a href="">
         <h1>CMS Noticias</h1>
     </a>
-    <ul>
-        <li>Categoria 1</li>
-        <li>Categoria 2</li>
-        <li>Categoria 3</li>
-        <li>Categoria 4</li>
+    <ul class="flex">
+        <li><a href="">Categoria 1</a></li>
+        <li><a href="">Categoria 2</a></li>
+        <li><a href="">Categoria 3</a></li>
+
     </ul>
     <div class="hamburger">
         <div></div>
@@ -14,5 +14,5 @@
         <div></div>
     </div>
 
-    <a [routerLink]="['/login']">Login</a>
+    <a class="login" [routerLink]="['/login']">Login</a>
 </nav>
