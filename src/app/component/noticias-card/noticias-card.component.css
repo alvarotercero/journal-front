@@ -1,0 +1,22 @@
+.noticia-destacada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.noticia-destacada img {
+    width: 100%;
+    height: auto;
+}
+
+.noticia-destacada h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+.noticia-destacada p {
+    font-size: 1rem;
+    color: #555;
+}

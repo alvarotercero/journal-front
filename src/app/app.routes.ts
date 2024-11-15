@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { PageHomeComponent } from './pages/page-home/page-home.component';
+
 
 export const routes: Routes = [
-    { path: '', component: HomeComponent }
+    { path: '', pathMatch: 'full', redirectTo: 'home' },
+    { path: '', component: PageHomeComponent }
 ];
