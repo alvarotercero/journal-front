@@ -1,17 +1,22 @@
-<section class="slider">
-    <div class="noticias-destacadas">
-        @for (noticia of arrNoticiasDestacadas; track noticia.id; let i = $index) {
-        {{i}}
-        <app-noticias-card [miNoticia]="noticia" [class.active]="i === currentIndex"></app-noticias-card>
-        <!-- <app-noticia *ngFor="let noticia of noticias; let i = index" [img]="noticia.img" [title]="noticia.title"
-            [content]="noticia.content" [class.active]="i === currentIndex">
-        </app-noticia> -->
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        @for (noticia of arrNoticiasDestacadas; track $index; let primero = $first) {
+        <app-noticia-slider-item class="carousel-item" [class.active]="primero"
+            [miNoticia]="noticia"></app-noticia-slider-item>
         }
-
     </div>
-
-    <div class="controls">
-        <button (click)="prevNoticia()">Anterior</button>
-        <button (click)="nextNoticia()">Siguiente</button>
-    </div>
-</section>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

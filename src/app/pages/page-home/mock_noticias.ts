@@ -64,7 +64,7 @@ export const NOTICIAS: INoticia[] = [
     {
         id: 15,
         titular: "La neurociencia avanza en el estudio del cerebro",
-        imagen: "https://www.lavozdegalicia.es/default/2020/08/11/00121597156982248194621/Foto/EG12P48F2_164153.jpg",
+        imagen: "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/4:3/w_1960,h_1470,c_limit/bob_esponja_9564.png",
         texto: "Investigadores han logrado mapear por primera vez la actividad cerebral de forma más precisa.",
         secciones: "destacado",
         fecha_publicacion: "2024-11-12",

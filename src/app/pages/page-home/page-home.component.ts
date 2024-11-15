@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DestacadosComponent } from "../../component/destacados/destacados.component";
-import { NoticiasGeneralesComponent } from "../../component/noticias-generales/noticias-generales.component";
-import { NoticiasSecundariasComponent } from "../../component/noticias-secundarias/noticias-secundarias.component";
+import { DestacadosComponent } from "../../components/destacados/destacados.component";
+import { NoticiasGeneralesComponent } from "../../components/noticias-generales/noticias-generales.component";
+import { NoticiasSecundariasComponent } from "../../components/noticias-secundarias/noticias-secundarias.component";
 
 @Component({
   selector: 'app-page-home',
