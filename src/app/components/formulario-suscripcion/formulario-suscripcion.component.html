@@ -5,8 +5,8 @@
         <div>
             <label for="email">Email *</label>
             <input type="email" formControlName="email" id="email">
-            @if(checkControl('email', 'email')){
-            <p class="error">Introduce un email válido</p>
+            @if(checkControl('email', 'pattern')){
+            <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
             }
         </div>
         <div>

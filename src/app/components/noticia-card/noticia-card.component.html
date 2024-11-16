@@ -1,4 +1,19 @@
-<a href="">
+@if (enRevision) {
+<a [routerLink]="['/editar-noticia', miNoticia?.id]">
+    <article class="noticia">
+        <h4>{{miNoticia?.estado}}</h4>
+        <h3>{{miNoticia?.titular}}</h3>
+        <figure>
+            <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
+        </figure>
+        @if (esNoticiaGeneral) {
+        <p>{{miNoticia?.texto}}</p>
+        }
+    </article>
+</a>
+}
+@else {
+<a [routerLink]="['/noticia', miNoticia?.slug]">
     <article class="noticia">
         <figure>
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
@@ -11,3 +26,4 @@
         }
     </article>
 </a>
+}
