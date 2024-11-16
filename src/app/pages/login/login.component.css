@@ -1,17 +1,19 @@
-/* .formulario {
-    position: absolute;
-    top: 50;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400 px;
-    background: white;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.formulario {
+    border: 2px solid #3498db;
+    padding: 20px;
     border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .formulario h1 {
     text-align: center;
     padding: 0 0 20px 0;
-    border-bottom: 1px solid silver;
 }
 
 .formulario form {
@@ -19,18 +21,49 @@
     box-sizing: border-box;
 }
 
-form .username {
+form .email {
+    border: none;
     position: relative;
-    border-bottom: 2px solid #adadad;
     margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    color: #3498db;
 }
 
-.username inpu {
-    width: 100%;
-    padding: 0 5px;
-    height: 40px;
-    font-size: 16px;
+form .email input {
     border: none;
-    background: none;
+    border-bottom: 2px solid silver;
     outline: none;
-} */
+    padding: 8px;
+    font-size: 16px;
+}
+
+form .password {
+    position: relative;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Times New Roman', Times, serif;
+    color: #3498db;
+}
+
+form .password input {
+    border: none;
+    border-bottom: 2px solid silver;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.acceder-input {
+    color: #3498db;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.acceder-input:hover {
+    background-color: silver;
+}
