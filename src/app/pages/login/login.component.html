@@ -1,15 +1,17 @@
 <div class="formulario">
     <h1>Login</h1>
-    <form method="post">
+    <form [formGroup]="loginForm" (ngSubmit)="getDataLogin()">
 
         <div class="email">
-            <input type="text" required>
-            <label>Introduce tu email</label>
+            <label class="form-label" for="email"></label>
+            <input class="form-control" type="text" id="email" placeholder="Introduce tu email" formControlName="email">
         </div>
 
+
         <div class="password">
-            <input type="password" required>
-            <label>Introduce tu password</label>
+            <label class="form-label" for="password"></label>
+            <input class="form-control" type="password" id="password" placeholder="Introduce tu password"
+                formControlName="password">
         </div>
 
         <input type="submit" value="Acceder" class="acceder-input">
