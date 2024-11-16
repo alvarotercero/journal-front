@@ -1,19 +1,19 @@
 <div class="formulario">
-    <h1>Inicio de sesión</h1>
-    <form method="post">
-        <div class="username">
-            <input type="text" required>
-            <label>Nombre de usuario</label>
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="getDataLogin()">
+
+        <div class="email">
+            <label class="form-label" for="email"></label>
+            <input class="form-control" type="text" id="email" placeholder="Introduce tu email" formControlName="email">
         </div>
 
-        <div class="contraseña">
-            <input type="password" required>
-            <label>Contraseña</label>
+
+        <div class="password">
+            <label class="form-label" for="password"></label>
+            <input class="form-control" type="password" id="password" placeholder="Introduce tu password"
+                formControlName="password">
         </div>
 
-        <div class="registrarse">
-            <input type="submit" value="Iniciar">
-            Quiero <a href="#">registrarme</a>
-        </div>
+        <input type="submit" value="Acceder" class="acceder-input">
     </form>
 </div>
