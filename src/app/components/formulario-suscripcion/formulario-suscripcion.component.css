@@ -1,0 +1,28 @@
+.container {
+    padding: 5.5rem;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+form div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.boton {
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid white;
+    background-color: red;
+    border-radius: 10px;
+    transition: 0.2s;
+
+    &:hover {
+        background-color: black;
+        cursor: pointer;
+    }
+}
+
+.error {
+    color: red;
+}

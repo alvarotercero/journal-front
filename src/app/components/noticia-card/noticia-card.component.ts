@@ -10,4 +10,5 @@ import { INoticia } from '../../interfaces/inoticia.interface';
 })
 export class NoticiaCardComponent {
   @Input() miNoticia?: INoticia
+  @Input() esNoticiaGeneral: boolean = false;
 }

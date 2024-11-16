@@ -4,17 +4,13 @@
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
     transition: 0.2s;
-
-    figcaption,
-    img {
-        margin: 1rem;
-    }
+    padding: 1rem;
 
     img {
         height: 4.6875rem;
         border: .0625rem solid black;
         padding: 6.25rem;
-
+        width: 100%;
     }
 
     &:hover {

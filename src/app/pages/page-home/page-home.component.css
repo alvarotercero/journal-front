@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 30px;
-    max-height: 900px;
 }
 
 #noticias-destacadas {

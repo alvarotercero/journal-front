@@ -6,3 +6,12 @@
 header {
     background-color: red;
 }
+
+footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5rem 0;
+}
+
+main {
+    margin: 2rem 0;
+}
