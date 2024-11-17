@@ -11,7 +11,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R026",
         editor_id: "E026",
         categoria_id: "C026",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Alta",
         cambios: new Date("2024-11-15"),
         slug: "exploracion-exoplanetas-habitables"
@@ -26,7 +26,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R027",
         editor_id: "E027",
         categoria_id: "C027",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Media",
         cambios: new Date("2024-11-14"),
         slug: "revolucion-reciclaje-urbano"
@@ -41,7 +41,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R028",
         editor_id: "E028",
         categoria_id: "C028",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Alta",
         cambios: new Date("2024-11-16"),
         slug: "impacto-turismo-espacial"
@@ -56,7 +56,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R029",
         editor_id: "E029",
         categoria_id: "C029",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Media",
         cambios: new Date("2024-11-15"),
         slug: "innovaciones-vehiculos-electricos"
@@ -71,7 +71,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R030",
         editor_id: "E030",
         categoria_id: "C030",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Alta",
         cambios: new Date("2024-11-12"),
         slug: "avances-biotecnologia-enfermedades-raras"
@@ -86,7 +86,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R031",
         editor_id: "E031",
         categoria_id: "C031",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Media",
         cambios: new Date("2024-11-13"),
         slug: "reformas-sistema-educativo-europeo"
@@ -101,7 +101,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R032",
         editor_id: "E032",
         categoria_id: "C032",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Media",
         cambios: new Date("2024-11-14"),
         slug: "futuro-combustibles-sinteticos"
@@ -116,7 +116,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R033",
         editor_id: "E033",
         categoria_id: "C033",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Media",
         cambios: new Date("2024-11-16"),
         slug: "videojuegos-creatividad-infantil"
@@ -131,7 +131,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R034",
         editor_id: "E034",
         categoria_id: "C034",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Alta",
         cambios: new Date("2024-11-15"),
         slug: "estrategias-combatir-contaminacion-plastica"
@@ -146,7 +146,7 @@ export const noticiasNoPublicadas: INoticia[] = [
         redactor_id: "R035",
         editor_id: "E035",
         categoria_id: "C035",
-        estado: "No Publicado",
+        estado: "borrador",
         importancia: "Media",
         cambios: new Date("2024-11-16"),
         slug: "auge-robotica-agricultura"

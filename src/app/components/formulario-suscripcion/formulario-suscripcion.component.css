@@ -9,6 +9,11 @@ form div:first-child {
     flex-direction: column;
 }
 
+form div:nth-child(2) {
+    display: flex;
+    gap: 0.25rem;
+}
+
 .boton {
     color: white;
     padding: 0.5rem 1.25rem;

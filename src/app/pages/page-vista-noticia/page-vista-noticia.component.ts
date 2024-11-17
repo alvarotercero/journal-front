@@ -11,7 +11,7 @@ import { NOTICIAS } from '../page-home/mock_noticias';
 })
 export class PageVistaNoticiaComponent {
   @Input() miNoticia?: INoticia;
-  @Input() noticiaSlug?: string;
+  @Input() noticiaSlug?: string = '';
 
   ngOnInit() {
     this.miNoticia = NOTICIAS.find(noticia => noticia.slug === this.noticiaSlug)

@@ -3,15 +3,15 @@
     <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, at.</h4>
     <form [formGroup]="miFormulario" (ngSubmit)="getDataForm()">
         <div>
-            <label for="email">Email *</label>
+            <label for="email">* Email</label>
             <input type="email" formControlName="email" id="email">
-            @if(checkControl('email', 'pattern')){
+            @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
             <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
             }
         </div>
         <div>
             <input type="checkbox" formControlName="esAceptado" id="aceptar">
-            <label for="aceptar">Sí, suscríbeme a tu boletín. *</label>
+            <label for="aceptar">* Sí, suscríbeme a tu boletín.</label>
         </div>
         <input type="submit" class="boton" value="Suscribir">
     </form>

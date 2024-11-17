@@ -33,6 +33,7 @@ export class FormularioSuscripcionComponent {
   }
 
   checkControl(formControlName: string, validator: string) {
+    // return this.miFormulario.get(formControlName)?.touched;
     return this.miFormulario.get(formControlName)?.hasError(validator) && this.miFormulario.get(formControlName)?.touched;
   }
 }

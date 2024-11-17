@@ -1,6 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { RouterLink } from '@angular/router';
+import { TitleCasePipe } from '@angular/common';
+
+type estadosNoticia = {
+  'borrador': string,
+  'revision': string,
+  'publicado': string
+}
 
 @Component({
   selector: 'app-noticia-card',
@@ -12,5 +19,4 @@ import { RouterLink } from '@angular/router';
 export class NoticiaCardComponent {
   @Input() miNoticia?: INoticia
   @Input() esNoticiaGeneral: boolean = false;
-  @Input() enRevision: boolean = false;
 }
