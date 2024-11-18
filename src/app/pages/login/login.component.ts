@@ -17,7 +17,7 @@ export class LoginComponent {
 
   constructor() {
     this.loginForm = new FormGroup({
-      email: new FormControl('erase una vez', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl(null, [])
     }, [])
   }

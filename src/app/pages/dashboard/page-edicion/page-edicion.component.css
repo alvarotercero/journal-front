@@ -1,128 +1,84 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f7fc;
-
-    display: flex;
-    justify-content: center;
-
-    align-items: center;
-    /* Centra el contenido verticalmente */
-    height: 100vh;
-    /* Toma el 100% de la altura de la ventana */
-    margin: 0;
-    /* Elimina cualquier margen por defecto */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     color: #333;
 }
 
-/* Contenedor principal del formulario */
 .form-container {
-    background-color: #ffffff;
-    /* Fondo blanco */
-    /* /* border-radius: 12px; */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-    /* padding: 40px;
-    width: 650px; */
-
-    text-align: center
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-h2 {
-    text-align: center;
-    font-size: 26px;
-    color: #2c3e50;
-    margin-bottom: 30px;
-}
-
-/* Contenedor del área de texto */
 .textarea-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
-/* Área de texto */
-textarea {
-    width: 80%;
-    padding: 15px;
-    border: 1px solid #dcdfe6;
-    /* Borde suave */
-    border-radius: 8px;
+.textarea-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.textarea-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 16px;
-    resize: none;
-    background-color: #f8f9fa;
-    /* Fondo suave */
-    color: #333;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto en el área de texto al enfocarse */
-textarea:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
-    outline: none;
-}
-
-/* Contenedor de los botones */
 .button-container {
     display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }
 
-/* Estilo general para los botones */
-button {
-    padding: 12px 18px;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 14px;
+.btn {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    min-width: 130px;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-/* Estilos para cada botón con tonos suaves */
+.btn:hover {
+    background-color: #e0e0e0;
+    border-color: #bbb;
+}
+
 .btn.editar {
-    background-color: #3498db;
+    border-color: #6c757d;
 }
 
 .btn.guardar {
-    background-color: #2ecc71;
+    border-color: #007bff;
 }
 
 .btn.borrar {
-    background-color: #e74c3c;
+    border-color: #dc3545;
 }
 
 .btn.seleccionar-editor {
-    background-color: #f39c12;
+    border-color: #17a2b8;
 }
 
 .btn.publicar {
-    background-color: #9b59b6;
+    border-color: #28a745;
 }
 
 .btn.estado {
-    background-color: #34495e;
+    border-color: #ffc107;
 }
 
-/* Efectos en los botones */
-button:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-
-button:active {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-/* Sombra y transición en el contenedor del formulario */
-.form-container:hover {
-    transform: translateY(-5px);
+.btn:active {
+    transform: scale(0.98);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
 }
