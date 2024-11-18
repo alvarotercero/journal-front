@@ -1,4 +1,4 @@
-<a href="">
+<a [routerLink]="['/noticias', categoria?.slug, miNoticia?.slug]">
     <article class="noticia">
         <figure>
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">

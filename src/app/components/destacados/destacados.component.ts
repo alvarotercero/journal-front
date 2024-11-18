@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
-import { NOTICIAS } from '../../pages/page-home/mock_noticias';
 import { NoticiaSliderItemComponent } from '../noticia-slider-item/noticia-slider-item.component';
+import { NoticiasService } from '../../services/noticias.service';
 
 
 @Component({
@@ -13,9 +13,10 @@ import { NoticiaSliderItemComponent } from '../noticia-slider-item/noticia-slide
 })
 export class DestacadosComponent {
   arrNoticiasDestacadas: INoticia[] = [];
+  noticiasService = inject(NoticiasService)
 
-  ngOnInit() {
-    this.arrNoticiasDestacadas = NOTICIAS.filter(noticia => noticia.secciones === 'destacado');
+  async ngOnInit() {
+    this.arrNoticiasDestacadas = await this.noticiasService.getAll('destacado', 'economia')
   }
 
 }

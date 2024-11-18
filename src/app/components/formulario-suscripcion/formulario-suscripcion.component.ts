@@ -14,7 +14,8 @@ export class FormularioSuscripcionComponent {
     this.miFormulario = new FormGroup({
       email: new FormControl(null, [
         Validators.required,
-        Validators.email
+        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        // Validators.email
       ]),
       esAceptado: new FormControl(false, [
         Validators.required
@@ -26,10 +27,13 @@ export class FormularioSuscripcionComponent {
     console.log(this.miFormulario.value);
     if (this.miFormulario.valid) {
       this.miFormulario.reset()
+    } else {
+      this.miFormulario.markAllAsTouched()
     }
   }
 
   checkControl(formControlName: string, validator: string) {
+    // return this.miFormulario.get(formControlName)?.touched;
     return this.miFormulario.get(formControlName)?.hasError(validator) && this.miFormulario.get(formControlName)?.touched;
   }
 }

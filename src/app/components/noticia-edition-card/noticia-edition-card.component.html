@@ -1,0 +1,15 @@
+<a [routerLink]="['/edicion', miNoticia?.id]">
+    <article class="noticia">
+        <div>
+            <h4 [class]="miNoticia?.estado"><span>&#9679;</span> {{miNoticia?.estado | titlecase}}</h4>
+            <a class="boton" [routerLink]="['/edicion', miNoticia?.id]">Editar</a>
+        </div>
+
+        <figure>
+            <figcaption>
+                <h3>{{miNoticia?.titular}}</h3>
+            </figcaption>
+            <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
+        </figure>
+    </article>
+</a>
