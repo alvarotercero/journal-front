@@ -2,7 +2,7 @@
     <article class="noticia">
         <div>
             <h4 [class]="miNoticia?.estado"><span>&#9679;</span> {{miNoticia?.estado | titlecase}}</h4>
-            <a [routerLink]="['/edicion', miNoticia?.id]">Editar</a>
+            <a class="boton" [routerLink]="['/edicion', miNoticia?.id]">Editar</a>
         </div>
 
         <figure>

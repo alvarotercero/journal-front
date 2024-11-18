@@ -3,10 +3,9 @@
         <h1>CMS Noticias</h1>
     </a>
     <ul class="flex">
-        <li><a href="">Categoria 1</a></li>
-        <li><a href="">Categoria 2</a></li>
-        <li><a href="">Categoria 3</a></li>
-
+        @for (categoria of arrCategorias; track categoria.id) {
+        <li><a href="">{{categoria.nombre}}</a></li>
+        }
     </ul>
     <div class="hamburger">
         <div></div>

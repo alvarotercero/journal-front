@@ -14,20 +14,6 @@ form div:nth-child(2) {
     gap: 0.25rem;
 }
 
-.boton {
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border: 1px solid white;
-    background-color: red;
-    border-radius: 10px;
-    transition: 0.2s;
-
-    &:hover {
-        background-color: black;
-        cursor: pointer;
-    }
-}
-
 .error {
     color: red;
 }

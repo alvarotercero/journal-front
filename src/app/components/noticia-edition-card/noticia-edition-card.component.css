@@ -27,6 +27,12 @@
         cursor: pointer;
         transform: scale(101%);
     }
+
+    div:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 a {

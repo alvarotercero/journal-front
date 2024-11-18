@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
-import { NOTICIAS } from '../../pages/page-home/mock_noticias';
 import { NoticiaCardComponent } from '../noticia-card/noticia-card.component';
+import { NoticiasService } from '../../services/noticias.service';
 
 @Component({
   selector: 'app-noticias-secundarias',
@@ -12,8 +12,9 @@ import { NoticiaCardComponent } from '../noticia-card/noticia-card.component';
 })
 export class NoticiasSecundariasComponent {
   arrNoticiasSecundarias: INoticia[] = [];
+  noticiasService = inject(NoticiasService)
 
-  ngOnInit() {
-    this.arrNoticiasSecundarias = NOTICIAS.filter(noticia => noticia.secciones === 'secundario')
+  async ngOnInit() {
+    this.arrNoticiasSecundarias = await this.noticiasService.getAll('secundario', 'deportes')
   }
 }

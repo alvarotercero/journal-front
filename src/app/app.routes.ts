@@ -11,7 +11,7 @@ export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: PageHomeComponent },
     { path: 'login', component: PageLoginComponent },
-    { path: 'noticia/:noticiaSlug', component: PageVistaNoticiaComponent },
+    { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
     {
         path: 'dashboard', component: DashboardComponent, children: [
             { path: '', pathMatch: 'full', redirectTo: 'noticias' },

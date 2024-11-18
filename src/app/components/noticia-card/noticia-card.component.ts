@@ -1,12 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { RouterLink } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
+import { CategoriasService } from '../../services/categorias.service';
+import { ICategoria } from '../../interfaces/icategoria.interface';
 
-type estadosNoticia = {
-  'borrador': string,
-  'revision': string,
-  'publicado': string
+type Error = {
+  message: string
 }
 
 @Component({
@@ -19,4 +19,17 @@ type estadosNoticia = {
 export class NoticiaCardComponent {
   @Input() miNoticia?: INoticia
   @Input() esNoticiaGeneral: boolean = false;
+  categoria?: ICategoria;
+  categoriasService = inject(CategoriasService)
+
+  async ngOnInit() {
+    try {
+      this.categoria = await this.categoriasService.getById(this.miNoticia?.categoria_id)
+      console.log(this.categoria);
+
+    } catch (error) {
+      console.log(error);
+    }
+
+  }
 }

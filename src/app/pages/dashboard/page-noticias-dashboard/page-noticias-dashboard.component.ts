@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { INoticia } from '../../../interfaces/inoticia.interface';
-import { noticiasNoPublicadas } from './noticias_sin_publicar_mock';
 import { NoticiaEditionCardComponent } from "../../../components/noticia-edition-card/noticia-edition-card.component";
+import { NoticiasService } from '../../../services/noticias.service';
 
 @Component({
   selector: 'app-noticias-dashboard',
@@ -12,8 +12,8 @@ import { NoticiaEditionCardComponent } from "../../../components/noticia-edition
 })
 export class PageNoticiasDashboardComponent {
   arrNoticiasSinPublicar: INoticia[] = [];
-
-  ngOnInit() {
-    this.arrNoticiasSinPublicar = noticiasNoPublicadas
+  noticiasService = inject(NoticiasService)
+  async ngOnInit() {
+    this.arrNoticiasSinPublicar = await this.noticiasService.getByUser(1)
   }
 }

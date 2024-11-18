@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
-import { NOTICIAS } from '../page-home/mock_noticias';
+import { NoticiasService } from '../../services/noticias.service';
 
 @Component({
   selector: 'app-page-vista-noticia',
@@ -11,9 +11,10 @@ import { NOTICIAS } from '../page-home/mock_noticias';
 })
 export class PageVistaNoticiaComponent {
   @Input() miNoticia?: INoticia;
-  @Input() noticiaSlug?: string = '';
+  @Input() noticiaSlug: string = '';
 
-  ngOnInit() {
-    this.miNoticia = NOTICIAS.find(noticia => noticia.slug === this.noticiaSlug)
+  noticiasService = inject(NoticiasService)
+  async ngOnInit() {
+    this.miNoticia = await this.noticiasService.getById(1)
   }
 }
