@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-page-edicion',
@@ -11,25 +11,37 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 export class PageEdicionComponent {
-  contenidoForm: string = '';
-
-  // {
-  //   id: 11,
-  //     titular: "La inteligencia artificial llega al cine",
-  //       imagen: "https://example.com/images/ia-cine.jpg",
-  //         texto: "La inteligencia artificial está siendo utilizada para crear guiones y efectos especiales en la industria cinematográfica.",
-  //           secciones: "general",
-  //             fecha_publicacion: "2024-11-10",
-  //               redactor_id: "R011",
-  //                 editor_id: "E011",
-  //                   categoria_id: "C011",
-  //                     estado: "Publicado",
-  //                       importancia: "Media",
-  //                         cambios: new Date("2024-11-05"),
-  //                           slug: "ia-llega-al-cine"
-  // },
+  contenidoForm: FormGroup;
 
 
+
+
+  constructor() {
+    this.contenidoForm = new FormGroup({
+      id: new FormControl(null, []),
+      titular: new FormControl(null, [])
+
+    })
+
+    // {
+    //   id: 11,
+    //     titular: "La inteligencia artificial llega al cine",
+    //       imagen: "https://example.com/images/ia-cine.jpg",
+    //         texto: "La inteligencia artificial está siendo utilizada para crear guiones y efectos especiales en la industria cinematográfica.",
+    //           secciones: "general",
+    //             fecha_publicacion: "2024-11-10",
+    //               redactor_id: "R011",
+    //                 editor_id: "E011",
+    //                   categoria_id: "C011",
+    //                     estado: "Publicado",
+    //                       importancia: "Media",
+    //                         cambios: new Date("2024-11-05"),
+    //                           slug: "ia-llega-al-cine"
+    // },
+
+
+
+  }
 
 
   onEditar() {
@@ -44,7 +56,7 @@ export class PageEdicionComponent {
 
   onBorrar() {
     console.log('Botón Borrar');
-    this.contenidoForm = '';
+    // this.contenidoForm = '';
     console.log('Contenido borrado');
   }
 
@@ -54,19 +66,21 @@ export class PageEdicionComponent {
 
   onPublicar() {
     console.log('Botón Publicar');
-    if (this.contenidoForm.length > 0) {
-      console.log('El contenido ha sido publicado:', this.contenidoForm);
-    } else {
-      console.log('No hay contenido para publicar');
-    }
+    // if (this.contenidoForm.length > 0) {
+    console.log('El contenido ha sido publicado:', this.contenidoForm);
+    // } else {
+    console.log('No hay contenido para publicar');
+    // }
   }
 
   onVerEstado() {
     console.log('Botón Estado');
-    const estado = this.contenidoForm.length > 0 ? 'Hay contenido escrito' : 'El contenido está vacío';
-    console.log('Estado del contenido:', estado);
+    // const estado = this.contenidoForm.length > 0 ? 'Hay contenido escrito' : 'El contenido está vacío';
+    console.log('Estado del contenido:');
   }
 
+
+  getDataForm() { }
 
 }
 
