@@ -18,8 +18,6 @@ export const routes: Routes = [
             { path: '', pathMatch: 'full', redirectTo: 'noticias' },
             { path: 'noticias', component: PageNoticiasDashboardComponent },
             { path: 'editar-noticia/:noticiaId', component: PageEdicionComponent }
-            { path: 'noticias', component: PageNoticiasDashboardComponent }
-            // { path: 'editar-noticia/:noticiaId', component: PageEditarNoticiaComponent},
         ]
     }
 ];

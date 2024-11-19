@@ -1,8 +1,8 @@
-<a [routerLink]="['/edicion', miNoticia?.id]">
+<div>
     <article class="noticia">
         <div>
             <h4 [class]="miNoticia?.estado"><span>&#9679;</span> {{miNoticia?.estado | titlecase}}</h4>
-            <a class="boton" [routerLink]="['/edicion', miNoticia?.id]">Editar</a>
+            <a class="boton" [routerLink]="['/dashboard/editar-noticia', miNoticia?.id]">Editar</a>
         </div>
 
         <figure>
@@ -12,4 +12,4 @@
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
         </figure>
     </article>
-</a>
+</div>

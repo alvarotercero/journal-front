@@ -27,9 +27,9 @@ export class PageEdicionComponent {
     });
   }
 
-  // ngOnInit() {
-  //   this.cargarNoticias();
-  // }
+  ngOnInit() {
+    console.log('Holaa desde pageedicion id');
+  }
 
   onEditar() {
     console.log('Botón Editar');

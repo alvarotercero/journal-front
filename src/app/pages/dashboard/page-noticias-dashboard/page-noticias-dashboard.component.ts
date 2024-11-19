@@ -10,10 +10,14 @@ import { NoticiasService } from '../../../services/noticias.service';
   templateUrl: './page-noticias-dashboard.component.html',
   styleUrl: './page-noticias-dashboard.component.css'
 })
+
 export class PageNoticiasDashboardComponent {
+
   arrNoticiasSinPublicar: INoticia[] = [];
   noticiasService = inject(NoticiasService)
+
   async ngOnInit() {
     this.arrNoticiasSinPublicar = await this.noticiasService.getByUser(1)
   }
+
 }

@@ -10,6 +10,9 @@ import { TitleCasePipe } from '@angular/common';
   templateUrl: './noticia-edition-card.component.html',
   styleUrl: './noticia-edition-card.component.css'
 })
+
 export class NoticiaEditionCardComponent {
+
   @Input() miNoticia?: INoticia;
+
 }
