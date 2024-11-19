@@ -16,7 +16,5 @@ export class NavBarComponent {
 
   async ngOnInit() {
     this.arrCategorias = await this.categoriasService.getAll();
-    // console.log(this.arrCategorias);
-
   }
 }
