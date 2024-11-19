@@ -15,8 +15,8 @@ export const routes: Routes = [
     {
         path: 'dashboard', component: DashboardComponent, children: [
             { path: '', pathMatch: 'full', redirectTo: 'noticias' },
-            { path: 'noticias', component: PageNoticiasDashboardComponent }
-            // { path: 'editar-noticia/:noticiaId', component: PageEditarNoticiaComponent},
+            { path: 'noticias', component: PageNoticiasDashboardComponent },
+            // { path: 'editar-noticia/:noticiaId', component: PageEditarNoticiaComponent }
         ]
     }
 ];
