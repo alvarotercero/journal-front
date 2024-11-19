@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { NoticiaCardComponent } from '../noticia-card/noticia-card.component';
 import { NoticiasService } from '../../services/noticias.service';
@@ -13,8 +13,15 @@ import { NoticiasService } from '../../services/noticias.service';
 export class NoticiasSecundariasComponent {
   arrNoticiasSecundarias: INoticia[] = [];
   noticiasService = inject(NoticiasService)
+  @Input() categoria: string = '';
 
-  async ngOnInit() {
-    this.arrNoticiasSecundarias = await this.noticiasService.getAll('secundario', 'deportes')
+  async ngOnChanges() {
+    console.log(this.categoria !== 'home');
+    if (this.categoria !== 'home') {
+      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario', this.categoria)).slice(0, 3)
+    }
+    else {
+      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario')).slice(0, 3)
+    }
   }
 }

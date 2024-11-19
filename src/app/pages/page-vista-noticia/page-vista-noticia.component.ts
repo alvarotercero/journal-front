@@ -12,9 +12,9 @@ import { NoticiasService } from '../../services/noticias.service';
 export class PageVistaNoticiaComponent {
   @Input() miNoticia?: INoticia;
   @Input() noticiaSlug: string = '';
-
   noticiasService = inject(NoticiasService)
+
   async ngOnInit() {
-    this.miNoticia = await this.noticiasService.getById(1)
+    this.miNoticia = await this.noticiasService.getBySlug(this.noticiaSlug)
   }
 }

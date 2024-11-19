@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { NoticiaSliderItemComponent } from '../noticia-slider-item/noticia-slider-item.component';
 import { NoticiasService } from '../../services/noticias.service';
@@ -13,10 +13,21 @@ import { NoticiasService } from '../../services/noticias.service';
 })
 export class DestacadosComponent {
   arrNoticiasDestacadas: INoticia[] = [];
-  noticiasService = inject(NoticiasService)
+  noticiasService = inject(NoticiasService);
+  @Input() categoria: string = ''
 
-  async ngOnInit() {
-    this.arrNoticiasDestacadas = await this.noticiasService.getAll('destacado', 'economia')
+
+
+  async ngOnChanges() {
+    console.log(this.categoria);
+
+    if (this.categoria !== 'home') {
+      this.arrNoticiasDestacadas = (await this.noticiasService.getAll('destacado', this.categoria)).slice(0, 4)
+    }
+    else {
+      this.arrNoticiasDestacadas = (await this.noticiasService.getAll('destacado')).slice(0, 4)
+    }
+
   }
 
 }

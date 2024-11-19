@@ -10,10 +10,10 @@
     height: 100%;
 
     img {
-        height: 4.6875rem;
-        border: .0625rem solid black;
-        padding: 6.25rem;
+        height: 25rem;
         width: 100%;
+        object-fit: cover;
+        border-radius: calc(1rem - .3125rem);
     }
 
     figure {
@@ -21,6 +21,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        h3 {
+            margin: 0;
+        }
     }
 
     &:hover {
@@ -31,22 +35,4 @@
 
 a {
     text-decoration: none;
-}
-
-
-
-.borrador {
-    color: red;
-
-    span {
-        text-shadow: 0px 0px 13px rgba(255, 0, 0, 0.6);
-    }
-}
-
-.publicado {
-    color: green;
-}
-
-.revision {
-    color: orange;
 }

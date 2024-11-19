@@ -1,9 +1,5 @@
-.flex {
-    display: flex;
-    flex-direction: column;
+.grid {
+    display: grid;
+    grid-template-rows: minmax(1fr, 6.25rem);
     gap: 15px;
-}
-
-.flex article figure img {
-    height: 10px;
 }

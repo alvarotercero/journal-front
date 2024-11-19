@@ -11,8 +11,4 @@ import { INoticia } from '../../interfaces/inoticia.interface';
 export class NoticiaSliderItemComponent {
   @Input() miNoticia?: INoticia;
 
-  ngOnInit() {
-    console.log(this.miNoticia?.imagen);
-
-  }
 }
