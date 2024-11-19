@@ -1,35 +1,46 @@
-import { Component, Input } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+// src/app/pages/dashboard/page-edicion/page-edicion.component.ts
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { NoticiasService } from '../../../services/noticias.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-page-edicion',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './page-edicion.component.html',
-  styleUrl: './page-edicion.component.css'
+  styleUrls: ['./page-edicion.component.css']
 })
-
-
 export class PageEdicionComponent {
-
-  @Input() noticiaId!: number
-
   contenidoForm: FormGroup;
-  noticias: { titular: string; descripcion: string }[] = [];
+  noticiasService = inject(NoticiasService);
+  router = inject(ActivatedRoute);
 
-  constructor(private noticiasService: NoticiasService) {
+  constructor() {
     this.contenidoForm = new FormGroup({
       id: new FormControl(null),
-      titular: new FormControl(null),
+      titular: new FormControl(''),
       contenido: new FormControl('')
-
     });
   }
 
   ngOnInit() {
-    console.log('Holaa desde pageedicion id');
+    this.router.params.subscribe(async params => {
+      const id = params['noticiaId'];
+      try {
+        const noticia = await this.noticiasService.getById(id);
+        this.contenidoForm.setValue({
+          id: noticia.id,
+          titular: noticia.titular,
+          contenido: noticia.texto
+        });
+      } catch (error) {
+        console.error('Error al obtener la noticia:', error);
+      }
+    });
   }
+
 
   onEditar() {
     console.log('Botón Editar');
@@ -66,23 +77,4 @@ export class PageEdicionComponent {
     console.log('Estado del contenido:');
   }
 
-
-  getDataForm() { }
-
 }
-
-// {
-//   id: 11,
-//     titular: "La inteligencia artificial llega al cine",
-//       imagen: "https://example.com/images/ia-cine.jpg",
-//         texto: "La inteligencia artificial está siendo utilizada para crear guiones y efectos especiales en la industria cinematográfica.",
-//           secciones: "general",
-//             fecha_publicacion: "2024-11-10",
-//               redactor_id: "R011",
-//                 editor_id: "E011",
-//                   categoria_id: "C011",
-//                     estado: "Publicado",
-//                       importancia: "Media",
-//                         cambios: new Date("2024-11-05"),
-//                           slug: "ia-llega-al-cine"
-// },

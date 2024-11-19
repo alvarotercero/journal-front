@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, Observable } from 'rxjs';
 import { INoticia } from '../interfaces/inoticia.interface';
 
 @Injectable({
@@ -29,4 +29,6 @@ export class NoticiasService {
   getBySlug(slug: string): Promise<INoticia> {
     return firstValueFrom(this.httpClient.get<INoticia>(`${this.endpoint}/?slug=${slug}`))
   }
+
+
 }
