@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoticiasService } from '../../../services/noticias.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-edicion',
@@ -13,12 +14,13 @@ import { NoticiasService } from '../../../services/noticias.service';
 
 export class PageEdicionComponent {
 
-  @Input() noticiaId!: number
-
+  noticiasService = inject(NoticiasService)
   contenidoForm: FormGroup;
-  noticias: { titular: string; descripcion: string }[] = [];
+  router = inject(ActivatedRoute);
 
-  constructor(private noticiasService: NoticiasService) {
+
+
+  constructor() {
     this.contenidoForm = new FormGroup({
       id: new FormControl(null),
       titular: new FormControl(null),
@@ -28,8 +30,21 @@ export class PageEdicionComponent {
   }
 
   ngOnInit() {
-    console.log('Holaa desde pageedicion id');
+    this.router.params.subscribe(async params => {
+      const id = params['noticiaId'];
+      try {
+        const noticia = await this.noticiasService.getById(id);
+        this.contenidoForm.setValue({
+          id: noticia.id,
+          titular: noticia.titular,
+          contenido: noticia.texto
+        });
+      } catch (error) {
+        console.error('Error al obtener la noticia:', error);
+      }
+    });
   }
+
 
   onEditar() {
     console.log('Botón Editar');
@@ -67,22 +82,7 @@ export class PageEdicionComponent {
   }
 
 
-  getDataForm() { }
+
 
 }
 
-// {
-//   id: 11,
-//     titular: "La inteligencia artificial llega al cine",
-//       imagen: "https://example.com/images/ia-cine.jpg",
-//         texto: "La inteligencia artificial está siendo utilizada para crear guiones y efectos especiales en la industria cinematográfica.",
-//           secciones: "general",
-//             fecha_publicacion: "2024-11-10",
-//               redactor_id: "R011",
-//                 editor_id: "E011",
-//                   categoria_id: "C011",
-//                     estado: "Publicado",
-//                       importancia: "Media",
-//                         cambios: new Date("2024-11-05"),
-//                           slug: "ia-llega-al-cine"
-// },
