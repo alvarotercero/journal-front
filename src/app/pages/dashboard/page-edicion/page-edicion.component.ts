@@ -1,31 +1,27 @@
-import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NoticiasService } from '../../../services/noticias.service';
+// src/app/pages/dashboard/page-edicion/page-edicion.component.ts
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NoticiasService } from '../../../services/noticias.service';
+import { inject } from '@angular/core';
 
 @Component({
   selector: 'app-page-edicion',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './page-edicion.component.html',
-  styleUrl: './page-edicion.component.css'
+  styleUrls: ['./page-edicion.component.css']
 })
-
-
 export class PageEdicionComponent {
-
-  noticiasService = inject(NoticiasService)
   contenidoForm: FormGroup;
+  noticiasService = inject(NoticiasService);
   router = inject(ActivatedRoute);
-
-
 
   constructor() {
     this.contenidoForm = new FormGroup({
       id: new FormControl(null),
-      titular: new FormControl(null),
+      titular: new FormControl(''),
       contenido: new FormControl('')
-
     });
   }
 
@@ -81,8 +77,4 @@ export class PageEdicionComponent {
     console.log('Estado del contenido:');
   }
 
-
-
-
 }
-

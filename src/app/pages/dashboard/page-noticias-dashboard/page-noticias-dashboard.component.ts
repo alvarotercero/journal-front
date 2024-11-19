@@ -17,7 +17,7 @@ export class PageNoticiasDashboardComponent {
   noticiasService = inject(NoticiasService)
 
   async ngOnInit() {
-    this.arrNoticiasSinPublicar = await this.noticiasService.getByUser(1)
+    this.arrNoticiasSinPublicar = await this.noticiasService.getByUser(2)
   }
 
 }
