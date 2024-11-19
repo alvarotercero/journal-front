@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoticiasService } from '../../../services/noticias.service';
 
 @Component({
   selector: 'app-page-edicion',
@@ -12,36 +13,35 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 
 export class PageEdicionComponent {
   contenidoForm: FormGroup;
+  noticias: { titular: string; descripcion: string }[] = [];
 
 
 
-
-  constructor() {
+  constructor(private noticiasService: NoticiasService) {
     this.contenidoForm = new FormGroup({
-      id: new FormControl(null, []),
-      titular: new FormControl(null, [])
+      id: new FormControl(null),
+      titular: new FormControl(null),
+      contenido: new FormControl('')
 
-    })
-
-    // {
-    //   id: 11,
-    //     titular: "La inteligencia artificial llega al cine",
-    //       imagen: "https://example.com/images/ia-cine.jpg",
-    //         texto: "La inteligencia artificial está siendo utilizada para crear guiones y efectos especiales en la industria cinematográfica.",
-    //           secciones: "general",
-    //             fecha_publicacion: "2024-11-10",
-    //               redactor_id: "R011",
-    //                 editor_id: "E011",
-    //                   categoria_id: "C011",
-    //                     estado: "Publicado",
-    //                       importancia: "Media",
-    //                         cambios: new Date("2024-11-05"),
-    //                           slug: "ia-llega-al-cine"
-    // },
-
-
-
+    });
   }
+
+  // ngOnInit() {
+  //   this.cargarNoticias();
+  // }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   onEditar() {
@@ -84,3 +84,18 @@ export class PageEdicionComponent {
 
 }
 
+// {
+//   id: 11,
+//     titular: "La inteligencia artificial llega al cine",
+//       imagen: "https://example.com/images/ia-cine.jpg",
+//         texto: "La inteligencia artificial está siendo utilizada para crear guiones y efectos especiales en la industria cinematográfica.",
+//           secciones: "general",
+//             fecha_publicacion: "2024-11-10",
+//               redactor_id: "R011",
+//                 editor_id: "E011",
+//                   categoria_id: "C011",
+//                     estado: "Publicado",
+//                       importancia: "Media",
+//                         cambios: new Date("2024-11-05"),
+//                           slug: "ia-llega-al-cine"
+// },

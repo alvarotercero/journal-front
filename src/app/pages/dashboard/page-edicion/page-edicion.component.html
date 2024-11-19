@@ -1,11 +1,12 @@
 <div class="form-container">
     <h2>Editor - Noticia</h2>
-    <form [formGroup]="contenidoForm" (ngSubmit)="getDataForm"></form>
+    <!-- <form [formGroup]="contenidoForm" (ngSubmit)="getDataForm"></form> -->
+
 
 
     <div class="textarea-container">
         <label for="contenido">Contenido del artículo:</label>
-        <textarea id="contenido" [(ngModel)]="contenidoForm" rows="10"
+        <textarea id="contenido" formControlName="contenido" rows="10"
             placeholder="Escribe aquí el contenido..."></textarea>
     </div>
 
