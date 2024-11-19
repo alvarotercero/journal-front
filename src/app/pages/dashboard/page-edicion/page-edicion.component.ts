@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoticiasService } from '../../../services/noticias.service';
 
@@ -12,10 +12,11 @@ import { NoticiasService } from '../../../services/noticias.service';
 
 
 export class PageEdicionComponent {
+
+  @Input() noticiaId!: number
+
   contenidoForm: FormGroup;
   noticias: { titular: string; descripcion: string }[] = [];
-
-
 
   constructor(private noticiasService: NoticiasService) {
     this.contenidoForm = new FormGroup({
@@ -29,20 +30,6 @@ export class PageEdicionComponent {
   // ngOnInit() {
   //   this.cargarNoticias();
   // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   onEditar() {
     console.log('Botón Editar');

@@ -7,7 +7,6 @@ import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista-noticia.component';
 
 
-
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home' },
     { path: 'home', component: PageHomeComponent },

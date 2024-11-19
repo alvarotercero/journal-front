@@ -11,7 +11,8 @@
                             [ngClass]="{'bg-success': noticia.estado === 'publicado', 'bg-warning': noticia.estado === 'revision', 'bg-secondary': noticia.estado === 'borrador'}">{{noticia.estado}}</span></span>
                 </div>
             </div>
-            <button class="btn btn-color" [routerLink]="['/dashboard/editar', noticia.id]">Editar Noticia</button>
+            <button class="btn btn-color" [routerLink]="['/dashboard/editar-noticia', noticia.id]">Editar
+                Noticia</button>
         </div>
         }
     </section>
