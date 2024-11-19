@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DestacadosComponent } from "../../components/destacados/destacados.component";
 import { NoticiasGeneralesComponent } from "../../components/noticias-generales/noticias-generales.component";
 import { NoticiasSecundariasComponent } from "../../components/noticias-secundarias/noticias-secundarias.component";
@@ -11,5 +11,5 @@ import { NoticiasSecundariasComponent } from "../../components/noticias-secundar
   styleUrl: './page-home.component.css'
 })
 export class PageHomeComponent {
-
+  @Input() categoria: string = '';
 }

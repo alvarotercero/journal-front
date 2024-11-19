@@ -1,13 +1,13 @@
 <div class="container noticias">
     <section id="noticias-destacadas">
-        <app-destacados></app-destacados>
+        <app-destacados [categoria]="categoria"></app-destacados>
     </section>
     <div class="noticias-generales-y-secundarias">
         <section id="noticias-generales">
-            <app-noticias-generales></app-noticias-generales>
+            <app-noticias-generales [categoria]="categoria"></app-noticias-generales>
         </section>
         <section id="noticias-secundarias">
-            <app-noticias-secundarias></app-noticias-secundarias>
+            <app-noticias-secundarias [categoria]="categoria"></app-noticias-secundarias>
         </section>
     </div>
 </div>

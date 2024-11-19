@@ -1,12 +1,12 @@
 <div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-            aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        @for (noticia of arrNoticiasDestacadas; track noticia.id; let indice = $index) {
+        <button type="button" data-bs-target="#carouselExampleDark" [attr.data-bs-slide-to]="indice" class="active"
+            aria-current="true" [attr.aria-label]="'Slide ' + indice"></button>
+        }
     </div>
     <div class="carousel-inner">
-        @for (noticia of arrNoticiasDestacadas; track $index; let primero = $first) {
+        @for (noticia of arrNoticiasDestacadas; track noticia.id; let primero = $first) {
         <app-noticia-slider-item class="carousel-item" [class.active]="primero"
             [miNoticia]="noticia"></app-noticia-slider-item>
         }

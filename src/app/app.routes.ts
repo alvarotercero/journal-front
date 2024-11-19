@@ -8,8 +8,9 @@ import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista
 
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'home' },
-    { path: 'home', component: PageHomeComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'noticias' },
+    { path: 'noticias', component: PageHomeComponent },
+    { path: 'noticias/:categoria', component: PageHomeComponent },
     { path: 'login', component: PageLoginComponent },
     { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
     {
