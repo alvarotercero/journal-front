@@ -1,15 +1,15 @@
 <div class="form-container">
     <h2>Editor - Noticia</h2>
-    <!-- <form [formGroup]="contenidoForm" (ngSubmit)="getDataForm"></form> -->
-
-
-
-    <div class="textarea-container">
-        <label for="contenido">Contenido del artículo:</label>
-        <textarea id="contenido" formControlName="contenido" rows="10"
-            placeholder="Escribe aquí el contenido..."></textarea>
-    </div>
-
+    <form [formGroup]="contenidoForm">
+        <div class="textarea-container">
+            <label for="titular" class="form-label">Titular:</label>
+            <input id="titular" formControlName="titular" style="width: 100%;">
+        </div>
+        <div class="textarea-container">
+            <label for="contenido">Contenido del artículo:</label>
+            <textarea id="contenido" formControlName="contenido" rows="10"></textarea>
+        </div>
+    </form>
     <div class="button-container">
         <button type="button" class="btn editar" (click)="onEditar()">Editar</button>
         <button type="button" class="btn guardar" (click)="onGuardar()">Guardar cambios</button>
@@ -18,5 +18,4 @@
         <button type="button" class="btn publicar" (click)="onPublicar()">Publicar</button>
         <button type="button" class="btn estado" (click)="onVerEstado()">Estado</button>
     </div>
-
 </div>
