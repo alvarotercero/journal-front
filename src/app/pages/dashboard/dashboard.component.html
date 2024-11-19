@@ -1,1 +1,19 @@
-<router-outlet />
+<div class="container dashboard mt-4">
+    <h1 class="text-center mb-4">Dashboard</h1>
+
+    <section class="row">
+        @for(noticia of arrNoticias; track noticia.id) {
+        <div class="col-12 mb-4 d-flex">
+            <div class="card flex-grow-1">
+                <div class="card-body">
+                    <h2 class="card-title">{{ noticia.titular }}</h2>
+                    <span>Estado: <span class="badge"
+                            [ngClass]="{'bg-success': noticia.estado === 'publicado', 'bg-warning': noticia.estado === 'revision', 'bg-secondary': noticia.estado === 'borrador'}">{{noticia.estado}}</span></span>
+                </div>
+            </div>
+            <button class="btn btn-color" [routerLink]="['/dashboard/editar', noticia.id]">Editar Noticia</button>
+        </div>
+        }
+    </section>
+
+</div>

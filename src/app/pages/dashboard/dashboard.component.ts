@@ -1,13 +1,32 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NoticiasService } from '../../services/noticias.service';
+import { INoticia } from '../../interfaces/inoticia.interface';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [FormsModule, RouterModule, CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
+
 export class DashboardComponent {
 
+  noticiasService = inject(NoticiasService)
+  arrNoticias: INoticia[] = []
+
+
+  async ngOnInit() {
+    console.log('Hola desde el dashboard ts');
+    this.arrNoticias = await this.noticiasService.getByUser(1)
+    console.log(this.arrNoticias);
+  }
+
+
+
+
 }
+
