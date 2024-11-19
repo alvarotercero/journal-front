@@ -8,8 +8,7 @@ import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista
 
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: '/noticias' },
-    // { path: '', component: PageHomeComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'noticias/home' },
     { path: 'noticias/:categoria', component: PageHomeComponent },
     { path: 'login', component: PageLoginComponent },
     { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
@@ -19,5 +18,8 @@ export const routes: Routes = [
             { path: 'noticias', component: PageNoticiasDashboardComponent },
             { path: 'editar-noticia/:noticiaId', component: PageEdicionComponent }
         ]
+    },
+    {
+        path: '**', redirectTo: 'noticias/home'
     }
 ];
