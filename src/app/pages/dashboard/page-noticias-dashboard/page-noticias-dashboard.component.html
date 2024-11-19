@@ -1,7 +1,10 @@
 <div class="container">
-    <section id="lista-de-noticias" class="grid">
+    <section id="lista-de-noticias" class="card">
+
         @for (noticia of arrNoticiasSinPublicar; track noticia.id) {
+
         <app-noticia-edition-card [miNoticia]="noticia"></app-noticia-edition-card>
         }
+
     </section>
 </div>

@@ -10,10 +10,9 @@
     height: 100%;
 
     img {
-        height: 4.6875rem;
         border: .0625rem solid black;
-        padding: 6.25rem;
-        width: 100%;
+        width:
+            50%;
     }
 
     figure {

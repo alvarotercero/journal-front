@@ -20,9 +20,7 @@ export class DashboardComponent {
 
 
   async ngOnInit() {
-    console.log('Hola desde el dashboard ts');
     this.arrNoticias = await this.noticiasService.getByUser(1)
-    console.log(this.arrNoticias);
   }
 
 
