@@ -16,8 +16,12 @@ export class DestacadosComponent {
   noticiasService = inject(NoticiasService);
   @Input() categoria: string = ''
 
-  async ngOnInit() {
-    if (this.categoria) {
+
+
+  async ngOnChanges() {
+    console.log(this.categoria);
+
+    if (this.categoria !== 'home') {
       this.arrNoticiasDestacadas = (await this.noticiasService.getAll('destacado', this.categoria)).slice(0, 4)
     }
     else {

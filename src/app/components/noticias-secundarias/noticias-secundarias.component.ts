@@ -15,12 +15,13 @@ export class NoticiasSecundariasComponent {
   noticiasService = inject(NoticiasService)
   @Input() categoria: string = '';
 
-  async ngOnInit() {
-    if (this.categoria) {
-      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario', this.categoria)).slice(0, 2)
+  async ngOnChanges() {
+    console.log(this.categoria !== 'home');
+    if (this.categoria !== 'home') {
+      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario', this.categoria)).slice(0, 3)
     }
     else {
-      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario')).slice(0, 2)
+      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario')).slice(0, 3)
     }
   }
 }

@@ -14,8 +14,9 @@ export class NoticiasGeneralesComponent {
   arrNoticiasGenerales: INoticia[] = [];
   noticiasService = inject(NoticiasService)
   @Input() categoria: string = ''
-  async ngOnInit() {
-    if (this.categoria) {
+  async ngOnChanges() {
+    console.log(this.categoria);
+    if (this.categoria !== 'home') {
       this.arrNoticiasGenerales = (await this.noticiasService.getAll('principal', this.categoria)).slice(0, 4)
     }
     else {

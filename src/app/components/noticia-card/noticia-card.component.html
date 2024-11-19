@@ -1,7 +1,10 @@
 <a [routerLink]="['/noticias', categoria?.slug, miNoticia?.slug]">
     <article class="noticia">
         <figure>
+            @if (esNoticiaGeneral) {
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
+            }
+
             <figcaption>
                 <h3>{{miNoticia?.titular}}</h3>
             </figcaption>

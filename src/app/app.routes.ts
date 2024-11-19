@@ -8,16 +8,16 @@ import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista
 
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'noticias' },
-    { path: 'noticias', component: PageHomeComponent },
+    { path: '', pathMatch: 'full', redirectTo: '/noticias' },
+    // { path: '', component: PageHomeComponent },
     { path: 'noticias/:categoria', component: PageHomeComponent },
     { path: 'login', component: PageLoginComponent },
     { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
     {
         path: 'dashboard', component: DashboardComponent, children: [
             { path: '', pathMatch: 'full', redirectTo: 'noticias' },
-            { path: 'noticias', component: PageNoticiasDashboardComponent },
-            // { path: 'editar-noticia/:noticiaId', component: PageEditarNoticiaComponent }
+            { path: 'noticias', component: PageNoticiasDashboardComponent }
+            // { path: 'editar-noticia/:noticiaId', component: PageEditarNoticiaComponent},
         ]
     }
 ];

@@ -25,7 +25,6 @@ export class NoticiaCardComponent {
   async ngOnInit() {
     try {
       this.categoria = await this.categoriasService.getById(this.miNoticia?.categoria_id)
-
     } catch (error) {
       console.log(error);
     }

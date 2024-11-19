@@ -1,10 +1,11 @@
 <nav class="container">
-    <a href="">
+    <a [routerLink]="['/noticias', 'home']">
         <h1>CMS Noticias</h1>
     </a>
     <ul class="flex">
+        <li><a [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
         @for (categoria of arrCategorias; track categoria.id) {
-        <li><a [routerLink]="['/noticias', categoria.slug]">{{categoria.nombre}}</a></li>
+        <li><a [routerLink]="['/noticias', categoria.slug]" routerLinkActive="active">{{categoria.nombre}}</a></li>
         }
     </ul>
     <div class="hamburger">
@@ -13,5 +14,5 @@
         <div></div>
     </div>
 
-    <a class="login" [routerLink]="['/login']"><i class="fa-solid fa-user"></i><span> Login</span></a>
+    <a class="boton" [routerLink]="['/login']"><i class="fa-solid fa-user"></i><span> Login</span></a>
 </nav>
