@@ -21,7 +21,7 @@ export class PageCreacionComponent {
       titular: new FormControl(null, []),
       contenido: new FormControl(null, []),
       importancia: new FormControl(null, []),
-      seccion: new FormControl(null, []),
+      categoria: new FormControl(null, []),
       urlImagen: new FormControl(null, []),
       slug: new FormControl(null, []),
       estado: new FormControl(null, []),

@@ -8,7 +8,7 @@
 <h2 class="mb-4">Crear Noticia</h2>
 
 <div class="card p-4">
-    <h2 class="card-title">Editor - Noticia</h2>
+    <h2 class="card-title">Creador - Noticia</h2>
     <form [formGroup]="crearNoticiaForm">
 
         <div class="mb-3">
@@ -22,26 +22,57 @@
         </div>
 
         <div class="mb-3">
-            <label for="importancia" class="form-label">Importancia:</label>
-            <select id="importancia" class="form-select" formControlName="importancia">
-                <option value="">Seleccione una importancia</option>
-                <option value="1">Baja</option>
-                <option value="2">Media</option>
-                <option value="3">Alta</option>
-            </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="seccion" class="form-label">Sección:</label>
-            <select id="seccion" class="form-select" formControlName="seccion">
-                <option value="">Seleccione una sección</option>
+            <label for="categoria" class="form-label">Categoria:</label>
+            <select id="categoria" class="form-select" formControlName="categoria">
+                <option value="">Seleccione una categoria</option>
                 <option value="1">Tecnología</option>
                 <option value="2">Deportes</option>
                 <option value="3">Cine</option>
                 <option value="4">Educación</option>
                 <option value="5">Opinión</option>
-                <option value="6">amor de mi vida osea sara</option>
             </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Importancia:</label>
+            <div>
+                <div class="form-check">
+                    <input type="radio" id="importanciaBaja" class="form-check-input" formControlName="importancia"
+                        value="1">
+                    <label for="importanciaBaja" class="form-check-label">Baja</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="importanciaMedia" class="form-check-input" formControlName="importancia"
+                        value="2">
+                    <label for="importanciaMedia" class="form-check-label">Media</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="importanciaAlta" class="form-check-input" formControlName="importancia"
+                        value="3">
+                    <label for="importanciaAlta" class="form-check-label">Alta</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Sección:</label>
+            <div>
+                <div class="form-check">
+                    <input type="radio" id="seccionPrincipal" class="form-check-input" formControlName="seccion"
+                        value="1" name="seccion">
+                    <label for="seccionPrincipal" class="form-check-label">Principal</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="seccionSecundaria" class="form-check-input" formControlName="seccion"
+                        value="2" name="seccion">
+                    <label for="seccionSecundaria" class="form-check-label">Secundaria</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" id="seccionDestacados" class="form-check-input" formControlName="seccion"
+                        value="3" name="seccion">
+                    <label for="seccionDestacados" class="form-check-label">Destacados</label>
+                </div>
+            </div>
         </div>
 
         <div class="mb-3">
