@@ -9,7 +9,7 @@
 
 <div class="card p-4">
     <h2 class="card-title">Creador - Noticia</h2>
-    <form [formGroup]="crearNoticiaForm">
+    <form [formGroup]="crearNoticiaForm" (ngSubmit)="onSubmit()">
 
         <div class="mb-3">
             <label for="titular" class="form-label">Titular del artículo:</label>
@@ -17,19 +17,17 @@
         </div>
 
         <div class="mb-3">
-            <label for="contenido" class="form-label">Contenido del artículo:</label>
-            <textarea id="contenido" class="form-control" rows="5" formControlName="contenido"></textarea>
+            <label for="texto" class="form-label">Texto del artículo:</label>
+            <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
         </div>
 
         <div class="mb-3">
             <label for="categoria" class="form-label">Categoria:</label>
             <select id="categoria" class="form-select" formControlName="categoria">
                 <option value="">Seleccione una categoria</option>
-                <option value="1">Tecnología</option>
-                <option value="2">Deportes</option>
-                <option value="3">Cine</option>
-                <option value="4">Educación</option>
-                <option value="5">Opinión</option>
+                @for (categoria of arrCategorias; track categoria.id) {
+                <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+                }
             </select>
         </div>
 
@@ -38,17 +36,17 @@
             <div>
                 <div class="form-check">
                     <input type="radio" id="importanciaBaja" class="form-check-input" formControlName="importancia"
-                        value="1">
+                        value="baja">
                     <label for="importanciaBaja" class="form-check-label">Baja</label>
                 </div>
                 <div class="form-check">
                     <input type="radio" id="importanciaMedia" class="form-check-input" formControlName="importancia"
-                        value="2">
+                        value="media">
                     <label for="importanciaMedia" class="form-check-label">Media</label>
                 </div>
                 <div class="form-check">
                     <input type="radio" id="importanciaAlta" class="form-check-input" formControlName="importancia"
-                        value="3">
+                        value="alta">
                     <label for="importanciaAlta" class="form-check-label">Alta</label>
                 </div>
             </div>
@@ -59,18 +57,19 @@
             <div>
                 <div class="form-check">
                     <input type="radio" id="seccionPrincipal" class="form-check-input" formControlName="seccion"
-                        value="1" name="seccion">
-                    <label for="seccionPrincipal" class="form-check-label">Principal</label>
+                        value="principal" name="seccion">
+                    <label for="seccionPrincipal" class="form-check-label">principal</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="seccionSecundaria" class="form-check-input" formControlName="seccion"
-                        value="2" name="seccion">
-                    <label for="seccionSecundaria" class="form-check-label">Secundaria</label>
+                    <input type="radio" id="seccionSecundario" class="form-check-input" formControlName="seccion"
+                        value="secundario" name="seccion">
+                    <label for="seccionSecundario" class="form-check-label">secundario
+                    </label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="seccionDestacados" class="form-check-input" formControlName="seccion"
-                        value="3" name="seccion">
-                    <label for="seccionDestacados" class="form-check-label">Destacados</label>
+                    <input type="radio" id="seccionDestacado" class="form-check-input" formControlName="seccion"
+                        value="destacado" name="seccion">
+                    <label for="seccionDestacado" class="form-check-label">Destacado</label>
                 </div>
             </div>
         </div>
@@ -89,30 +88,28 @@
             <label for="estado" class="form-label">Estado:</label>
             <select id="estado" class="form-select" formControlName="estado">
                 <option value="">Seleccione un estado</option>
-                <option value="1">Revision</option>
-                <option value="2">Borrador</option>
-                <option value="3">Publicado</option>
+                <option value="revision">Revision</option>
+                <option value="borrador">Borrador</option>
+                <option value="publicado">Publicado</option>
             </select>
-        </div>
-
-        <div class="mb-3">
-            <label for="fechaPublicacion" class="form-label">Fecha de Publicación:</label>
-            <input type="date" id="fechaPublicacion" class="form-control" formControlName="fechaPublicacion">
         </div>
 
         <div class="mb-3">
             <label>Jefe Editor</label>
             <select id="jefeEditor" class="form-select" formControlName="jefeEditor">
                 <option value="">Seleccione un jefe editor</option>
-                <option value="1">Juan Pérez</option>
-                <option value="2">María Gómez</option>
-                <option value="3">Carlos Rodríguez</option>
+                <option value="1"></option>
+                <!-- ESPERAR PETICION DE EDITORES -->
+                <!-- ESPERAR PETICION DE EDITORES -->
+                <!-- ESPERAR PETICION DE EDITORES -->
+                <!-- ESPERAR PETICION DE EDITORES -->
+                <!-- ESPERAR PETICION DE EDITORES -->
             </select>
         </div>
 
     </form>
     <div class="button-container mt-3">
-        <button style="margin-right: 10px;" type="button" class="btn btn-success">Guardar cambios</button>
-        <button style="margin-right: 10px;" type="button" class="btn btn-danger">Borrar</button>
+        <button style="margin-right: 10px;" class="btn btn-success" type="submit" (click)="onSubmit()">Crear
+            Noticia</button>
     </div>
 </div>
