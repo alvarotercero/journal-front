@@ -29,6 +29,4 @@ export class NoticiasService {
   getBySlug(slug: string): Promise<INoticia> {
     return firstValueFrom(this.httpClient.get<INoticia>(`${this.endpoint}/?slug=${slug}`))
   }
-
-
 }

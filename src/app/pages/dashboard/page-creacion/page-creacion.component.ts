@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { INoticia } from '../../../interfaces/inoticia.interface';
+import { ICategoria } from '../../../interfaces/icategoria.interface';
+import { CategoriasService } from '../../../services/categorias.service';
 import { NoticiasService } from '../../../services/noticias.service';
 
 @Component({
@@ -13,22 +16,41 @@ import { NoticiasService } from '../../../services/noticias.service';
 
 export class PageCreacionComponent {
 
+  arrCategorias: ICategoria[] = []
   crearNoticiaForm: FormGroup
+  noticia!: INoticia
+  categoriasService = inject(CategoriasService)
+  noticiasService = inject(NoticiasService)
 
-
-  constructor(private noticiasService: NoticiasService) {
+  constructor() {
     this.crearNoticiaForm = new FormGroup({
-      titular: new FormControl(null, []),
-      contenido: new FormControl(null, []),
+      titular: new FormControl('', []),
+      texto: new FormControl('', []),
       importancia: new FormControl(null, []),
       categoria: new FormControl(null, []),
-      urlImagen: new FormControl(null, []),
-      slug: new FormControl(null, []),
-      estado: new FormControl(null, []),
-      fechaPublicacion: new FormControl(null, []),
+      urlImagen: new FormControl('', []),
+      slug: new FormControl('', []),
+      estado: new FormControl('', []),
+      seccion: new FormControl('', []),
       jefeEditor: new FormControl(null, []),
-    })
 
+      // ----------------------------
+      // Recibir el id del usuario... ?
+      // redactor_id: new FormControl(null, []),
+      // editor_id: new FormControl(null, [])
+      // ----------------------------
+
+    });
+  }
+
+  ngOnInit(): void {
+    this.categoriasService.getAll().then((data: ICategoria[]) => {
+      this.arrCategorias = data;
+    });
+  }
+
+  async onSubmit() {
+    console.table(this.crearNoticiaForm.value);
   }
 }
 
