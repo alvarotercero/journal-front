@@ -12,3 +12,8 @@ footer {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5rem 0;
 }
+
+main {
+    position: relative;
+
+}
