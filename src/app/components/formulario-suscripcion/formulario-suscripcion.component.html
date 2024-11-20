@@ -1,19 +1,12 @@
-<div class="container">
-    <h2>Suscríbete ahora y consigue contenido exclusivo </h2>
-    <h4>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero, at.</h4>
+<div class="formulario">
+    <h4>Suscríbete ahora y consigue contenido exclusivo </h4>
+    <small>Estate atento a las nuevas publicaciones</small>
     <form [formGroup]="miFormulario" (ngSubmit)="getDataForm()">
-        <div>
-            <label for="email">* Email</label>
-            <input type="email" formControlName="email" id="email">
-            @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
-            <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
-            }
-        </div>
-        <div>
-            <input type="checkbox" formControlName="esAceptado" id="aceptar">
-            <label for="aceptar">* Sí, suscríbeme a tu boletín.</label>
-        </div>
+
+        <input type="email" formControlName="email" id="email" placeholder="Introduce tu correo">
+        @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
+        <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
+        }
         <input type="submit" class="boton" value="Suscribir">
     </form>
-    <small>* Campos obligatorios</small>
 </div>

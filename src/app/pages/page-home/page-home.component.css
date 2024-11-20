@@ -1,9 +1,12 @@
 .noticias-generales-y-secundarias {
     display: grid;
     grid-template-columns: 3fr 1fr;
-    gap: 30px;
+    gap: 1.875rem;
+    margin-top: -0.9375rem;
 }
 
-#noticias-destacadas {
-    border-radius: 15px;
+.grid {
+    display: grid;
+    grid-template-columns: 7fr 2fr;
+    column-gap: 2rem;
 }

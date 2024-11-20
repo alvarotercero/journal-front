@@ -6,6 +6,11 @@
      color: #333;
  }
 
+ .titular {
+     border-color: #dc3545;
+
+ }
+
  .form-container {
      max-width: 800px;
      margin: 0 auto;
@@ -13,7 +18,6 @@
      background-color: #fff;
      border-radius: 10px;
      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-     font-family: 'Georgia', 'Times New Roman', serif;
  }
 
  .textarea-container {
@@ -81,14 +85,6 @@
 
  .btn.seleccionar-editor {
      border-color: #17a2b8;
- }
-
- .btn.publicar {
-     border-color: #28a745;
- }
-
- .btn.estado {
-     border-color: #ffc107;
  }
 
  .btn:active {

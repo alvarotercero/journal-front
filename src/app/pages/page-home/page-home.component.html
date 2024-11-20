@@ -1,13 +1,19 @@
-<div class="container noticias">
-    <section id="noticias-destacadas">
-        <app-destacados [categoria]="categoria"></app-destacados>
-    </section>
-    <div class="noticias-generales-y-secundarias">
-        <section id="noticias-generales">
-            <app-noticias-generales [categoria]="categoria"></app-noticias-generales>
+<div class="contenedor grid">
+    <div class="noticias">
+        <section id="noticias-destacadas">
+            <app-destacados [categoria]="categoria"></app-destacados>
         </section>
-        <section id="noticias-secundarias">
-            <app-noticias-secundarias [categoria]="categoria"></app-noticias-secundarias>
-        </section>
+        <div class="noticias-generales-y-secundarias">
+            <section id="noticias-generales">
+                <app-noticias-generales [categoria]="categoria"></app-noticias-generales>
+            </section>
+            <section id="noticias-secundarias">
+                <app-noticias-secundarias [categoria]="categoria"></app-noticias-secundarias>
+            </section>
+        </div>
+
     </div>
+    <aside>
+        <app-aside></app-aside>
+    </aside>
 </div>

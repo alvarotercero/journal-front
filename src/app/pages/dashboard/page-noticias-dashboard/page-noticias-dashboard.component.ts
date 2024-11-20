@@ -2,11 +2,12 @@ import { Component, inject } from '@angular/core';
 import { INoticia } from '../../../interfaces/inoticia.interface';
 import { NoticiaEditionCardComponent } from "../../../components/noticia-edition-card/noticia-edition-card.component";
 import { NoticiasService } from '../../../services/noticias.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-noticias-dashboard',
   standalone: true,
-  imports: [NoticiaEditionCardComponent],
+  imports: [NoticiaEditionCardComponent, RouterLink],
   templateUrl: './page-noticias-dashboard.component.html',
   styleUrl: './page-noticias-dashboard.component.css'
 })

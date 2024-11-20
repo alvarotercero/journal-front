@@ -1,13 +1,14 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DestacadosComponent } from "../../components/destacados/destacados.component";
 import { NoticiasGeneralesComponent } from "../../components/noticias-generales/noticias-generales.component";
 import { NoticiasSecundariasComponent } from "../../components/noticias-secundarias/noticias-secundarias.component";
 import { ActivatedRoute } from '@angular/router';
+import { AsideComponent } from "../../components/aside/aside.component";
 
 @Component({
   selector: 'app-page-home',
   standalone: true,
-  imports: [DestacadosComponent, NoticiasGeneralesComponent, NoticiasSecundariasComponent],
+  imports: [DestacadosComponent, NoticiasGeneralesComponent, NoticiasSecundariasComponent, AsideComponent],
   templateUrl: './page-home.component.html',
   styleUrl: './page-home.component.css'
 })
