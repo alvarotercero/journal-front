@@ -7,6 +7,15 @@
         @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
         <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
         }
-        <input type="submit" class="boton" value="Suscribir">
+        <label for="categorias">Categorías:</label>
+            <div>
+                @for(categoria of arrCategorias; track categoria.slug){
+                    <div>
+                        <input type="checkbox" [id]="categoria.slug" formControlName="categorias">
+                        <label [for]="categoria.slug" class="categlabel">{{categoria.nombre}}</label>
+                    </div>
+                }
+            </div>
+        <input type="submit" class="boton" value="Suscribir" [disabled]="miFormulario.invalid">
     </form>
 </div>

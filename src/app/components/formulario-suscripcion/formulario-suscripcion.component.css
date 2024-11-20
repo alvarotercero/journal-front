@@ -43,3 +43,7 @@ small {
     font-size: 0.9rem;
     color: grey;
 }
+
+.categlabel {
+    margin-left: 0.5rem;
+}

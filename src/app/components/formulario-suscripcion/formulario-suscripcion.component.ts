@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ICategoria } from '../../interfaces/icategoria.interface';
+import { CategoriasService } from '../../services/categorias.service';
 
 @Component({
   selector: 'app-formulario-suscripcion',
@@ -10,25 +12,41 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class FormularioSuscripcionComponent {
   miFormulario: FormGroup;
+  arrCategorias: ICategoria[] = [];
+  categoriasService = inject(CategoriasService);
+
   constructor() {
     this.miFormulario = new FormGroup({
       email: new FormControl(null, [
         Validators.required,
-        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+        Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)
         // Validators.email
       ]),
-      esAceptado: new FormControl(false, [
-        Validators.required
+      categorias: new FormArray([
+        ...this.arrCategorias.map(arrCategorias => new FormControl(false))
       ])
-    }, [])
+    });
+    
+  }
+
+  async ngOnInit() {
+    try {
+      this.arrCategorias = await this.categoriasService.getAll();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   getDataForm() {
-    console.log(this.miFormulario.value);
     if (this.miFormulario.valid) {
-      this.miFormulario.reset()
+      // const data = {
+      //   email: this.miFormulario.value.email,
+      //   categorias: this.arrCategorias.filter((_, index) => this.miFormulario.value.categorias[index])
+      // }
+      console.log('VALOR FORMULARIO ', this.miFormulario.value)
+      this.miFormulario.reset();
     } else {
-      this.miFormulario.markAllAsTouched()
+      this.miFormulario.markAllAsTouched();
     }
   }
 
