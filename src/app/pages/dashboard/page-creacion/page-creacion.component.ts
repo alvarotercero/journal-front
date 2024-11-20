@@ -25,6 +25,7 @@ export class PageCreacionComponent {
       urlImagen: new FormControl(null, []),
       slug: new FormControl(null, []),
       estado: new FormControl(null, []),
+      seccion: new FormControl(null, []),
       fechaPublicacion: new FormControl(null, []),
       jefeEditor: new FormControl(null, []),
     })
