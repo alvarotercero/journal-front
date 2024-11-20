@@ -1,9 +1,8 @@
 <div class="formulario">
     <h4>Suscríbete ahora y consigue contenido exclusivo </h4>
-    <small>Estate atento a las nuevas publicaciones</small>
     <form [formGroup]="miFormulario" (ngSubmit)="getDataForm()">
-
-        <input type="email" formControlName="email" id="email" placeholder="Introduce tu correo">
+        <label for="">Introduce tu email</label>
+        <input type="email" formControlName="email" id="email" placeholder="ej. johndoe@gmail.com">
         @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
         <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
         }

@@ -7,10 +7,11 @@
 }
 
 form {
-    margin-top: 1rem;
+    margin-top: 0.75rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
 }
 
 .error {
@@ -33,13 +34,15 @@ input[type="email"] {
     padding: 0.5rem;
     width: 100%;
     font-size: 0.9rem;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 h4 {
     font-size: 1.3rem;
+    margin: 0;
 }
 
-small {
+label {
     font-size: 0.9rem;
     color: grey;
 }

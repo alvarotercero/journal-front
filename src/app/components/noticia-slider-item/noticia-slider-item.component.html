@@ -1,7 +1,9 @@
-<figure>
-    <img [src]="miNoticia?.imagen" class="d-block w-100" [alt]="miNoticia?.titular">
-</figure>
-<div class="carousel-caption d-none d-md-block">
-    <h5>{{miNoticia?.titular}}</h5>
-    <p>{{miNoticia?.texto}}</p>
-</div>
+<a [routerLink]="['/noticias', miNoticia?.categoria_id, miNoticia?.slug]">
+    <figure>
+        <img [src]="miNoticia?.imagen" class="d-block w-100" [alt]="miNoticia?.titular">
+    </figure>
+    <div class="carousel-caption d-none d-md-block">
+        <h5>{{miNoticia?.titular}}</h5>
+        <p>{{miNoticia?.texto}}</p>
+    </div>
+</a>
