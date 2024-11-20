@@ -1,0 +1,10 @@
+.contenedor.grid {
+    display: grid;
+    grid-template-columns: 7fr 2fr;
+    column-gap: 2rem;
+    max-width: 75rem;
+}
+
+img {
+    border-radius: 10px;
+}

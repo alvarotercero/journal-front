@@ -5,8 +5,14 @@
     margin-top: -0.9375rem;
 }
 
-.grid {
+.contenedor.grid {
     display: grid;
     grid-template-columns: 7fr 2fr;
     column-gap: 2rem;
+}
+
+aside {
+    position: sticky;
+    top: calc(3.6875rem);
+    align-self: start;
 }

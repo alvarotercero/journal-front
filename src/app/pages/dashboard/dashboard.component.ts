@@ -20,7 +20,7 @@ export class DashboardComponent {
 
 
   async ngOnInit() {
-    this.arrNoticias = await this.noticiasService.getByUser(1)
+    this.arrNoticias = await this.noticiasService.getByUser()
   }
 
 

@@ -1,10 +1,25 @@
-<div>
-    <label>
-        <input type="radio" name="opciones" [(ngModel)]="selectedOption" value="ultimas" />
-        Últimas
-    </label>
-    <label>
-        <input type="radio" name="opciones" [(ngModel)]="selectedOption" value="populares" />
-        Populares
-    </label>
+<div class="ultimas-populares">
+    <div class="seleccion">
+        <label [class.active]="selectedOption === 'ultimas'">
+            <input type="radio" name="opciones" [(ngModel)]="selectedOption" value="ultimas" />
+            Últimas
+        </label>
+        <label [class.active]="selectedOption === 'populares'">
+            <input type="radio" name="opciones" [(ngModel)]="selectedOption" value="populares" />
+            Populares
+        </label>
+    </div>
+    <div class="lista-noticias">
+        <ul class="flex">
+            @if (selectedOption === 'ultimas') {
+            @for (noticia of arrUltimasNoticias; track noticia.id) {
+            <li><a [routerLink]="['/noticias', ]">{{noticia.titular}}</a></li>
+            }
+            }@else if (selectedOption === 'populares') {
+            @for (noticia of arrNoticiasPopulares; track noticia.id) {
+            <li><a href="">{{noticia.titular}}</a></li>
+            }
+            }
+        </ul>
+    </div>
 </div>

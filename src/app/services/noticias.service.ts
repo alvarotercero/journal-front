@@ -30,5 +30,9 @@ export class NoticiasService {
     return firstValueFrom(this.httpClient.get<INoticia>(`${this.endpoint}/?slug=${slug}`))
   }
 
+  getUltimasNoticias(limit: number): Promise<INoticia[]> {
+    return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/ultimas/?num=${limit}`))
+  }
+
 
 }
