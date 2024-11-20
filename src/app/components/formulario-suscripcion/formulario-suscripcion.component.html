@@ -7,5 +7,13 @@
         <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
         }
         <input type="submit" class="boton" value="Suscribir">
+
+        @for (categoria of arrCategorias; track categoria.id; let index = $index) {
+        <label [for]="categoria.nombre">
+            <input type="checkbox" [id]="categoria.nombre" (change)="toggleCategoria(index)">
+            {{categoria.nombre}}
+        </label>
+
+        }
     </form>
 </div>

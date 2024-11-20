@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ICategoria } from '../../interfaces/icategoria.interface';
+import { CategoriasService } from '../../services/categorias.service';
 
 @Component({
   selector: 'app-formulario-suscripcion',
@@ -10,6 +12,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class FormularioSuscripcionComponent {
   miFormulario: FormGroup;
+  arrCategorias: ICategoria[] = []
+  categoriasService = inject(CategoriasService)
   constructor() {
     this.miFormulario = new FormGroup({
       email: new FormControl(null, [
@@ -17,20 +21,35 @@ export class FormularioSuscripcionComponent {
         Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
         // Validators.email
       ]),
-      esAceptado: new FormControl(false, [
-        Validators.required
-      ])
+      categorias: new FormControl([], [])
     }, [])
+  }
+
+  async ngOnInit() {
+    this.arrCategorias = await this.categoriasService.getAll()
   }
 
   getDataForm() {
     console.log(this.miFormulario.value);
     if (this.miFormulario.valid) {
       this.miFormulario.reset()
-    } else {
-      this.miFormulario.markAllAsTouched()
     }
   }
+
+  toggleCategoria(index: number) {
+    const categoriasSeleccionadas: number[] = this.miFormulario.get('categorias')?.value || [];
+    const categoriaId = this.arrCategorias[index].id;
+
+    if (categoriasSeleccionadas.includes(categoriaId)) {
+      // Si ya está seleccionado, lo quitamos
+      const nuevoArray = categoriasSeleccionadas.filter(id => id !== categoriaId);
+      this.miFormulario.get('categorias')?.setValue(nuevoArray);
+    } else {
+      // Si no está seleccionado, lo agregamos
+      this.miFormulario.get('categorias')?.setValue([...categoriasSeleccionadas, categoriaId]);
+    }
+  }
+
 
   checkControl(formControlName: string, validator: string) {
     // return this.miFormulario.get(formControlName)?.touched;
