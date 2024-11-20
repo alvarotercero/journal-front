@@ -1,9 +1,48 @@
 <div class="form-container">
     <h2>Editor - Noticia</h2>
     <form [formGroup]="contenidoForm">
+
+
         <div>
-            <label for="titular">Titular del artículo:</label>
-            <input type="text" id="titular" formControlName="titular">
+            <label for="titularInput">Titular:</label>
+            <br>
+            <input type="text" id="titularInput" formControlName="titular"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="importanciaInput">Importancia:</label>
+            <br>
+            <input type="text" id="importanciaInput" formControlName="importancia"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="slugInput">Slug:</label>
+            <br>
+            <input type="text" id="slugInput" formControlName="slug"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="estadoInput">Estado:</label>
+            <br>
+            <input type="text" id="estadoInput" formControlName="estado"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="fecha_publicacionInput">Fecha de publicación:</label>
+            <br>
+            <input type="text" id="fecha_publicacionInput" formControlName="fecha_publicacion"
+                style="width: 100%; padding: 5px; font-size: 1rem, ;">
+        </div>
+
+        <div>
+            <label for="seccionesInput">Secciones:</label>
+            <br>
+            <input type="text" id="seccionesInput" formControlName="secciones"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
         </div>
 
         <div class="textarea-container">
@@ -11,12 +50,14 @@
             <textarea id="contenido" formControlName="contenido" rows="10"></textarea>
         </div>
 
+        <div>
+            <label for="urlImagenInput">Imagen (URL):</label>
+            <br>
+            <input type="text" id="urlImagenInput" formControlName="urlImagen"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
 
     </form>
-
-
-
-
 
     <div class="button-container">
         <button type="button" class="btn editar" (click)="onEditar()">Editar</button>

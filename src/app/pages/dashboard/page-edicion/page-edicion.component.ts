@@ -1,4 +1,4 @@
-// src/app/pages/dashboard/page-edicion/page-edicion.component.ts
+
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -21,7 +21,13 @@ export class PageEdicionComponent {
     this.contenidoForm = new FormGroup({
       id: new FormControl(null),
       titular: new FormControl(''),
-      contenido: new FormControl('')
+      contenido: new FormControl(''),
+      importancia: new FormControl(''),
+      slug: new FormControl(''),
+      estado: new FormControl(''),
+      fecha_publicacion: new FormControl(''),
+      secciones: new FormControl(''),
+      urlImagen: new FormControl('')
     });
   }
 
@@ -33,7 +39,13 @@ export class PageEdicionComponent {
         this.contenidoForm.setValue({
           id: noticia.id,
           titular: noticia.titular,
-          contenido: noticia.texto
+          contenido: noticia.texto,
+          importancia: noticia.importancia,
+          slug: noticia.slug,
+          estado: noticia.estado,
+          fecha_publicacion: noticia.fecha_publicacion,
+          secciones: noticia.secciones,
+          urlImagen: noticia.imagen
         });
       } catch (error) {
         console.error('Error al obtener la noticia:', error);

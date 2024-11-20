@@ -1,16 +1,38 @@
-<div>
-    <article class="noticia">
-        <div>
-            <h4 [class]="miNoticia?.estado"><span>&#9679;</span> {{miNoticia?.estado | titlecase}}</h4>
-            <a class="boton" [routerLink]="['/dashboard/editar-noticia', miNoticia?.id]">Editar</a>
+<div class="div-noticia">
+
+    <div class="edit-button">
+        <button class="miBtn" [routerLink]="['/dashboard', 'editar-noticia', miNoticia?.id]">Editar <i
+                class="fa-solid fa-pen-to-square"></i>
+        </button>
+    </div>
+
+    <article>
+
+        <div class="content-left">
+            <h3>{{miNoticia?.titular}}</h3>
+            <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
         </div>
 
-        <figure>
-            <figcaption>
-                <h3>{{miNoticia?.titular}}</h3>
-            </figcaption>
-            <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
-        </figure>
+        <div class="noticiaTexto">
+            <p>{{miNoticia?.texto}}</p>
+        </div>
+
+        <div class="content-right">
+            <p>
+                @if (miNoticia?.estado === 'borrador') {
+            <p class="badge-warning">
+                {{miNoticia?.estado | titlecase}}
+            </p>
+            } @if (miNoticia?.estado === 'publicado') {
+            <p class="badge-success">
+                {{miNoticia?.estado | titlecase}}
+            </p>
+            } @if (miNoticia?.estado === 'revision') {
+            <p class="badge-info">
+                {{miNoticia?.estado | titlecase}}
+            </p>
+            }
+        </div>
 
     </article>
 </div>
