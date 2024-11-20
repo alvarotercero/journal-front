@@ -1,0 +1,87 @@
+<div class="container mt-4"></div>
+
+<div>
+    <button style="margin-bottom: 20px;" type="button" class="btn btn-primary"
+        [routerLink]="['/dashboard', 'noticias']">Volver</button>
+</div>
+
+<h2 class="mb-4">Crear Noticia</h2>
+
+<div class="card p-4">
+    <h2 class="card-title">Editor - Noticia</h2>
+    <form [formGroup]="crearNoticiaForm">
+
+        <div class="mb-3">
+            <label for="titular" class="form-label">Titular del artículo:</label>
+            <input type="text" id="titular" class="form-control" formControlName="titular">
+        </div>
+
+        <div class="mb-3">
+            <label for="contenido" class="form-label">Contenido del artículo:</label>
+            <textarea id="contenido" class="form-control" rows="5" formControlName="contenido"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="importancia" class="form-label">Importancia:</label>
+            <select id="importancia" class="form-select" formControlName="importancia">
+                <option value="">Seleccione una importancia</option>
+                <option value="1">Baja</option>
+                <option value="2">Media</option>
+                <option value="3">Alta</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="seccion" class="form-label">Sección:</label>
+            <select id="seccion" class="form-select" formControlName="seccion">
+                <option value="">Seleccione una sección</option>
+                <option value="1">Tecnología</option>
+                <option value="2">Deportes</option>
+                <option value="3">Cine</option>
+                <option value="4">Educación</option>
+                <option value="5">Opinión</option>
+                <option value="6">amor de mi vida osea sara</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="urlImagen" class="form-label">Url de la imagen:</label>
+            <input type="text" id="urlImagen" class="form-control" formControlName="urlImagen">
+        </div>
+
+        <div class="mb-3">
+            <label for="slug" class="form-label">Slug:</label>
+            <input type="text" id="slug" class="form-control" formControlName="slug">
+        </div>
+
+        <div class="mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <select id="estado" class="form-select" formControlName="estado">
+                <option value="">Seleccione un estado</option>
+                <option value="1">Revision</option>
+                <option value="2">Borrador</option>
+                <option value="3">Publicado</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="fechaPublicacion" class="form-label">Fecha de Publicación:</label>
+            <input type="date" id="fechaPublicacion" class="form-control" formControlName="fechaPublicacion">
+        </div>
+
+        <div class="mb-3">
+            <label>Jefe Editor</label>
+            <select id="jefeEditor" class="form-select" formControlName="jefeEditor">
+                <option value="">Seleccione un jefe editor</option>
+                <option value="1">Juan Pérez</option>
+                <option value="2">María Gómez</option>
+                <option value="3">Carlos Rodríguez</option>
+            </select>
+        </div>
+
+    </form>
+    <div class="button-container mt-3">
+        <button style="margin-right: 10px;" type="button" class="btn btn-success">Guardar cambios</button>
+        <button style="margin-right: 10px;" type="button" class="btn btn-danger">Borrar</button>
+    </div>
+</div>
