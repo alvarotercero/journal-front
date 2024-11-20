@@ -29,6 +29,15 @@ export class PageEdicionComponent {
       secciones: new FormControl(''),
       urlImagen: new FormControl('')
     });
+
+    this.contenidoForm.get('titular')?.valueChanges.subscribe(value => {
+      const slug = this.generateSlug(value);
+      this.contenidoForm.patchValue({
+        slug: slug
+      });
+    });
+
+
   }
 
   ngOnInit() {
@@ -53,11 +62,17 @@ export class PageEdicionComponent {
     });
   }
 
-
-  onEditar() {
-    console.log('Botón Editar');
-    console.log('Contenido actual:', this.contenidoForm);
+  generateSlug(text: string): string {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-');
   }
+
+
+
+
 
   onGuardar() {
     console.log('Botón Guardar');
@@ -70,23 +85,9 @@ export class PageEdicionComponent {
     console.log('Contenido borrado');
   }
 
-  onSeleccionarEditor() {
-    console.log('Botón Seleccionar Editor');
-  }
 
-  onPublicar() {
-    console.log('Botón Publicar');
-    // if (this.contenidoForm.length > 0) {
-    console.log('El contenido ha sido publicado:', this.contenidoForm);
-    // } else {
-    console.log('No hay contenido para publicar');
-    // }
-  }
 
-  onVerEstado() {
-    console.log('Botón Estado');
-    // const estado = this.contenidoForm.length > 0 ? 'Hay contenido escrito' : 'El contenido está vacío';
-    console.log('Estado del contenido:');
-  }
+
+
 
 }
