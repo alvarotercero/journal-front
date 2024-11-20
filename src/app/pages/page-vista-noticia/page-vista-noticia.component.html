@@ -1,9 +1,14 @@
-<div class="container">
-    <figure>
-        <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
-        <figcaption>
-            <h2>{{miNoticia?.titular}}</h2>
-        </figcaption>
-    </figure>
-    <p>{{miNoticia?.texto}}</p>
+<div class="grid contenedor">
+    <div>
+        <figure>
+            <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
+            <figcaption>
+                <h2>{{miNoticia?.titular}}</h2>
+            </figcaption>
+        </figure>
+        <p>{{miNoticia?.texto}}</p>
+    </div>
+    <aside>
+        <app-aside></app-aside>
+    </aside>
 </div>

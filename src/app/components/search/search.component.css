@@ -1,0 +1,20 @@
+.boton {
+    background-color: black;
+
+    i {
+        color: white;
+    }
+}
+
+form {
+    display: flex;
+    gap: 0.5rem;
+
+
+    input[type="text"] {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+}

@@ -1,8 +1,8 @@
 header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: white;
-    /* position: sticky; */
-    /* width: 100%; */
+    position: sticky;
+    width: 100%;
     top: 0;
     z-index: 100;
     padding: 0.5rem 0;
@@ -11,9 +11,4 @@ header {
 footer {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 5rem 0;
-}
-
-main {
-    position: relative;
-
 }
