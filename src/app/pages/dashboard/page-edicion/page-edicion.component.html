@@ -1,9 +1,48 @@
 <div class="form-container">
     <h2>Editor - Noticia</h2>
     <form [formGroup]="contenidoForm">
+
+
         <div>
-            <label for="titular">Titular del artículo:</label>
-            <input type="text" id="titular" formControlName="titular">
+            <label for="titularInput">Titular:</label>
+            <br>
+            <input type="text" id="titularInput" formControlName="titular"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="importanciaInput">Importancia:</label>
+            <br>
+            <input type="text" id="importanciaInput" formControlName="importancia"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="slagInput">Slag:</label>
+            <br>
+            <input type="text" id="slagInput" formControlName="slag"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="estadoInput">Estado:</label>
+            <br>
+            <input type="text" id="estadoInput" formControlName="estado"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
+
+        <div>
+            <label for="fechaPublicacionInput">Fecha de publicación:</label>
+            <br>
+            <input type="text" id="fechaPublicacionInput" formControlName="fecha de publicacion"
+                style="width: 100%; padding: 5px; font-size: 1rem, ;">
+        </div>
+
+        <div>
+            <label for="seccionInput">Sección:</label>
+            <br>
+            <input type="text" id="secciónInput" formControlName="seccion"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
         </div>
 
         <div class="textarea-container">
@@ -11,12 +50,14 @@
             <textarea id="contenido" formControlName="contenido" rows="10"></textarea>
         </div>
 
+        <div>
+            <label for="urlImagenInput">Imagen (URL):</label>
+            <br>
+            <input type="text" id="urlImagenInput" formControlName="urlImagen"
+                style="width: 100%; padding: 5px; font-size: 1rem;">
+        </div>
 
     </form>
-
-
-
-
 
     <div class="button-container">
         <button type="button" class="btn editar" (click)="onEditar()">Editar</button>
@@ -26,5 +67,4 @@
         <button type="button" class="btn publicar" (click)="onPublicar()">Publicar</button>
         <button type="button" class="btn estado" (click)="onVerEstado()">Estado</button>
     </div>
-
 </div>
