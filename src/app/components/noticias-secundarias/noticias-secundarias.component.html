@@ -1,5 +1,7 @@
 <div class="grid">
     @for (noticia of arrNoticiasSecundarias; track noticia.id) {
     <app-noticia-card [miNoticia]="noticia"></app-noticia-card>
+    }@empty {
+    <h3>Nada que mostrar</h3>
     }
 </div>

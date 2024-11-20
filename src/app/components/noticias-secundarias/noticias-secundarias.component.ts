@@ -16,12 +16,18 @@ export class NoticiasSecundariasComponent {
   @Input() categoria: string = '';
 
   async ngOnChanges() {
-    console.log(this.categoria !== 'home');
-    if (this.categoria !== 'home') {
-      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario', this.categoria)).slice(0, 3)
+    try {
+      if (this.categoria !== 'home') {
+        this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario', this.categoria)).slice(0, 3)
+      }
+      else {
+        this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario')).slice(0, 3)
+      }
+    } catch (error) {
+      console.log(error);
+
+      this.arrNoticiasSecundarias = []
     }
-    else {
-      this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario')).slice(0, 3)
-    }
+
   }
 }

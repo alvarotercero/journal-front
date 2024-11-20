@@ -4,6 +4,8 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 20px;
 }
 
 form {

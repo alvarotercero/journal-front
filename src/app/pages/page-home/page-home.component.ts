@@ -19,7 +19,7 @@ export class PageHomeComponent {
     this.activatedRoute.params.subscribe((params: any) => {
       // console.log(params);
       this.categoria = params.categoria
-      console.log(this.categoria);
+      // console.log(this.categoria);
 
     })
   }

@@ -1,5 +1,7 @@
-import { Component, } from '@angular/core';
+import { Component, inject, } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UsuariosService } from '../../services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,21 +12,26 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class PageLoginComponent {
   loginForm: FormGroup;
-
+  usersService = inject(UsuariosService)
+  router = inject(Router)
   constructor() {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl(null, [])
+      contraseña: new FormControl(null, [])
     }, [])
   }
 
-  getDataLogin() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value)
-    } else {
-      console.log("el formulario no es valido");
+  async getDataLogin() {
+    try {
+      console.log(this.loginForm.value);
+
+      let response: any = await this.usersService.login(this.loginForm.value)
+      console.log(response);
+      localStorage.setItem('token', response.token);
+      this.router.navigate(['/dashboard'])
+
+    } catch (error: any) {
+      console.log(error.error.message);
     }
-
-
   }
 }

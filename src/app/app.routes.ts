@@ -5,6 +5,7 @@ import { PageEdicionComponent } from './pages/dashboard/page-edicion/page-edicio
 import { PageNoticiasDashboardComponent } from './pages/dashboard/page-noticias-dashboard/page-noticias-dashboard.component';
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista-noticia.component';
+import { loginGuard } from './guards/login.guard';
 
 
 export const routes: Routes = [
@@ -13,7 +14,7 @@ export const routes: Routes = [
     { path: 'login', component: PageLoginComponent },
     { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
     {
-        path: 'dashboard', component: DashboardComponent, children: [
+        path: 'dashboard', component: DashboardComponent, canActivate: [loginGuard], children: [
             { path: '', pathMatch: 'full', redirectTo: 'noticias' },
             { path: 'noticias', component: PageNoticiasDashboardComponent },
             { path: 'editar-noticia/:noticiaId', component: PageEdicionComponent }
