@@ -10,3 +10,8 @@
         transform: scale(1.05);
     }
 }
+
+.disabled-btn {
+    background-color: #ccc;
+    color: #666;
+}

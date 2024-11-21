@@ -9,6 +9,8 @@ import { inject } from '@angular/core';
 import { ICategoria } from '../../../interfaces/icategoria.interface';
 import { IUsuario } from '../../../interfaces/iusuario.interface';
 import { INoticia } from '../../../interfaces/inoticia.interface';
+import { Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-page-edicion',
   standalone: true,
@@ -33,18 +35,45 @@ export class PageEdicionComponent {
   noticiaId!: number;
   //  Defino noticiaId aqui para poder usarlo en la función obtenerNoticia y en la función de editar la noticia
 
+  // Rol del usuario en obtener el id del usuario obtengo el rol y lo guardo en esta variable
+  rolUsuario!: string;
+
   constructor() {
     this.editarNoticiaForm = new FormGroup({
-      titular: new FormControl('', []),
-      texto: new FormControl('', []),
-      importancia: new FormControl(null, []),
-      categoria_id: new FormControl("", []),
-      imagen: new FormControl(null, []),
-      slug: new FormControl(null, []),
-      estado: new FormControl('borrador', []),
-      secciones: new FormControl(null, []),
-      editor_id: new FormControl("", []),
-      fecha_publicacion: new FormControl(null, []),
+      titular: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(50)
+      ]),
+      texto: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(4294967295)
+      ]),
+      importancia: new FormControl(null, [
+        Validators.required
+      ]),
+      categoria_id: new FormControl("", [
+        Validators.required
+      ]),
+      imagen: new FormControl(null, [
+        Validators.required
+      ]),
+      slug: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+      ]),
+      estado: new FormControl('', [
+        Validators.required
+      ]),
+      secciones: new FormControl(null, [
+        Validators.required
+      ]),
+      editor_id: new FormControl("", [
+        Validators.required
+      ]),
+      fecha_publicacion: new FormControl(new Date().toISOString().split('T')[0], [
+        Validators.required
+      ]),
       redactor_id: new FormControl("", []),
     });
 
@@ -68,17 +97,22 @@ export class PageEdicionComponent {
     // Para obtener los editores
     this.usuariosService.getEditores().then((data: IUsuario[]) => {
       this.arrEditores = data;
-      console.log(this.arrEditores);
     });
 
     // Para obtener el id del usuario
     this.usuariosService.getUsuarioPorId().then((data: IUsuario) => {
       this.usuarioId = data;
-      console.log(this.usuarioId);
       this.editarNoticiaForm.patchValue({
         redactor_id: this.usuarioId.id
       });
+      // Guardo el rol del usuario en esta variable
+      this.rolUsuario = this.usuarioId.rol;
     });
+
+    if (this.rolUsuario === 'redactor') {
+      this.editarNoticiaForm.get('estado')?.disable();
+    }
+
   }
 
   obtenerNoticia() {

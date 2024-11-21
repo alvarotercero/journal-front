@@ -18,19 +18,14 @@
         </div>
 
         <div class="content-right">
-            <p>
-                @if (miNoticia?.estado === 'borrador') {
-            <p class="badge-warning">
-                {{miNoticia?.estado | titlecase}}
-            </p>
-            } @if (miNoticia?.estado === 'publicado') {
-            <p class="badge-success">
-                {{miNoticia?.estado | titlecase}}
-            </p>
-            } @if (miNoticia?.estado === 'revision') {
-            <p class="badge-info">
-                {{miNoticia?.estado | titlecase}}
-            </p>
+            @if (miNoticia?.estado === 'borrador') {
+            <h3 class="text-borrador">•{{miNoticia?.estado | uppercase}}</h3>
+            }
+            @if (miNoticia?.estado === 'publicado') {
+            <h3 class="text-publicado">•{{miNoticia?.estado | uppercase}}</h3>
+            }
+            @if (miNoticia?.estado === 'revision') {
+            <h3 class="text-revision">•{{miNoticia?.estado | uppercase}}</h3>
             }
         </div>
 
