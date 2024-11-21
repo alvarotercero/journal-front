@@ -27,4 +27,18 @@ export class suscriptoresService {
     return existeEmail
   }
 
+  solicitarBajaSuscriptor(email: string) {//solamente hace que se reciva un email con el enlace a la baja realmente, el email contendrá un token de auth
+    const bajaSuscriptor = firstValueFrom(this.httpClient.get<any>(`${this.rutaBase}/baja/${email}`));
+    return bajaSuscriptor;
+  }
+
+  deleteSuscriptor(email: string, token: string) {
+    const ruta = `${this.rutaBase}/email/${email}`;
+    let headers = new HttpHeaders({
+      "Content-Type": "application/json",
+      "authSuscriptor": token
+    });
+    const bajaSuscriptor = firstValueFrom(this.httpClient.delete<any>(ruta, { headers }));
+    return bajaSuscriptor;
+  }
 }
