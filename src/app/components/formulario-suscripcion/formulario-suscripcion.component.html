@@ -1,19 +1,21 @@
 <div class="formulario">
-    <h4>Suscríbete ahora y consigue contenido exclusivo </h4>
+    <h4>Suscríbete para recibir las últimas noticias</h4>
     <form [formGroup]="miFormulario" (ngSubmit)="getDataForm()">
-        <label for="">Introduce tu email</label>
-        <input type="email" formControlName="email" id="email" placeholder="ej. johndoe@gmail.com">
+        <input type="email" formControlName="email" id="email" placeholder="Email">
         @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
         <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
         }
-        <input type="submit" class="boton" value="Suscribir">
 
         @for (categoria of arrCategorias; track categoria.id; let index = $index) {
         <label [for]="categoria.nombre">
             <input type="checkbox" [id]="categoria.nombre" (change)="toggleCategoria(index)">
             {{categoria.nombre}}
         </label>
-
         }
+        @if(miFormulario.get('categorias')?.hasError('sinCategoriaSeleccionada') &&
+        (miFormulario.get('categorias')?.touched || miFormulario.get('categorias')?.dirty)) {
+        <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Selecciona al menos una categoría</p>
+        }
+        <input type="submit" class="boton" value="Suscribirse">
     </form>
 </div>

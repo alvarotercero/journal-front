@@ -7,18 +7,24 @@ import { firstValueFrom, Observable } from 'rxjs';
 })
 export class suscriptoresService {
 
-  private endpoint = 'http://localhost:3000/api/suscriptores';
+  private rutaBase = 'http://localhost:3000/api/suscriptores';
   private httpClient = inject(HttpClient)
 
-  getActivarSuscriptor(id: number, activo: number, token: string): Promise<any> {
+  postCrearSuscriptor(nuevoSuscriptor: any) {
+    return firstValueFrom(this.httpClient.post<any>(this.rutaBase, nuevoSuscriptor));
+  }
 
+  getActivarSuscriptor(id: number, activo: number, token: string): Promise<any> {
     let headers = new HttpHeaders({
       "Content-Type": "application/json",
       "authSuscriptor": token
     });
-    console.log("___________FRONT getActivarSuscriptor,: ", headers);
+    return firstValueFrom(this.httpClient.get<any>(`${this.rutaBase}/activar/${id}/${activo}`, { headers }))
+  }
 
-    return firstValueFrom(this.httpClient.get<any>(`${this.endpoint}/activar/${id}/${activo}`, { headers }))
+  getExisteEmailSuscriptor(email: string) {
+    const existeEmail = firstValueFrom(this.httpClient.get<any>(`${this.rutaBase}/email/${email}`));
+    return existeEmail
   }
 
 }
