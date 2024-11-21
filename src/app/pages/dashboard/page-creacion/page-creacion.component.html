@@ -11,11 +11,13 @@
     <h2 class="card-title">Creador - Noticia</h2>
     <form [formGroup]="crearNoticiaForm" (ngSubmit)="onSubmit()">
 
+        <!-- Titular -->
         <div class="mb-3">
             <label for="titular" class="form-label">Titular del artículo:</label>
             <input type="text" id="titular" class="form-control" formControlName="titular">
         </div>
 
+        <!-- Slug -->
         <div class="mb-3">
             <label for="slug" class="form-label">Slug:</label>
             <input type="text" id="slug" class="form-control" formControlName="slug">
@@ -26,16 +28,18 @@
             <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
         </div>
 
+        <!-- Categoria -->
         <div class="mb-3">
             <label for="categoria" class="form-label">Categoria:</label>
-            <select id="categoria" class="form-select" formControlName="categoria">
+            <select id="categoria" class="form-select" formControlName="categoria_id">
                 <option value="">Seleccione una categoria</option>
                 @for (categoria of arrCategorias; track categoria.id) {
-                <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+                <option [value]="categoria.id">{{categoria.nombre}}</option>
                 }
             </select>
         </div>
 
+        <!-- Importancia -->
         <div class="mb-3">
             <label class="form-label">Importancia:</label>
             <div>
@@ -57,51 +61,61 @@
             </div>
         </div>
 
+        <!-- Seccion -->
         <div class="mb-3">
-            <label class="form-label">Sección:</label>
+            <label class="form-label">Seccion:</label>
             <div>
                 <div class="form-check">
-                    <input type="radio" id="seccionPrincipal" class="form-check-input" formControlName="seccion"
-                        value="principal" name="seccion">
-                    <label for="seccionPrincipal" class="form-check-label">principal</label>
+                    <input type="radio" id="principal" class="form-check-input" formControlName="secciones"
+                        value="principal">
+                    <label for="principal" class="form-check-label">Principal</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="seccionSecundario" class="form-check-input" formControlName="seccion"
-                        value="secundario" name="seccion">
-                    <label for="seccionSecundario" class="form-check-label">secundario
-                    </label>
+                    <input type="radio" id="secundario" class="form-check-input" formControlName="secciones"
+                        value="secundario">
+                    <label for="secundario" class="form-check-label">Secundario</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" id="seccionDestacado" class="form-check-input" formControlName="seccion"
-                        value="destacado" name="seccion">
-                    <label for="seccionDestacado" class="form-check-label">Destacado</label>
+                    <input type="radio" id="destacado" class="form-check-input" formControlName="secciones"
+                        value="destacado">
+                    <label for="destacado" class="form-check-label">Destacado</label>
                 </div>
             </div>
         </div>
 
+        <!-- Imagen -->
         <div class="mb-3">
-            <label for="urlImagen" class="form-label">Url de la imagen:</label>
-            <input type="text" id="urlImagen" class="form-control" formControlName="urlImagen">
+            <label for="imagen" class="form-label">Url de la imagen:</label>
+            <input type="text" id="imagen" class="form-control" formControlName="imagen">
         </div>
 
+        <!-- Estado -->
         <div class="mb-3">
             <label for="estado" class="form-label">Estado:</label>
+
             <select id="estado" class="form-select" formControlName="estado">
-                <option value="">Seleccione un estado</option>
-                <option value="revision">Revision</option>
                 <option value="borrador">Borrador</option>
+                <option value="revision">Revision</option>
                 <option value="publicado">Publicado</option>
+            </select>
+
+        </div>
+
+        <!-- Jefe Editor -->
+        <div class="mb-3">
+            <label>Editor</label>
+            <select id="editor" class="form-select" formControlName="editor_id">
+                <option value="">Seleccione un editor</option>
+                @for (editor of arrEditores; track editor.id) {
+                <option [value]="editor.id">{{editor.nombre}}</option>
+                }
             </select>
         </div>
 
+        <!-- Fecha de publicación -->
         <div class="mb-3">
-            <label>Jefe Editor</label>
-            <select id="jefeEditor" class="form-select" formControlName="jefeEditor">
-                <option value="">Seleccione un jefe editor</option>
-                @for (editor of arrEditores; track editor.id) {
-                <option value="{{editor.id}}">{{editor.nombre}}</option>
-                }
-            </select>
+            <label for="fecha_publicacion" class="form-label">Fecha de publicación:</label>
+            <input type="date" id="fecha_publicacion" class="form-control" formControlName="fecha_publicacion">
         </div>
 
     </form>

@@ -24,6 +24,8 @@ export class PageCreacionComponent {
   categoriasService = inject(CategoriasService)
   noticiasService = inject(NoticiasService)
 
+  usuarioId!: IUsuario
+
   usuariosService = inject(UsuariosService)
   arrEditores: IUsuario[] = []
 
@@ -32,24 +34,19 @@ export class PageCreacionComponent {
       titular: new FormControl('', []),
       texto: new FormControl('', []),
       importancia: new FormControl(null, []),
-      categoria: new FormControl(null, []),
-      urlImagen: new FormControl(null, []),
+      categoria_id: new FormControl("", []),
+      imagen: new FormControl(null, []),
       slug: new FormControl(null, []),
-      estado: new FormControl(null, []),
-      seccion: new FormControl(null, []),
-      jefeEditor: new FormControl(null, []),
-
-      // ----------------------------
-      // Recibir el id del usuario... ?
-      // redactor_id: new FormControl(null, []),
-      // editor_id: new FormControl(null, [])
-      // ----------------------------
-
+      estado: new FormControl('borrador', []),
+      secciones: new FormControl(null, []),
+      editor_id: new FormControl("", []),
+      fecha_publicacion: new FormControl(new Date().toISOString().split('T')[0], []), // Inicializa con la fecha actual
+      redactor_id: new FormControl("", []),
     });
 
     // Para generar el slug en tiempo real con el input del titular
     this.crearNoticiaForm.get('titular')?.valueChanges.subscribe(value => {
-      const slug = this.generateSlug(value);
+      const slug = this.generarSlug(value);
       this.crearNoticiaForm.patchValue({
         slug: slug
       });
@@ -70,15 +67,26 @@ export class PageCreacionComponent {
       console.log(this.arrEditores);
     });
 
+    // Para obtener el id del usuario // COMO OBTENGO EL ID.....
+    this.usuariosService.getUsuarioPorId().then((data: IUsuario) => {
+      this.usuarioId = data;
+      console.log(this.usuarioId);
+      this.crearNoticiaForm.patchValue({
+        redactor_id: this.usuarioId.id
+      });
+    });
   }
 
-  // Función para enviar el formulario (Por terminar)
+  // Función para enviar el formulario
   async onSubmit() {
     console.table(this.crearNoticiaForm.value);
+    this.noticiasService.insertNoticia(this.crearNoticiaForm.value).then((data: INoticia[]) => {
+      console.table(data);
+    });
   }
 
   // Función para generar el slug
-  generateSlug(text: string): string {
+  generarSlug(text: string): string {
     return text
       .toLowerCase()
       .trim()
@@ -87,36 +95,3 @@ export class PageCreacionComponent {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-/*
-
-### Crear una noticia
-POST {{host}}/api/noticias
-Content-Type: application/json
-Authorization: {{tokenRedactor}}
-
-Body: {
-  titular: string,
-  imagen: string,
-  texto: string,
-  secciones: "principal" | "secundario" | "destacado",
-  fecha_publicacion: Date,
-  redactor_id: number,
-  editor_id: number,
-  categoria_id: number,
-  estado: "revision" | "publicado" | "borrador",
-  importancia: number,
-  cambios?: string,
-  slug: string
-}
-
-*/
