@@ -113,9 +113,9 @@ export class PageEdicionComponent {
       .replace(/\s+/g, '-');
   }
 
-  // onSubmit() {
-  //   this.noticiasService.updateNoticia(this.editarNoticiaForm.value, this.noticiaId).then((data: INoticia) => {
-  //     console.table(data);
-  //   });
-  // }
+  onSubmit() {
+    this.noticiasService.updateNoticia(this.editarNoticiaForm.value, this.noticiaId).then((data: INoticia) => {
+      console.table(data);
+    });
+  }
 }

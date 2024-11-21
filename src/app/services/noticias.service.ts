@@ -34,6 +34,16 @@ export class NoticiasService {
     return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/ultimas/?num=${limit}`))
   }
 
+  // Crear una noticia
+  insertNoticia(noticia: INoticia): Promise<INoticia[]> {
+    return firstValueFrom(this.httpClient.post<INoticia[]>(`${this.endpoint}`, noticia))
+  }
+
+  // Editar una noticia
+  updateNoticia(noticia: INoticia, id: number): Promise<INoticia> {
+    return firstValueFrom(this.httpClient.put<INoticia>(`${this.endpoint}/${id}`, noticia))
+  }
+
   getByName(texto: string, limit: number): Promise<INoticia[]> {
     return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/busqueda/${texto}?num=${limit}`))
   }
