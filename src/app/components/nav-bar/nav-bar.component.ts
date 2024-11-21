@@ -10,13 +10,12 @@ import { CategoriasService } from '../../services/categorias.service';
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
+
 export class NavBarComponent {
   arrCategorias: ICategoria[] = [];
   categoriasService = inject(CategoriasService)
   token = localStorage.getItem('token');
   router = inject(Router);
-
-
 
   async ngOnInit() {
     this.arrCategorias = await this.categoriasService.getAll();
@@ -26,6 +25,5 @@ export class NavBarComponent {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
-
 
 }

@@ -39,4 +39,9 @@ export class NoticiasService {
     return firstValueFrom(this.httpClient.post<INoticia[]>(`${this.endpoint}`, noticia))
   }
 
+  // Editar una noticia
+  updateNoticia(noticia: INoticia, id: number): Promise<INoticia> {
+    return firstValueFrom(this.httpClient.put<INoticia>(`${this.endpoint}/${id}`, noticia))
+  }
+
 }
