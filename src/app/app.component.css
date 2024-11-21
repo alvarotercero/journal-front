@@ -8,7 +8,82 @@ header {
     padding: 0.5rem 0;
 }
 
+
+
 footer {
-    background-color: rgba(0, 0, 0, 0.1);
-    padding: 5rem 0;
+    background-color: #f9f9f9;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+
+}
+
+footer .redes-sociales {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 1.5rem;
+
+}
+
+footer .redes-sociales .icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+footer .redes-sociales .icono:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+footer .enlaces {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 14px;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+footer .enlaces a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+footer .enlaces a:hover {
+    color: #007bff;
+
+}
+
+footer .formulario {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+
+}
+
+footer .copyright {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
 }
