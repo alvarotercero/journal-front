@@ -1,3 +1,4 @@
+import { PageBajaSuscripcionComponent } from './pages/page-bajaSuscripcion/page-bajaSuscripcion.component';
 import { PageActivarComponent } from './pages/page-activar/page-activar.component';
 import { Routes } from '@angular/router';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
@@ -26,6 +27,8 @@ export const routes: Routes = [
         ]
     },
     { path: 'activar/:id/:activo/:token', component: PageActivarComponent }, //donde :activo llevará 1 o 0 para activar o desactivar y :token arrastra el token desde el enlace del mail
+    { path: 'baja_suscriptor', component: PageBajaSuscripcionComponent },
+    { path: 'eliminar_suscriptor/:email/:token', component: PageBajaSuscripcionComponent },
     {
         path: '**', redirectTo: 'noticias/home'
     }
