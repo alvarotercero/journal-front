@@ -1,1 +1,15 @@
-<p>page-busqueda works!</p>
+<div class="contenedor grid">
+    <div class="busqueda">
+        <h2>Resultados de búsqueda</h2>
+        <section class="grid lista-busquedas">
+            @for (noticia of arrNoticiasBuscadas; track noticia.id) {
+            <app-noticia-card [miNoticia]="noticia" [esNoticiaGeneral]="true"></app-noticia-card>
+            }@empty {
+            <h2>No encontramos ni una noticia 😢</h2>
+            }
+        </section>
+    </div>
+    <aside>
+        <app-aside></app-aside>
+    </aside>
+</div>

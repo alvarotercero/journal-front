@@ -17,10 +17,10 @@ export class NoticiasGeneralesComponent {
   async ngOnChanges() {
     try {
       if (this.categoria !== 'home') {
-        this.arrNoticiasGenerales = (await this.noticiasService.getAll('principal', this.categoria)).slice(0, 4)
+        this.arrNoticiasGenerales = await this.noticiasService.getAll('principal', this.categoria, 20)
       }
       else {
-        this.arrNoticiasGenerales = (await this.noticiasService.getAll('principal')).slice(0, 4)
+        this.arrNoticiasGenerales = await this.noticiasService.getAll('principal', undefined, 20)
       }
     } catch (error) {
       console.log(error);

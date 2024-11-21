@@ -2,3 +2,6 @@
     <input type="text" placeholder="ej. Avances con la inteligencia artificial" formControlName="texto">
     <button class="boton" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 </form>
+@if (checkControl('texto', 'required') || checkControl('texto','minlength')) {
+<p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce al menos 3 letras</p>
+}

@@ -14,15 +14,6 @@ form {
 
 }
 
-.error {
-    color: red;
-    font-size: 0.8rem;
-
-    i {
-        color: red;
-    }
-}
-
 .boton {
     background-color: black;
     color: white;

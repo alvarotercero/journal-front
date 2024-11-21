@@ -15,7 +15,7 @@ export class PageVistaNoticiaComponent {
   @Input() noticiaSlug: string = '';
   noticiasService = inject(NoticiasService)
 
-  async ngOnInit() {
+  async ngOnChanges() {
     this.miNoticia = await this.noticiasService.getBySlug(this.noticiaSlug)
   }
 }

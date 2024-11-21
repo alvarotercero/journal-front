@@ -20,6 +20,6 @@ export class UltimasPopularesComponent {
 
   async ngOnInit() {
     this.arrUltimasNoticias = await this.noticiasService.getUltimasNoticias(5);
-    this.arrNoticiasPopulares = (await this.noticiasService.getAll('destacado')).slice(0, 5)
+    this.arrNoticiasPopulares = (await this.noticiasService.getAll('destacado', undefined, 5))
   }
 }

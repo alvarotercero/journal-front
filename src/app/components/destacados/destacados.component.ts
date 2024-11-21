@@ -19,10 +19,10 @@ export class DestacadosComponent {
   async ngOnChanges() {
     try {
       if (this.categoria !== 'home') {
-        this.arrNoticiasDestacadas = (await this.noticiasService.getAll('destacado', this.categoria)).slice(0, 4)
+        this.arrNoticiasDestacadas = await this.noticiasService.getAll('destacado', this.categoria, 6)
       }
       else {
-        this.arrNoticiasDestacadas = (await this.noticiasService.getAll('destacado')).slice(0, 4)
+        this.arrNoticiasDestacadas = await this.noticiasService.getAll('destacado', undefined, 6)
       }
     } catch (error) {
       console.log(error);
