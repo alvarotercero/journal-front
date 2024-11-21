@@ -5,6 +5,8 @@ import { INoticia } from '../../../interfaces/inoticia.interface';
 import { ICategoria } from '../../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../../services/categorias.service';
 import { NoticiasService } from '../../../services/noticias.service';
+import { UsuariosService } from '../../../services/usuarios.service';
+import { IUsuario } from '../../../interfaces/iusuario.interface';
 
 @Component({
   selector: 'app-page-creacion',
@@ -22,6 +24,9 @@ export class PageCreacionComponent {
   categoriasService = inject(CategoriasService)
   noticiasService = inject(NoticiasService)
 
+  usuariosService = inject(UsuariosService)
+  arrEditores: IUsuario[] = []
+
   constructor() {
     this.crearNoticiaForm = new FormGroup({
       titular: new FormControl('', []),
@@ -32,7 +37,6 @@ export class PageCreacionComponent {
       slug: new FormControl(null, []),
       estado: new FormControl(null, []),
       seccion: new FormControl(null, []),
-      fechaPublicacion: new FormControl(null, []),
       jefeEditor: new FormControl(null, []),
 
       // ----------------------------
@@ -42,18 +46,55 @@ export class PageCreacionComponent {
       // ----------------------------
 
     });
+
+    // Para generar el slug en tiempo real con el input del titular
+    this.crearNoticiaForm.get('titular')?.valueChanges.subscribe(value => {
+      const slug = this.generateSlug(value);
+      this.crearNoticiaForm.patchValue({
+        slug: slug
+      });
+    });
+
   }
 
   ngOnInit(): void {
+    // Para obtener las categorias
     this.categoriasService.getAll().then((data: ICategoria[]) => {
       this.arrCategorias = data;
+      console.log(this.arrCategorias);
     });
+
+    // Para obtener los editores
+    this.usuariosService.getEditores().then((data: IUsuario[]) => {
+      this.arrEditores = data;
+      console.log(this.arrEditores);
+    });
+
   }
 
+  // Función para enviar el formulario (Por terminar)
   async onSubmit() {
     console.table(this.crearNoticiaForm.value);
   }
+
+  // Función para generar el slug
+  generateSlug(text: string): string {
+    return text
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-');
+  }
+
 }
+
+
+
+
+
+
+
+
 
 
 /*

@@ -17,6 +17,11 @@
         </div>
 
         <div class="mb-3">
+            <label for="slug" class="form-label">Slug:</label>
+            <input type="text" id="slug" class="form-control" formControlName="slug">
+        </div>
+
+        <div class="mb-3">
             <label for="texto" class="form-label">Texto del artículo:</label>
             <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
         </div>
@@ -80,11 +85,6 @@
         </div>
 
         <div class="mb-3">
-            <label for="slug" class="form-label">Slug:</label>
-            <input type="text" id="slug" class="form-control" formControlName="slug">
-        </div>
-
-        <div class="mb-3">
             <label for="estado" class="form-label">Estado:</label>
             <select id="estado" class="form-select" formControlName="estado">
                 <option value="">Seleccione un estado</option>
@@ -98,12 +98,9 @@
             <label>Jefe Editor</label>
             <select id="jefeEditor" class="form-select" formControlName="jefeEditor">
                 <option value="">Seleccione un jefe editor</option>
-                <option value="1"></option>
-                <!-- ESPERAR PETICION DE EDITORES -->
-                <!-- ESPERAR PETICION DE EDITORES -->
-                <!-- ESPERAR PETICION DE EDITORES -->
-                <!-- ESPERAR PETICION DE EDITORES -->
-                <!-- ESPERAR PETICION DE EDITORES -->
+                @for (editor of arrEditores; track editor.id) {
+                <option value="{{editor.id}}">{{editor.nombre}}</option>
+                }
             </select>
         </div>
 
