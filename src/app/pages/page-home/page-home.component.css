@@ -4,16 +4,3 @@
     gap: 1.875rem;
     margin-top: -0.9375rem;
 }
-
-.contenedor.grid {
-    display: grid;
-    grid-template-columns: 7fr 2fr;
-    column-gap: 2rem;
-    margin-bottom: 20px;
-}
-
-aside {
-    position: sticky;
-    top: calc(3.6875rem);
-    align-self: start;
-}

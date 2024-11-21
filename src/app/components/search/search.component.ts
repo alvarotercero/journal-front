@@ -14,11 +14,23 @@ export class SearchComponent {
   router = inject(Router)
   constructor() {
     this.miBusqueda = new FormGroup({
-      texto: new FormControl(null, [Validators.required])
+      texto: new FormControl(null, [
+        Validators.minLength(3),
+        Validators.required
+      ])
     }, [])
   }
 
   buscar() {
-    this.router.navigate(['/busqueda'], { queryParams: { q: this.miBusqueda.get('texto')?.value } })
+    // console.log(this.miBusqueda.get('texto')?.value);
+    if (this.miBusqueda.valid) {
+      this.router.navigate(['/busqueda'], { queryParams: { q: this.miBusqueda.get('texto')?.value } })
+    }
+
+  }
+
+  checkControl(formControlName: string, validator: string) {
+    // return this.miFormulario.get(formControlName)?.touched;
+    return this.miBusqueda.get(formControlName)?.hasError(validator) && this.miBusqueda.get(formControlName)?.touched;
   }
 }

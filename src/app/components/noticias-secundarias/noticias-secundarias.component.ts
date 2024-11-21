@@ -18,10 +18,10 @@ export class NoticiasSecundariasComponent {
   async ngOnChanges() {
     try {
       if (this.categoria !== 'home') {
-        this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario', this.categoria)).slice(0, 3)
+        this.arrNoticiasSecundarias = await this.noticiasService.getAll('secundario', this.categoria, 20)
       }
       else {
-        this.arrNoticiasSecundarias = (await this.noticiasService.getAll('secundario')).slice(0, 3)
+        this.arrNoticiasSecundarias = await this.noticiasService.getAll('secundario', undefined, 20)
       }
     } catch (error) {
       console.log(error);

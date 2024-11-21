@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom, Observable } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { INoticia } from '../interfaces/inoticia.interface';
 
 @Injectable({
@@ -11,11 +11,11 @@ export class NoticiasService {
   private endpoint = 'http://localhost:3000/api/noticias/';
   private httpClient = inject(HttpClient)
 
-  getAll(seccion: string, categoria: string = ''): Promise<INoticia[]> {
+  getAll(seccion: string, categoria: string = '', limit: number): Promise<INoticia[]> {
     if (categoria) {
-      return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}?seccion=${seccion}&categoria=${categoria}`))
+      return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}?seccion=${seccion}&categoria=${categoria}&num=${limit}`))
     }
-    return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}?seccion=${seccion}`))
+    return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}?seccion=${seccion}&num=${limit}`))
   }
 
   getById(id: number): Promise<INoticia> {
@@ -34,5 +34,7 @@ export class NoticiasService {
     return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/ultimas/?num=${limit}`))
   }
 
-
+  getByName(texto: string, limit: number): Promise<INoticia[]> {
+    return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/busqueda/${texto}?num=${limit}`))
+  }
 }

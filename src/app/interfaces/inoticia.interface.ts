@@ -12,4 +12,5 @@ export interface INoticia {
     importancia: number;
     cambios: null | string;
     slug: string;
+    slug_cat?: string
 }

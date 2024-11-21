@@ -30,3 +30,39 @@ nav a {
     font-weight: 400;
     color: black;
 }
+
+aside {
+    position: sticky;
+    top: calc(3.6875rem);
+    align-self: start;
+}
+
+.contenedor.grid {
+    display: grid;
+    grid-template-columns: 7fr 2fr;
+    column-gap: 2rem;
+    margin-bottom: 20px;
+}
+
+.estructura {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+
+    i {
+        color: red;
+    }
+}

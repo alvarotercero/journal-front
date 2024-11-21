@@ -13,11 +13,11 @@
         <ul class="flex">
             @if (selectedOption === 'ultimas') {
             @for (noticia of arrUltimasNoticias; track noticia.id) {
-            <li><a [routerLink]="['/noticias', ]">{{noticia.titular}}</a></li>
+            <li><a [routerLink]="['/noticias', noticia.slug_cat, noticia.slug]">{{noticia.titular}}</a></li>
             }
             }@else if (selectedOption === 'populares') {
             @for (noticia of arrNoticiasPopulares; track noticia.id) {
-            <li><a href="">{{noticia.titular}}</a></li>
+            <li><a [routerLink]="['/noticias', noticia.slug_cat, noticia.slug]">{{noticia.titular}}</a></li>
             }
             }
         </ul>
