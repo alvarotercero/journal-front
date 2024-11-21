@@ -1,3 +1,4 @@
+import { PageActivarComponent } from './pages/page-activar/page-activar.component';
 import { Routes } from '@angular/router';
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -8,6 +9,7 @@ import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista
 import { loginGuard } from './guards/login.guard';
 
 import { PageCreacionComponent } from './pages/dashboard/page-creacion/page-creacion.component';
+
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'noticias/home' },
@@ -22,6 +24,7 @@ export const routes: Routes = [
             { path: 'crear-noticia', component: PageCreacionComponent }
         ]
     },
+    { path: 'activar/:id/:activo/:token', component: PageActivarComponent }, //donde :activo llevará 1 o 0 para activar o desactivar y :token arrastra el token desde el enlace del mail
     {
         path: '**', redirectTo: 'noticias/home'
     }
