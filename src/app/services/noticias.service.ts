@@ -23,7 +23,7 @@ export class NoticiasService {
   }
 
   getByUser(): Promise<INoticia[]> {
-    return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/usuarios/`))
+    return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}/usuario/`))
   }
 
   getBySlug(slug: string): Promise<INoticia> {

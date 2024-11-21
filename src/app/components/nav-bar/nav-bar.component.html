@@ -13,6 +13,11 @@
         <div></div>
         <div></div>
     </div>
-
-    <a class="boton" [routerLink]="['/login']"><i class="fa-solid fa-user"></i><span> Login</span></a>
+    @if(token){
+    <a class="boton" [routerLink]="['/dashboard']"><span> DASHBOARD</span></a>
+    }
+    <a class="boton" [routerLink]="['/login']"><i class="fa-solid fa-user"></i><span>Iniciar Sesion</span></a>
+    @if(token){
+    <button class="boton" (click)="logout()">Cerrar Sesión</button>
+    }
 </nav>

@@ -55,3 +55,7 @@ ul.flex {
 .active {
     font-weight: 700;
 }
+
+.boton {
+    margin-right: 1rem;
+}

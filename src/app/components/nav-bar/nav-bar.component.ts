@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
 
@@ -13,8 +13,19 @@ import { CategoriasService } from '../../services/categorias.service';
 export class NavBarComponent {
   arrCategorias: ICategoria[] = [];
   categoriasService = inject(CategoriasService)
+  token = localStorage.getItem('token');
+  router = inject(Router);
+
+
 
   async ngOnInit() {
     this.arrCategorias = await this.categoriasService.getAll();
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
+
 }
