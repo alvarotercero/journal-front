@@ -9,6 +9,8 @@ import { inject } from '@angular/core';
 import { ICategoria } from '../../../interfaces/icategoria.interface';
 import { IUsuario } from '../../../interfaces/iusuario.interface';
 import { INoticia } from '../../../interfaces/inoticia.interface';
+import { Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-page-edicion',
   standalone: true,
@@ -35,16 +37,40 @@ export class PageEdicionComponent {
 
   constructor() {
     this.editarNoticiaForm = new FormGroup({
-      titular: new FormControl('', []),
-      texto: new FormControl('', []),
-      importancia: new FormControl(null, []),
-      categoria_id: new FormControl("", []),
-      imagen: new FormControl(null, []),
-      slug: new FormControl(null, []),
-      estado: new FormControl('borrador', []),
-      secciones: new FormControl(null, []),
-      editor_id: new FormControl("", []),
-      fecha_publicacion: new FormControl(null, []),
+      titular: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(50)
+      ]),
+      texto: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(4294967295)
+      ]),
+      importancia: new FormControl(null, [
+        Validators.required
+      ]),
+      categoria_id: new FormControl("", [
+        Validators.required
+      ]),
+      imagen: new FormControl(null, [
+        Validators.required
+      ]),
+      slug: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+      ]),
+      estado: new FormControl('borrador', [
+        Validators.required
+      ]),
+      secciones: new FormControl(null, [
+        Validators.required
+      ]),
+      editor_id: new FormControl("", [
+        Validators.required
+      ]),
+      fecha_publicacion: new FormControl(new Date().toISOString().split('T')[0], [
+        Validators.required
+      ]),
       redactor_id: new FormControl("", []),
     });
 

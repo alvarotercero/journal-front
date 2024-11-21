@@ -8,24 +8,38 @@
 <h2 class="mb-4">Crear Noticia</h2>
 
 <div class="card p-4">
-    <h2 class="card-title">Creador - Noticia</h2>
     <form [formGroup]="crearNoticiaForm" (ngSubmit)="onSubmit()">
 
         <!-- Titular -->
         <div class="mb-3">
             <label for="titular" class="form-label">Titular del artículo:</label>
             <input type="text" id="titular" class="form-control" formControlName="titular">
+            @if(crearNoticiaForm.get('titular')?.invalid && crearNoticiaForm.get('titular')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
+            @if(crearNoticiaForm.get('titular')?.errors?.['minlength'] && crearNoticiaForm.get('titular')?.touched){
+            <p class="text-danger">MINIMO 3 CARACTERES</p>
+            }
+            @if(crearNoticiaForm.get('titular')?.errors?.['maxlength'] && crearNoticiaForm.get('titular')?.touched){
+            <p class="text-danger">MAXIMO 50 CARACTERES</p>
+            }
         </div>
 
         <!-- Slug -->
         <div class="mb-3">
             <label for="slug" class="form-label">Slug:</label>
             <input type="text" id="slug" class="form-control" formControlName="slug">
+            @if(crearNoticiaForm.get('slug')?.invalid && crearNoticiaForm.get('slug')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <div class="mb-3">
             <label for="texto" class="form-label">Texto del artículo:</label>
             <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
+            @if(crearNoticiaForm.get('texto')?.invalid && crearNoticiaForm.get('texto')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Categoria -->
@@ -37,6 +51,9 @@
                 <option [value]="categoria.id">{{categoria.nombre}}</option>
                 }
             </select>
+            @if(crearNoticiaForm.get('categoria_id')?.invalid && crearNoticiaForm.get('categoria_id')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Importancia -->
@@ -59,6 +76,9 @@
                     <label for="importanciaAlta" class="form-check-label">Alta</label>
                 </div>
             </div>
+            @if(crearNoticiaForm.get('importancia')?.invalid && crearNoticiaForm.get('importancia')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Seccion -->
@@ -81,12 +101,18 @@
                     <label for="destacado" class="form-check-label">Destacado</label>
                 </div>
             </div>
+            @if(crearNoticiaForm.get('secciones')?.invalid && crearNoticiaForm.get('secciones')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Imagen -->
         <div class="mb-3">
             <label for="imagen" class="form-label">Url de la imagen:</label>
             <input type="text" id="imagen" class="form-control" formControlName="imagen">
+            @if(crearNoticiaForm.get('imagen')?.invalid && crearNoticiaForm.get('imagen')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Estado -->
@@ -98,7 +124,9 @@
                 <option value="revision">Revision</option>
                 <option value="publicado">Publicado</option>
             </select>
-
+            @if(crearNoticiaForm.get('estado')?.invalid && crearNoticiaForm.get('estado')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Jefe Editor -->
@@ -110,17 +138,28 @@
                 <option [value]="editor.id">{{editor.nombre}}</option>
                 }
             </select>
+            @if(crearNoticiaForm.get('editor_id')?.invalid && crearNoticiaForm.get('editor_id')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Fecha de publicación -->
         <div class="mb-3">
             <label for="fecha_publicacion" class="form-label">Fecha de publicación:</label>
             <input type="date" id="fecha_publicacion" class="form-control" formControlName="fecha_publicacion">
+            @if(crearNoticiaForm.get('fecha_publicacion')?.invalid &&
+            crearNoticiaForm.get('fecha_publicacion')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
     </form>
     <div class="button-container mt-3">
-        <button style="margin-right: 10px;" class="btn btn-success" type="submit" (click)="onSubmit()">Crear
+        <button style="margin-right: 10px;" class="btn btn-success" type="submit" (click)="onSubmit()"
+            [disabled]="crearNoticiaForm.invalid">Crear
             Noticia</button>
+        @if(crearNoticiaForm.invalid && crearNoticiaForm.touched){
+        <p class="text-danger">COMPLETA TODOS LOS CAMPOS</p>
+        }
     </div>
 </div>
