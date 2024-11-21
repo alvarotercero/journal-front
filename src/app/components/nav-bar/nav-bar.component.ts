@@ -14,11 +14,19 @@ import { CategoriasService } from '../../services/categorias.service';
 export class NavBarComponent {
   arrCategorias: ICategoria[] = [];
   categoriasService = inject(CategoriasService)
-  token = localStorage.getItem('token');
+  token: string | null = ''
+
+
   router = inject(Router);
+
 
   async ngOnInit() {
     this.arrCategorias = await this.categoriasService.getAll();
+  }
+
+  // Docheck para que se actualice el token cada vez que se renderiza el componente
+  ngDoCheck() {
+    this.token = localStorage.getItem('token');
   }
 
   logout() {
