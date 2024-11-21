@@ -1,5 +1,9 @@
 <div class="container dashboard mt-4">
-    <h1 class="text-center mb-4">Dashboard</h1>
+    <div>
+        <h1 class="text-center mt-5">Dashboard</h1>
+        <h4 class="text-center">Bienvenido, {{ usuarioLogueado.nombre }}</h4>
+        <p class="text-center">{{ usuarioLogueado.rol | uppercase }}</p>
+    </div>
 
     <section class="row">
         <router-outlet></router-outlet>
