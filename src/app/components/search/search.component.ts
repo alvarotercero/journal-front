@@ -19,6 +19,6 @@ export class SearchComponent {
   }
 
   buscar() {
-    this.router.navigate(['/busqueda',])
+    this.router.navigate(['/busqueda'], { queryParams: { q: this.miBusqueda.get('texto')?.value } })
   }
 }
