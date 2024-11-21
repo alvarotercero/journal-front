@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
 
@@ -21,7 +21,7 @@ export class FormularioSuscripcionComponent {
         Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
         // Validators.email
       ]),
-      categorias: new FormControl([], [])
+      categorias: new FormControl([], [this.categoriaValidador()])
     }, [])
   }
 
@@ -31,6 +31,9 @@ export class FormularioSuscripcionComponent {
 
   getDataForm() {
     console.log(this.miFormulario.value);
+    if (this.miFormulario.invalid) {
+      this.miFormulario.markAllAsTouched();
+    }
     if (this.miFormulario.valid) {
       this.miFormulario.reset()
     }
@@ -47,7 +50,18 @@ export class FormularioSuscripcionComponent {
     } else {
       // Si no está seleccionado, lo agregamos
       this.miFormulario.get('categorias')?.setValue([...categoriasSeleccionadas, categoriaId]);
+      this.miFormulario.get('categorias')?.markAsTouched();
+      this.miFormulario.get('categorias')?.updateValueAndValidity();
     }
+  }
+
+  categoriaValidador(): ValidatorFn{
+    return (control) => {
+      const categoriasSeleccionadas = control.value;
+      return categoriasSeleccionadas && categoriasSeleccionadas.length > 0
+        ? null
+        : { sinCategoriaSeleccionada: true }; // Devuelve error si no hay categorías seleccionadas
+    };
   }
 
 
