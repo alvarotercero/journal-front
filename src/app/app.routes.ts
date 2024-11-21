@@ -6,14 +6,15 @@ import { PageNoticiasDashboardComponent } from './pages/dashboard/page-noticias-
 import { PageLoginComponent } from './pages/page-login/page-login.component';
 import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista-noticia.component';
 import { loginGuard } from './guards/login.guard';
-
 import { PageCreacionComponent } from './pages/dashboard/page-creacion/page-creacion.component';
+import { PageBusquedaComponent } from './pages/page-busqueda/page-busqueda.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'noticias/home' },
     { path: 'noticias/:categoria', component: PageHomeComponent },
     { path: 'login', component: PageLoginComponent },
     { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
+    { path: 'busqueda', component: PageBusquedaComponent },
     {
         path: 'dashboard', component: DashboardComponent, canActivate: [loginGuard], children: [
             { path: '', pathMatch: 'full', redirectTo: 'noticias' },

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -10,11 +11,14 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class SearchComponent {
   miBusqueda: FormGroup;
-
+  router = inject(Router)
   constructor() {
     this.miBusqueda = new FormGroup({
-      texto: new FormControl(null, [])
-
+      texto: new FormControl(null, [Validators.required])
     }, [])
+  }
+
+  buscar() {
+    this.router.navigate(['/busqueda',])
   }
 }

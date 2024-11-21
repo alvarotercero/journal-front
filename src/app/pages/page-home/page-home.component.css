@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: 7fr 2fr;
     column-gap: 2rem;
+    margin-bottom: 20px;
 }
 
 aside {

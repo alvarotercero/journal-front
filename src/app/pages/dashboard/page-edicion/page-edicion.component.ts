@@ -70,10 +70,6 @@ export class PageEdicionComponent {
       .replace(/\s+/g, '-');
   }
 
-
-
-
-
   onGuardar() {
     console.log('Botón Guardar');
     console.log('Guardando contenido:', this.contenidoForm);
@@ -84,10 +80,4 @@ export class PageEdicionComponent {
     // this.contenidoForm = '';
     console.log('Contenido borrado');
   }
-
-
-
-
-
-
 }
