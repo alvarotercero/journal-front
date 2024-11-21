@@ -54,7 +54,7 @@ export class PageCreacionComponent {
         Validators.required,
         Validators.pattern(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
       ]),
-      estado: new FormControl('borrador', [
+      estado: new FormControl('', [
         Validators.required
       ]),
       secciones: new FormControl(null, [

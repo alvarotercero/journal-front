@@ -35,6 +35,9 @@ export class PageEdicionComponent {
   noticiaId!: number;
   //  Defino noticiaId aqui para poder usarlo en la función obtenerNoticia y en la función de editar la noticia
 
+  // Rol del usuario en obtener el id del usuario obtengo el rol y lo guardo en esta variable
+  rolUsuario!: string;
+
   constructor() {
     this.editarNoticiaForm = new FormGroup({
       titular: new FormControl('', [
@@ -59,7 +62,7 @@ export class PageEdicionComponent {
         Validators.required,
         Validators.pattern(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
       ]),
-      estado: new FormControl('borrador', [
+      estado: new FormControl('', [
         Validators.required
       ]),
       secciones: new FormControl(null, [
@@ -94,17 +97,22 @@ export class PageEdicionComponent {
     // Para obtener los editores
     this.usuariosService.getEditores().then((data: IUsuario[]) => {
       this.arrEditores = data;
-      console.log(this.arrEditores);
     });
 
     // Para obtener el id del usuario
     this.usuariosService.getUsuarioPorId().then((data: IUsuario) => {
       this.usuarioId = data;
-      console.log(this.usuarioId);
       this.editarNoticiaForm.patchValue({
         redactor_id: this.usuarioId.id
       });
+      // Guardo el rol del usuario en esta variable
+      this.rolUsuario = this.usuarioId.rol;
     });
+
+    if (this.rolUsuario === 'redactor') {
+      this.editarNoticiaForm.get('estado')?.disable();
+    }
+
   }
 
   obtenerNoticia() {
