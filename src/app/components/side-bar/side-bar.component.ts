@@ -5,11 +5,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { SidebarService } from '../../services/sidebar.service';
 import { FormularioSuscripcionComponent } from "../formulario-suscripcion/formulario-suscripcion.component";
 import { SearchComponent } from "../search/search.component";
+import { UltimasPopularesComponent } from "../ultimas-populares/ultimas-populares.component";
 
 @Component({
   selector: 'app-side-bar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, FormularioSuscripcionComponent, SearchComponent],
+  imports: [RouterLink, RouterLinkActive, FormularioSuscripcionComponent, SearchComponent, UltimasPopularesComponent],
   templateUrl: './side-bar.component.html',
   styleUrl: './side-bar.component.css'
 })

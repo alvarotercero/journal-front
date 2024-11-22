@@ -1,7 +1,7 @@
 <div class="flex" class="sidebar-space" [class.open]="isSidebarOpen">
     <nav id="sidebar" [class.open]="isSidebarOpen" class="sidebar">
         <!-- <button class="close-sidebar-btn" (click)="closeSidebar()"><i class="fa-solid fa-x"></i></button> -->
-        <app-search></app-search>
+
         <ul>
             <li><a (click)="closeSidebar()" [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
             @for (categoria of arrCategorias; track categoria.id) {
@@ -13,7 +13,9 @@
                     routerLinkActive="active"><span>Dashboard</span></a></li>
             }
         </ul>
+        <app-search></app-search>
         <app-formulario-suscripcion></app-formulario-suscripcion>
+        <app-ultimas-populares></app-ultimas-populares>
     </nav>
     <div class="overlay" id="overlay" [class.open]="isSidebarOpen" (click)="closeSidebar()"></div>
 </div>

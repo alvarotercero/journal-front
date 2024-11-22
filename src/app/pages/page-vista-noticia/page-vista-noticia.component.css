@@ -9,6 +9,11 @@
     margin-top: 20px;
 }
 
+h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
 img {
     border-radius: .625rem;
     width: 100%;
@@ -17,6 +22,16 @@ img {
 }
 
 @media (width <=46.875rem) {
+    .widgets {
+        display: none;
+    }
+
+    .contenedor.grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (46.9375rem <=width <=62.5rem) {
     .widgets {
         display: none;
     }

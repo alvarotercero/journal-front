@@ -21,6 +21,10 @@
 
 @media (46.9375rem <=width <=62.5rem) {
 
+    .widgets {
+        display: none;
+    }
+
     .contenedor.grid {
         grid-template-columns: 1fr;
     }

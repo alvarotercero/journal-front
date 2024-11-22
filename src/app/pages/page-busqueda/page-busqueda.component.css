@@ -28,3 +28,9 @@
         grid-template-columns: 1fr;
     }
 }
+
+@media (width <=1000px) {
+    .widgets {
+        display: none;
+    }
+}
