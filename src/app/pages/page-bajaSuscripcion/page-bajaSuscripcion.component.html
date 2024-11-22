@@ -1,9 +1,11 @@
 <div class="m-3 center">
     <div class="row justify-content-center">
-        <div class="m-3 col-xs-12 col-md-10 col-xl-6">
-            <h4>Baja de suscripción</h4>
-            <p>Sentimos que quieras marcharte. Si estás seguro entonces escribe tu correo electrónico abajo.</p>
+
+        <div class="card m-3 p-3 col-xs-12 col-md-10 col-xl-6">
+
             @if(token == undefined){
+            <h4>¡Hemos oído que quieras marcharte!</h4>
+            <p> Si estás seguro entonces escribe tu correo electrónico abajo.</p>
             <div class="form-control">
                 <form [formGroup]="bajaSuscripcionForm" (ngSubmit)="getDataBajaSuscripcion()">
 
@@ -15,11 +17,19 @@
                     <input class="btn btn-dark" type="submit" value="Baja" [disabled]="!bajaSuscripcionForm.valid">
                 </form>
             </div>
+            <div> <img class="img-fluid" src="./images/dogalert.jpg" alt="Sad dog"></div>
+
             }
             @else{
-            <p>Sentimos que nos dejes <strong>{{email}}</strong></p>
-            <p>La baja de suscriptor se ha realizado correctamente. Ya no recibirás más correos con las noticias.</p>
+            <div>
+                <h4>¡Hasta otra!</h4>
+                <p>Sentimos mucho que nos dejes <strong>{{email}}</strong>. Per siempre serás bienvenido.</p>
+                <p>La baja de suscriptor se ha realizado correctamente. Ya no recibirás más correos con las noticias.
+                </p>
+            </div>
+            <div> <img class="img-fluid" src="./images/saddog.jpg" alt="Sad dog"></div>
             }
+
         </div>
     </div>
 </div>

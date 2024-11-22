@@ -25,6 +25,8 @@ export class PageActivarComponent {
       this.id = params.id;
       const respuesta = await this.suscriptoresService.getActivarSuscriptor(this.id, this.activo, this.token);
       this.estado = respuesta.mensaje;
+      console.log(respuesta);
+
       this.respActivo = respuesta.activo;
     });
   }

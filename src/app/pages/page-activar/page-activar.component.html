@@ -1,8 +1,17 @@
-<div class="card m-3">
-    <h3>ACTIVAR SUSCRIPCIÓN</h3>
-    @if(respActivo){
-    <p>Enhorabuena, la activación se ha realizado correctamente.</p>
-    }@else{
-    <p>Ha ocurrido un error en la activación del suscriptor. Póngase en contacto con Juanan.</p>
-    }
+<div class="m-3 center">
+    <div class="row justify-content-center">
+        <div class="card m-3 p-3 col-xs-12 col-md-10 col-xl-6">
+            <h4>ACTIVAR SUSCRIPCIÓN</h4>
+            @if(respActivo){
+            <h3>¡Enhorabuena, ya formas parte de nuestros lectores!</h3>
+            <p>La activación de tu suscripción se ha realizado correctamente. A partir de ahora recibirás las noticias
+                cada vez que se publique una nueva.</p>
+            <div> <img class="img-fluid" src="./images/dogok.jpg" alt="Sad dog"></div>
+            }@else{
+            <h3>¡Opss, ha ocurrido algún tipo de error!</h3>
+            <p>Ha ocurrido un error en la activación del suscriptor. Póngase en contacto con Juanan.</p>
+            }
+
+        </div>
+    </div>
 </div>
