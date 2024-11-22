@@ -3,6 +3,7 @@ import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-page-bajaSuscripcion',
@@ -45,10 +46,22 @@ export class PageBajaSuscripcionComponent {
   // }
 
   async getDataBajaSuscripcion() {
+    const email = this.bajaSuscripcionForm.value.email;
     try {//no se elimina, se le envía un correo desde donde se le volverá a enviar a esta página para eliminarlo definitivamente
-      let respuesta: any = await this.suscriptoresService.solicitarBajaSuscriptor(this.bajaSuscripcionForm.value.email);
+      let respuesta: any = await this.suscriptoresService.solicitarBajaSuscriptor(email);
       this.bajaSuscripcionForm.reset();
-      alert(respuesta.mensaje);//por si se necesita, el mensaje trae tambien una clave response.mailEnviado que es true / false
+
+      //en función de si el email existe en la base de datos o no el mensaje será diferente
+      const mensaje = (respuesta.mailEnviado) ?
+        `Recibirás un email en ${email} con el enlace para confirmar la baja de suscripción a nuestro periódico.`
+        : `El suscriptor con email ${email} no existe en nuestra base de datos.`;
+
+      Swal.fire({
+        icon: (respuesta.mailEnviado) ? "success" : "warning",
+        title: respuesta.mensaje,
+        text: mensaje,
+        footer: ''
+      });
 
     } catch (error: any) {
       console.log(error.error.message);

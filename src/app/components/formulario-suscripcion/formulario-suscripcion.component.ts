@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } 
 import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
 import { suscriptoresService } from './../../services/suscriptores.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario-suscripcion',
@@ -41,7 +42,6 @@ export class FormularioSuscripcionComponent {
   Ver cómo solucionarlo.
   */
 
-
   async getDataForm() {
     if (this.miFormulario.invalid) {
       this.miFormulario.markAllAsTouched();
@@ -50,11 +50,34 @@ export class FormularioSuscripcionComponent {
       try {
         const existeEmail = await this.suscriptoresService.getExisteEmailSuscriptor(this.miFormulario.value.email);
         if (existeEmail != false) {//si el email existe la funcion devuelve el objeto suscriptor, sino devuelve false
-          alert("el email " + this.miFormulario.value.email + " ya existe en la base de datos.");
+
+          Swal.fire({
+            icon: "warning",
+            title: "¡Email duplicado!",
+            text: "El email " + this.miFormulario.value.email + " ya existe en nuestra la base de datos de suscriptores.",
+            footer: '<p>Si perdiste el email de confirmación date de baja aquí</p><p><a href="http://localhost:4200/baja_suscriptor">Baja suscripción</a></p>'
+          });
+
           this.miFormulario.reset();
         } else {
           const respuesta = await this.suscriptoresService.postCrearSuscriptor(this.miFormulario.value);
-          alert(respuesta.mensaje);
+
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.onmouseenter = Swal.stopTimer;
+              toast.onmouseleave = Swal.resumeTimer;
+            }
+          });
+          Toast.fire({
+            icon: "success",
+            title: respuesta.mensaje
+          });
+
           this.miFormulario.reset();
         }
       } catch (error: any) {
