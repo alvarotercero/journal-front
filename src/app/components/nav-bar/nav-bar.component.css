@@ -5,6 +5,11 @@ nav {
 
 }
 
+.logoUpgrade {
+    height: 3rem;
+    object-fit: contain;
+}
+
 .hamburger {
     display: none;
     border: none;

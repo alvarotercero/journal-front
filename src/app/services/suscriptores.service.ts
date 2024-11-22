@@ -6,12 +6,12 @@ import { firstValueFrom, Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class suscriptoresService {
-  // private endpoint = 'https://upgrade-news.onrender.com/api/suscriptores/';
-  private rutaBase = 'http://localhost:3000/api/suscriptores/';
+  private endpoint = 'https://upgrade-news.onrender.com/api/suscriptores/';
+  // private endpoint = 'http://localhost:3000/api/suscriptores/';
   private httpClient = inject(HttpClient)
 
   postCrearSuscriptor(nuevoSuscriptor: any) {
-    return firstValueFrom(this.httpClient.post<any>(this.rutaBase, nuevoSuscriptor));
+    return firstValueFrom(this.httpClient.post<any>(this.endpoint, nuevoSuscriptor));
   }
 
   getActivarSuscriptor(id: number, activo: number, token: string): Promise<any> {
@@ -19,21 +19,21 @@ export class suscriptoresService {
       "Content-Type": "application/json",
       "authSuscriptor": token
     });
-    return firstValueFrom(this.httpClient.get<any>(`${this.rutaBase}/activar/${id}/${activo}`, { headers }))
+    return firstValueFrom(this.httpClient.get<any>(`${this.endpoint}/activar/${id}/${activo}`, { headers }))
   }
 
   getExisteEmailSuscriptor(email: string) {
-    const existeEmail = firstValueFrom(this.httpClient.get<any>(`${this.rutaBase}/email/${email}`));
+    const existeEmail = firstValueFrom(this.httpClient.get<any>(`${this.endpoint}/email/${email}`));
     return existeEmail
   }
 
   solicitarBajaSuscriptor(email: string) {//solamente hace que se reciva un email con el enlace a la baja realmente, el email contendrá un token de auth
-    const bajaSuscriptor = firstValueFrom(this.httpClient.get<any>(`${this.rutaBase}/baja/${email}`));
+    const bajaSuscriptor = firstValueFrom(this.httpClient.get<any>(`${this.endpoint}/baja/${email}`));
     return bajaSuscriptor;
   }
 
   deleteSuscriptor(email: string, token: string) {
-    const ruta = `${this.rutaBase}/email/${email}`;
+    const ruta = `${this.endpoint}/email/${email}`;
     let headers = new HttpHeaders({
       "Content-Type": "application/json",
       "authSuscriptor": token
