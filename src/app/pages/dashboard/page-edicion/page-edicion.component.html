@@ -8,10 +8,6 @@
 <h2 class="mb-4">Editar Noticia</h2>
 
 <div class="card p-4">
-<<<<<<< HEAD
-    <h2 class="card-title">Editor - Noticia</h2>
-=======
->>>>>>> 2bde560845005d3d6dbdb143952040bc4b9286c3
     <form [formGroup]="editarNoticiaForm" (ngSubmit)="onSubmit()">
 
         <!-- Titular -->
@@ -174,6 +170,21 @@
             <p class="text-danger">CAMPO OBLIGATORIO</p>
             }
         </div>
+
+        <!-- Comentarios/Instrucciones para el redactor (Solo accesible para el editor) -->
+        @if(rolUsuario !== 'redactor'){
+        <div class="mb-3">
+            <label for="cambios" class="form-label">Comentarios para el redactor:</label>
+            <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"></textarea>
+        </div>
+        } @else {
+        <div class="mb-3">
+            <label for="cambios" class="form-label">Comentarios para el redactor:</label>
+            <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"
+                [attr.disabled]="true"></textarea>
+        </div>
+        <p class="text-muted">Solo el editor puede dejar comentarios para el redactor.</p>
+        }
 
     </form>
     <div class="button-container mt-3">

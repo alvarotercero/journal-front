@@ -153,6 +153,12 @@
             }
         </div>
 
+        <!-- Comentarios/Instrucciones para el redactor (Solo accesible para el editor) -->
+        <div class="mb-3">
+            <label for="cambios" class="form-label">Comentarios para el redactor:</label>
+            <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"></textarea>
+        </div>
+
     </form>
     <div class="button-container mt-3">
         <button style="margin-right: 10px;" class="btn btn-crear-noticia" type="submit" (click)="onSubmit()"

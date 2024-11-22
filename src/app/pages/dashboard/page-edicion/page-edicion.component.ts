@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -31,9 +30,10 @@ export class PageEdicionComponent {
   arrCategorias: ICategoria[] = [];
   arrEditores: IUsuario[] = [];
 
+  redactorId!: number;
   usuarioId!: IUsuario;
   noticia!: INoticia;
-  noticiaId!: number;
+  noticiaId!: any;
   //  Defino noticiaId aqui para poder usarlo en la función obtenerNoticia y en la función de editar la noticia
 
   // Rol del usuario en obtener el id del usuario obtengo el rol y lo guardo en esta variable
@@ -76,6 +76,7 @@ export class PageEdicionComponent {
         Validators.required
       ]),
       redactor_id: new FormControl("", []),
+      cambios: new FormControl(null, [])
     });
 
     this.editarNoticiaForm.get('titular')?.valueChanges.subscribe(value => {
@@ -132,8 +133,10 @@ export class PageEdicionComponent {
           imagen: noticia.imagen,
           editor_id: noticia.editor_id,
           categoria_id: noticia.categoria_id,
-          redactor_id: noticia.redactor_id
+          redactor_id: noticia.redactor_id,
+          cambios: noticia.cambios
         });
+
       } catch (error) {
         console.error('Error al obtener la noticia:', error);
       }
