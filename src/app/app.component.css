@@ -18,7 +18,6 @@ footer {
     align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     font-family: "Poppins", sans-serif;
-
 }
 
 footer .redes-sociales {
@@ -26,7 +25,6 @@ footer .redes-sociales {
     justify-content: center;
     gap: 15px;
     margin-bottom: 1.5rem;
-
 }
 
 footer .redes-sociales .icono {
@@ -36,6 +34,7 @@ footer .redes-sociales .icono {
     width: 40px;
     height: 40px;
     background-color: white;
+    border: 1px solid #ccc;
     color: black;
     border-radius: 50%;
     text-decoration: none;
@@ -54,6 +53,7 @@ footer .enlaces {
     justify-content: center;
     gap: 20px;
     font-size: 14px;
+    font-family: "Poppins", sans-serif;
     margin-bottom: 1.5rem;
     color: #333;
 }
@@ -62,16 +62,19 @@ footer .enlaces a {
     text-decoration: none;
     color: #333;
     transition: color 0.3s;
+    font-family: "Poppins", sans-serif;
+
 }
 
 footer .enlaces a:hover {
-    color: #007bff;
-
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
 
 footer .formulario {
     width: 100%;
-    max-width: 500px;
+    max-width: none;
     padding: 15px;
     box-sizing: border-box;
     background-color: #fff;
@@ -79,11 +82,12 @@ footer .formulario {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5rem;
-
+    font-family: "Poppins", sans-serif;
 }
 
 footer .copyright {
     text-align: center;
     font-size: 14px;
-    color: #666;
+    color: black;
+    font-family: "Poppins", sans-serif;
 }
