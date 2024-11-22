@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { NoticiasService } from '../../../services/noticias.service';
 import { UsuariosService } from '../../../services/usuarios.service';
 import { CategoriasService } from '../../../services/categorias.service';
@@ -25,7 +25,8 @@ export class PageEdicionComponent {
   noticiasService = inject(NoticiasService);
 
   editarNoticiaForm: FormGroup;
-  router = inject(ActivatedRoute);
+  activatedRoute = inject(ActivatedRoute);
+  router = inject(Router);
 
   arrCategorias: ICategoria[] = [];
   arrEditores: IUsuario[] = [];
@@ -116,7 +117,7 @@ export class PageEdicionComponent {
   }
 
   obtenerNoticia() {
-    this.router.params.subscribe(async params => {
+    this.activatedRoute.params.subscribe(async params => {
       this.noticiaId = params['noticiaId'];
       try {
         const noticia = await this.noticiasService.getById(this.noticiaId);
@@ -150,6 +151,7 @@ export class PageEdicionComponent {
   onSubmit() {
     this.noticiasService.updateNoticia(this.editarNoticiaForm.value, this.noticiaId).then((data: INoticia) => {
       console.table(data);
+      this.router.navigate(['/dashboard', 'noticias']);
     });
   }
 }

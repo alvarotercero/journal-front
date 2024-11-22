@@ -174,7 +174,7 @@
     </form>
     <div class="button-container mt-3">
         <button style="margin-right: 10px;" class="btn btn-crear-noticia" type="submit" (click)="onSubmit()"
-            [disabled]="editarNoticiaForm.invalid" [routerLink]="['/dashboard', 'noticias']">Editar
+            [disabled]="editarNoticiaForm.invalid">Editar
             Noticia</button>
     </div>
     @if(editarNoticiaForm.invalid && editarNoticiaForm.touched){
