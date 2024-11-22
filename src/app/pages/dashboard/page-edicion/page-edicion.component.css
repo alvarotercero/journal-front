@@ -28,11 +28,7 @@ select {
     width: 100%;
     padding: 5px;
     font-size: 1rem;
-<<<<<<< HEAD
-    border: 1px solid silver;
-=======
     border: 1px solid #00438b;
->>>>>>> 2bde560845005d3d6dbdb143952040bc4b9286c3
     border-radius: 5px;
 }
 
@@ -67,6 +63,7 @@ textarea {
 }
 
 .btn {
+
     padding: 10px 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -78,11 +75,11 @@ textarea {
 }
 
 .btn:hover {
-    background-color: #e0e0e0;
-    border-color: #bbb;
+    color: #00438b;
+    box-shadow: 0 4px 6px rgba(169, 169, 169, 0.6);
+
 }
 
-<<<<<<< HEAD
 .btn.guardar {
     border-color: black;
     border: 3px solid black;
@@ -91,8 +88,6 @@ textarea {
 .btn.borrar {
     border-color: #dc3545;
 }
-=======
->>>>>>> 2bde560845005d3d6dbdb143952040bc4b9286c3
 
 .btn:active {
     transform: scale(0.98);
@@ -100,6 +95,42 @@ textarea {
 }
 
 .btn-crear-noticia {
-    background-color: #40b56d;
-    color: #fff;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+}
+
+.btn-Estado {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e7e7e7;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+
+.btn-estado.borrador:hover {
+    color: red;
+    box-shadow: 0 4px 6px rgba(169, 169, 169, 0.6);
+}
+
+
+.btn-estado.revision:hover {
+    color: blue;
+    box-shadow: 0 4px 6px rgba(169, 169, 169, 0.6);
+}
+
+
+.btn-estado.publicado:hover {
+    color: green;
+    box-shadow: 0 4px 6px rgba(169, 169, 169, 0.6);
+}
+
+
+.btn-estado:active {
+    transform: scale(0.98);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
 }
