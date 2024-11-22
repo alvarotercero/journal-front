@@ -10,5 +10,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './noticia-slider-item.component.css'
 })
 export class NoticiaSliderItemComponent {
-  @Input() miNoticia?: INoticia;
+  @Input() miNoticia?: INoticia | any;
+
+
+
 }

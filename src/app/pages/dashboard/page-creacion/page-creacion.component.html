@@ -111,19 +111,37 @@
 
         <!-- Estado -->
         <div class="mb-3 text-center">
-            <label class="form-label">Estado:</label>
-            <div>
-                <div class="btn-group-estado" role="group" aria-label="Estado">
-                    <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador">
-                    <label class="btn btn-outline-danger" for="borrador">Borrador</label>
+            <label class="form-label">Estado:</label><br>
+            @if(rolUsuario !== 'redactor') {
+            <div class="btn-group" role="group" aria-label="Estado">
+                <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador">
+                <label class="btn btn-outline-danger" for="borrador">Borrador</label>
 
-                    <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision">
-                    <label class="btn btn-outline-primary" for="revision">Revision</label>
+                <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision">
+                <label class="btn btn-outline-primary" for="revision">Revision</label>
 
-                    <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado">
-                    <label class="btn btn-outline-success" for="publicado">Publicado</label>
-                </div>
+                <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado">
+                <label class="btn btn-outline-success" for="publicado">Publicado</label>
             </div>
+
+            } @else {
+
+            <div class="btn-group" role="group" aria-label="Estado">
+                <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador"
+                    [attr.disabled]="true">
+                <label class="btn btn-outline-danger" for="borrador">Borrador</label>
+
+                <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision"
+                    [attr.disabled]="true">
+                <label class="btn btn-outline-primary" for="revision">Revision</label>
+
+                <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado"
+                    [attr.disabled]="true">
+                <label class="btn btn-outline-success" for="publicado">Publicado</label>
+            </div>
+            <p class="text-muted">Solo el editor puede cambiar el estado de la noticia.</p>
+
+            }
             @if(crearNoticiaForm.get('estado')?.invalid && crearNoticiaForm.get('estado')?.touched){
             <p class="text-danger">CAMPO OBLIGATORIO</p>
             }
@@ -154,10 +172,19 @@
         </div>
 
         <!-- Comentarios/Instrucciones para el redactor (Solo accesible para el editor) -->
+        @if(rolUsuario !== 'redactor'){
         <div class="mb-3">
             <label for="cambios" class="form-label">Comentarios para el redactor:</label>
             <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"></textarea>
         </div>
+        } @else {
+        <div class="mb-3">
+            <label for="cambios" class="form-label">Comentarios para el redactor:</label>
+            <textarea style="background-color: #efefef; cursor:default;" id="cambios" class="form-control" rows="5"
+                formControlName="cambios" [attr.readonly]="rolUsuario === 'redactor'"></textarea>
+        </div>
+        <p class="text-muted">Solo el editor puede dejar comentarios para el redactor.</p>
+        }
 
     </form>
     <div class="button-container mt-3">
