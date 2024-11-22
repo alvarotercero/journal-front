@@ -8,11 +8,11 @@
         <li><a [routerLink]="['/noticias', categoria.slug]" routerLinkActive="active">{{categoria.nombre}}</a></li>
         }
     </ul>
-    <div class="hamburger">
+    <button class="hamburger" (click)="toggleSidebar()">
         <div></div>
         <div></div>
         <div></div>
-    </div>
+    </button>
     @if(token){
     <a class="boton dashboard" [routerLink]="['/dashboard']"><span> DASHBOARD</span></a>
     }

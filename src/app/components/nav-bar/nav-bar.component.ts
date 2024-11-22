@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
+import { SidebarService } from '../../services/sidebar.service';
+
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,10 +17,9 @@ export class NavBarComponent {
   arrCategorias: ICategoria[] = [];
   categoriasService = inject(CategoriasService)
   token: string | null = ''
-
+  sideBarService = inject(SidebarService)
 
   router = inject(Router);
-
 
   async ngOnInit() {
     this.arrCategorias = await this.categoriasService.getAll();
@@ -32,6 +33,9 @@ export class NavBarComponent {
   logout() {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+  }
+  toggleSidebar() {
+    this.sideBarService.toggleSidebar()
   }
 
 }
