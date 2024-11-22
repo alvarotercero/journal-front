@@ -18,3 +18,13 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 }
+
+@media (width <=46.875rem) {
+    .widgets {
+        display: none;
+    }
+
+    .contenedor.grid {
+        grid-template-columns: 1fr;
+    }
+}

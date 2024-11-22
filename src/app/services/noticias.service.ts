@@ -8,7 +8,7 @@ import { INoticia } from '../interfaces/inoticia.interface';
 })
 export class NoticiasService {
 
-  private endpoint = 'http://localhost:3000/api/noticias/';
+  private endpoint = 'http://sql7.freemysqlhosting.net:3306/api/noticias/';
   private httpClient = inject(HttpClient)
 
   getAll(seccion: string, categoria: string = '', limit: number): Promise<INoticia[]> {

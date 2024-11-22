@@ -1,0 +1,12 @@
+<nav id="sidebar" [class.open]="isSidebarOpen" class="sidebar" (click)="closeSidebar()">
+    <button class="close-sidebar-btn">&times;</button>
+    <ul>
+        <li><a (click)="closeSidebar()" [routerLink]="['/noticias', 'home']">Home</a></li>
+        @for (categoria of arrCategorias; track categoria.id) {
+        <li><a (click)="closeSidebar()" [routerLink]="['/noticias', categoria.slug]">{{categoria.nombre}}</a></li>
+        }
+        @if(token){
+        <a class="boton dashboard" (click)="closeSidebar()" [routerLink]="['/dashboard']"><span> DASHBOARD</span></a>
+        }
+    </ul>
+</nav>

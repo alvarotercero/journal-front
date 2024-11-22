@@ -5,6 +5,7 @@
 .contenedor {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 0.75rem;
 }
 
 .boton {
@@ -31,17 +32,17 @@ nav a {
     color: black;
 }
 
-aside {
+.widgets {
     position: sticky;
     top: calc(3.6875rem);
     align-self: start;
 }
 
 .contenedor.grid {
-    display: grid;
+    position: relative;
     grid-template-columns: 7fr 2fr;
     column-gap: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .estructura {
