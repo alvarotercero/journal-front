@@ -12,8 +12,8 @@
         @if (esNoticiaGeneral) {
         <!-- Se utiliza [innerHTML] para permitir que las etiquetas <p> y otros elementos HTML que vienen en el texto de
             la base de datos se rendericen correctamente en la vista. -->
-        <p [innerHTML]="miNoticia?.texto?.length > 200 ? miNoticia?.texto.substring(0, 200) + '...' : miNoticia?.texto">
-        </p>
+        <div [innerHTML]="miNoticia?.texto | recortarTexto | traducirHtml">
+        </div>
         }
     </article>
 </a>

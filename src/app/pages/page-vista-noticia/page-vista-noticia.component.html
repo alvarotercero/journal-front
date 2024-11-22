@@ -9,8 +9,7 @@
 
         <!-- Se utiliza [innerHTML] para permitir que las etiquetas <p> y otros elementos HTML que vienen en el texto de
             la base de datos se rendericen correctamente en la vista. -->
-        <p [innerHTML]="miNoticia?.texto"></p>
-
+        <div [innerHTML]="miNoticia?.texto | traducirHtml"></div>
     </div>
     <aside class="widgets">
         <app-aside></app-aside>

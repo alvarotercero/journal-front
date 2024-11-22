@@ -11,7 +11,7 @@ export class RecortarTextoPipe implements PipeTransform {
     if (!value) {
       return ''
     }
-    const textoRecortado = `${value.slice(0, limit)}...`
+    const textoRecortado = `${value.substring(0, limit)}...`
     return textoRecortado;
   }
 

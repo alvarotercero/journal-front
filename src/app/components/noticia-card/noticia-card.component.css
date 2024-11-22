@@ -26,6 +26,7 @@
 
         figcaption {
             /* height: 100%; */
+            margin: auto 0;
 
             h3 {
                 margin: 0;

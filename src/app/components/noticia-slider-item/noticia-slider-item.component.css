@@ -1,4 +1,4 @@
-img {
+.slider-img {
     width: 100%;
     height: 37.5rem;
     object-fit: cover;
@@ -6,11 +6,11 @@ img {
     transition: border-radius;
 }
 
-figure {
+.img-container {
     position: relative;
 }
 
-figure::before {
+.img-container::before {
     content: '';
     position: absolute;
     top: 0;
@@ -26,7 +26,7 @@ figure::before {
 .carousel-caption {
 
     h5,
-    p {
+    .contenido-noticia {
         color: white;
         z-index: 2;
     }
