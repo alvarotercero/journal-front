@@ -34,4 +34,8 @@ export class SideBarComponent {
   closeSidebar() {
     this.sideBarService.closeSidebar();
   }
+
+  haBuscado() {
+    this.sideBarService.closeSidebar()
+  }
 }

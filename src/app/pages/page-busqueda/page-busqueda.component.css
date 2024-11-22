@@ -27,4 +27,14 @@
     .contenedor.grid {
         grid-template-columns: 1fr;
     }
+
+    .lista-busquedas {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (46.9375rem <=width <=62.5rem) {
+    .contenedor.grid {
+        grid-template-columns: 1fr;
+    }
 }

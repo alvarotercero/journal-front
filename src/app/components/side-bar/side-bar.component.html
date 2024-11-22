@@ -1,19 +1,20 @@
-<nav id="sidebar" [class.open]="isSidebarOpen" class="sidebar">
-    <!-- <button class="close-sidebar-btn" (click)="closeSidebar()"><i class="fa-solid fa-x"></i></button> -->
-
-    <ul>
-        <li><a (click)="closeSidebar()" [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
-        @for (categoria of arrCategorias; track categoria.id) {
-        <li><a (click)="closeSidebar()" [routerLink]="['/noticias', categoria.slug]"
-                routerLinkActive="active">{{categoria.nombre}}</a></li>
-        }
-        @if(token){
-        <li><a class="dashboard" (click)="closeSidebar()" [routerLink]="['/dashboard']"
-                routerLinkActive="active"><span>Dashboard</span></a></li>
-        }
-    </ul>
-    <app-search></app-search>
+<div class="flex sidebar-space" [class.open]="isSidebarOpen">
+    <nav id="sidebar" [class.open]="isSidebarOpen" class="sidebar">
+        <ul>
+            <li><a (click)="closeSidebar()" [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
+            @for (categoria of arrCategorias; track categoria.id) {
+            <li><a (click)="closeSidebar()" [routerLink]="['/noticias', categoria.slug]"
+                    routerLinkActive="active">{{categoria.nombre}}</a></li>
+            }
+            @if(token){
+            <li><a class="dashboard" (click)="closeSidebar()" [routerLink]="['/dashboard']"
+                    routerLinkActive="active"><span>Dashboard</span></a></li>
+            }
+        </ul>
+    </nav>
+    <app-search (haBuscado)="haBuscado()"></app-search>
     <app-formulario-suscripcion [colocacion]="'derecha'"></app-formulario-suscripcion>
     <app-ultimas-populares></app-ultimas-populares>
-</nav>
+</div>
+
 <div class="overlay" id="overlay" [class.open]="isSidebarOpen" (click)="closeSidebar()"></div>

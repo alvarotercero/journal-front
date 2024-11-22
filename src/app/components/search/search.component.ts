@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 export class SearchComponent {
   miBusqueda: FormGroup;
   router = inject(Router)
+  @Output() haBuscado = new EventEmitter<void>()
+
   constructor() {
     this.miBusqueda = new FormGroup({
       texto: new FormControl(null, [
@@ -24,6 +26,7 @@ export class SearchComponent {
   buscar() {
     // console.log(this.miBusqueda.get('texto')?.value);
     if (this.miBusqueda.valid) {
+      this.haBuscado.emit()
       this.router.navigate(['/busqueda'], { queryParams: { q: this.miBusqueda.get('texto')?.value } })
     }
 

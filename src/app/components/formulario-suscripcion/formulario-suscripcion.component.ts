@@ -4,11 +4,12 @@ import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
 import { suscriptoresService } from './../../services/suscriptores.service';
 import Swal from 'sweetalert2';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-suscripcion',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './formulario-suscripcion.component.html',
   styleUrl: './formulario-suscripcion.component.css'
 })
