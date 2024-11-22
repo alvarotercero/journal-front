@@ -62,6 +62,10 @@ h1 {
     margin-right: 1rem;
 }
 
+.logoUpgrade {
+    width: 100px;
+}
+
 @media (width <=46.875rem) {
     .hamburger {
         display: block;
@@ -75,6 +79,10 @@ h1 {
 
     .logo {
         order: 2;
+    }
+
+    .logoUpgrade {
+        width: 100px;
     }
 
     .boton {
@@ -126,6 +134,10 @@ h1 {
 
     .logo {
         order: 2;
+    }
+
+    .logoUpgrade {
+        width: 150px;
     }
 
     .boton {

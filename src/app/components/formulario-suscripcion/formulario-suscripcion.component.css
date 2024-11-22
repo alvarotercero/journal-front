@@ -45,9 +45,9 @@ label {
 
 .checkBlock {
     display: block;
-}
 
-a {
-    margin-top: 5px;
-    color: black;
+    a {
+        margin-top: 5px;
+        color: black;
+    }
 }
