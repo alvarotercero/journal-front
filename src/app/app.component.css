@@ -8,12 +8,11 @@ header {
     padding: 0.5rem 0;
 }
 
-footer {
+/* footer {
     background-color: #f9f9f9;
-}
+} */
 
 footer .contenedor {
-
     padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
@@ -65,7 +64,6 @@ footer .contenedor .enlaces a {
     color: #333;
     transition: color 0.3s;
     font-family: "Poppins", sans-serif;
-
 }
 
 footer .contenedor .enlaces a:hover {
@@ -81,8 +79,8 @@ footer .contenedor .formulario {
     box-sizing: border-box;
     background-color: #fff;
     border: 1px solid #ddd;
+    border: none;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 1.5rem;
     font-family: "Poppins", sans-serif;
 }

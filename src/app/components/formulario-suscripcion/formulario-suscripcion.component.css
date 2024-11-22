@@ -37,3 +37,8 @@ label {
     font-size: 0.9rem;
     color: grey;
 }
+
+a {
+    margin-top: 5px;
+    color: black;
+}
