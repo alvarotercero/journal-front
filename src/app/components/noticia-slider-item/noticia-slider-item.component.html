@@ -4,6 +4,6 @@
     </figure>
     <div class="carousel-caption d-none d-md-block">
         <h5>{{miNoticia?.titular}}</h5>
-        <p>{{miNoticia?.texto}}</p>
+        <p>{{miNoticia?.texto | recortarTexto : 200}}</p>
     </div>
 </a>
