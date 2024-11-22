@@ -7,7 +7,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 })
 export class suscriptoresService {
 
-  private rutaBase = 'http://localhost:3000/api/suscriptores';
+  private rutaBase = 'http://localhost:3000/api/noticias/';
   private httpClient = inject(HttpClient)
 
   postCrearSuscriptor(nuevoSuscriptor: any) {
