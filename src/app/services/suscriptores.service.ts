@@ -7,7 +7,7 @@ import { firstValueFrom, Observable } from 'rxjs';
 })
 export class suscriptoresService {
 
-  private rutaBase = 'https://upgrade-news.onrender.com/api/suscriptores';
+  private rutaBase = 'https://upgrade-news.onrender.com/api/noticias/';
   private httpClient = inject(HttpClient)
 
   postCrearSuscriptor(nuevoSuscriptor: any) {

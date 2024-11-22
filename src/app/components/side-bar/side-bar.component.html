@@ -1,12 +1,19 @@
-<nav id="sidebar" [class.open]="isSidebarOpen" class="sidebar" (click)="closeSidebar()">
-    <button class="close-sidebar-btn">&times;</button>
-    <ul>
-        <li><a (click)="closeSidebar()" [routerLink]="['/noticias', 'home']">Home</a></li>
-        @for (categoria of arrCategorias; track categoria.id) {
-        <li><a (click)="closeSidebar()" [routerLink]="['/noticias', categoria.slug]">{{categoria.nombre}}</a></li>
-        }
-        @if(token){
-        <a class="boton dashboard" (click)="closeSidebar()" [routerLink]="['/dashboard']"><span> DASHBOARD</span></a>
-        }
-    </ul>
-</nav>
+<div class="flex" class="sidebar-space" [class.open]="isSidebarOpen">
+    <nav id="sidebar" [class.open]="isSidebarOpen" class="sidebar">
+        <!-- <button class="close-sidebar-btn" (click)="closeSidebar()"><i class="fa-solid fa-x"></i></button> -->
+        <app-search></app-search>
+        <ul>
+            <li><a (click)="closeSidebar()" [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
+            @for (categoria of arrCategorias; track categoria.id) {
+            <li><a (click)="closeSidebar()" [routerLink]="['/noticias', categoria.slug]"
+                    routerLinkActive="active">{{categoria.nombre}}</a></li>
+            }
+            @if(token){
+            <li><a class="dashboard" (click)="closeSidebar()" [routerLink]="['/dashboard']"
+                    routerLinkActive="active"><span>Dashboard</span></a></li>
+            }
+        </ul>
+        <app-formulario-suscripcion></app-formulario-suscripcion>
+    </nav>
+    <div class="overlay" id="overlay" [class.open]="isSidebarOpen" (click)="closeSidebar()"></div>
+</div>
