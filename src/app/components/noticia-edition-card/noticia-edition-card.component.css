@@ -33,30 +33,20 @@ img {
     border-radius: 5px;
 }
 
-.badge-warning {
-    background-color: #ffc107;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.badge-success {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.badge-info {
-    background-color: #17a2b8;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
-
 .edit-button {
     position: absolute;
     top: 10px;
     right: 10px;
+}
+
+.text-borrador {
+    color: #ff4141;
+}
+
+.text-revision {
+    color: #00cbea;
+}
+
+.text-publicado {
+    color: #23d74d;
 }

@@ -8,24 +8,42 @@
 <h2 class="mb-4">Editar Noticia</h2>
 
 <div class="card p-4">
+<<<<<<< HEAD
     <h2 class="card-title">Editor - Noticia</h2>
+=======
+>>>>>>> 2bde560845005d3d6dbdb143952040bc4b9286c3
     <form [formGroup]="editarNoticiaForm" (ngSubmit)="onSubmit()">
 
         <!-- Titular -->
         <div class="mb-3">
             <label for="titular" class="form-label">Titular del artículo:</label>
             <input type="text" id="titular" class="form-control" formControlName="titular">
+            @if(editarNoticiaForm.get('titular')?.invalid && editarNoticiaForm.get('titular')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
+            @if(editarNoticiaForm.get('titular')?.errors?.['minlength'] && editarNoticiaForm.get('titular')?.touched){
+            <p class="text-danger">MINIMO 3 CARACTERES</p>
+            }
+            @if(editarNoticiaForm.get('titular')?.errors?.['maxlength'] && editarNoticiaForm.get('titular')?.touched){
+            <p class="text-danger">MAXIMO 50 CARACTERES</p>
+            }
         </div>
 
         <!-- Slug -->
         <div class="mb-3">
             <label for="slug" class="form-label">Slug:</label>
             <input type="text" id="slug" class="form-control" formControlName="slug">
+            @if(editarNoticiaForm.get('slug')?.invalid && editarNoticiaForm.get('slug')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <div class="mb-3">
             <label for="texto" class="form-label">Texto del artículo:</label>
             <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
+            @if(editarNoticiaForm.get('texto')?.invalid && editarNoticiaForm.get('texto')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Categoria -->
@@ -37,68 +55,100 @@
                 <option [value]="categoria.id">{{categoria.nombre}}</option>
                 }
             </select>
-        </div>
-
-        <!-- Importancia -->
-        <div class="mb-3">
-            <label class="form-label">Importancia:</label>
-            <div>
-                <div class="form-check">
-                    <input type="radio" id="importanciaBaja" class="form-check-input" formControlName="importancia"
-                        value="baja">
-                    <label for="importanciaBaja" class="form-check-label">Baja</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" id="importanciaMedia" class="form-check-input" formControlName="importancia"
-                        value="media">
-                    <label for="importanciaMedia" class="form-check-label">Media</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" id="importanciaAlta" class="form-check-input" formControlName="importancia"
-                        value="alta">
-                    <label for="importanciaAlta" class="form-check-label">Alta</label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Seccion -->
-        <div class="mb-3">
-            <label class="form-label">Seccion:</label>
-            <div>
-                <div class="form-check">
-                    <input type="radio" id="principal" class="form-check-input" formControlName="secciones"
-                        value="principal">
-                    <label for="principal" class="form-check-label">Principal</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" id="secundario" class="form-check-input" formControlName="secciones"
-                        value="secundario">
-                    <label for="secundario" class="form-check-label">Secundario</label>
-                </div>
-                <div class="form-check">
-                    <input type="radio" id="destacado" class="form-check-input" formControlName="secciones"
-                        value="destacado">
-                    <label for="destacado" class="form-check-label">Destacado</label>
-                </div>
-            </div>
+            @if(editarNoticiaForm.get('categoria_id')?.invalid && editarNoticiaForm.get('categoria_id')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Imagen -->
         <div class="mb-3">
             <label for="imagen" class="form-label">Url de la imagen:</label>
             <input type="text" id="imagen" class="form-control" formControlName="imagen">
+            @if(editarNoticiaForm.get('imagen')?.invalid && editarNoticiaForm.get('imagen')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
+        </div>
+
+        <!-- Importancia -->
+        <div class="mb-3 mt-5 text-center">
+            <label class="form-label">Importancia:</label>
+            <div>
+                <div class="btn-group" role="group" aria-label="Importancia">
+                    <input type="radio" id="importanciaBaja" class="btn-check" formControlName="importancia"
+                        value="baja">
+                    <label class="btn btn-outline-primary" for="importanciaBaja">Baja</label>
+
+                    <input type="radio" id="importanciaMedia" class="btn-check" formControlName="importancia"
+                        value="media">
+                    <label class="btn btn-outline-primary" for="importanciaMedia">Media</label>
+
+                    <input type="radio" id="importanciaAlta" class="btn-check" formControlName="importancia"
+                        value="alta">
+                    <label class="btn btn-outline-primary" for="importanciaAlta">Alta</label>
+                </div>
+            </div>
+            @if(editarNoticiaForm.get('importancia')?.invalid && editarNoticiaForm.get('importancia')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
+        </div>
+
+        <!-- Seccion -->
+        <div class="mb-3 text-center">
+            <label class="form-label">Seccion:</label>
+            <div>
+                <div class="btn-group" role="group" aria-label="Secciones">
+                    <input type="radio" id="principal" class="btn-check" formControlName="secciones" value="principal">
+                    <label class="btn btn-outline-primary" for="principal">Principal</label>
+
+                    <input type="radio" id="secundario" class="btn-check" formControlName="secciones"
+                        value="secundario">
+                    <label class="btn btn-outline-primary" for="secundario">Secundario</label>
+
+                    <input type="radio" id="destacado" class="btn-check" formControlName="secciones" value="destacado">
+                    <label class="btn btn-outline-primary" for="destacado">Destacado</label>
+                </div>
+            </div>
+            @if(editarNoticiaForm.get('secciones')?.invalid && editarNoticiaForm.get('secciones')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Estado -->
-        <div class="mb-3">
-            <label for="estado" class="form-label">Estado:</label>
+        <div class="mb-3 text-center">
+            <label class="form-label">Estado:</label><br>
+            @if(rolUsuario !== 'redactor') {
+            <div class="btn-group" role="group" aria-label="Estado">
+                <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador">
+                <label class="btn btn-outline-danger" for="borrador">Borrador</label>
 
-            <select id="estado" class="form-select" formControlName="estado">
-                <option value="borrador">Borrador</option>
-                <option value="revision">Revision</option>
-                <option value="publicado">Publicado</option>
-            </select>
+                <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision">
+                <label class="btn btn-outline-primary" for="revision">Revision</label>
 
+                <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado">
+                <label class="btn btn-outline-success" for="publicado">Publicado</label>
+            </div>
+
+            } @else {
+
+            <div class="btn-group" role="group" aria-label="Estado">
+                <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador"
+                    [attr.disabled]="true">
+                <label class="btn btn-outline-danger" for="borrador">Borrador</label>
+
+                <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision"
+                    [attr.disabled]="true">
+                <label class="btn btn-outline-primary" for="revision">Revision</label>
+
+                <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado"
+                    [attr.disabled]="true">
+                <label class="btn btn-outline-success" for="publicado">Publicado</label>
+            </div>
+            <p class="text-muted">Solo el editor puede cambiar el estado de la noticia.</p>
+
+            }
+            @if(editarNoticiaForm.get('estado')?.invalid && editarNoticiaForm.get('estado')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Jefe Editor -->
@@ -110,17 +160,28 @@
                 <option [value]="editor.id">{{editor.nombre}}</option>
                 }
             </select>
+            @if(editarNoticiaForm.get('editor_id')?.invalid && editarNoticiaForm.get('editor_id')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
         <!-- Fecha de publicación -->
         <div class="mb-3">
             <label for="fecha_publicacion" class="form-label">Fecha de publicación:</label>
             <input type="date" id="fecha_publicacion" class="form-control" formControlName="fecha_publicacion">
+            @if(editarNoticiaForm.get('fecha_publicacion')?.invalid &&
+            editarNoticiaForm.get('fecha_publicacion')?.touched){
+            <p class="text-danger">CAMPO OBLIGATORIO</p>
+            }
         </div>
 
     </form>
     <div class="button-container mt-3">
-        <button style="margin-right: 10px;" class="btn btn-success" type="submit" (click)="onSubmit()"
-            [routerLink]="['/dashboard', 'noticias']">Guardar Edicion</button>
+        <button style="margin-right: 10px;" class="btn btn-crear-noticia" type="submit" (click)="onSubmit()"
+            [disabled]="editarNoticiaForm.invalid">Editar
+            Noticia</button>
     </div>
+    @if(editarNoticiaForm.invalid && editarNoticiaForm.touched){
+    <p class="text-danger text-center">COMPLETA TODOS LOS CAMPOS</p>
+    }
 </div>

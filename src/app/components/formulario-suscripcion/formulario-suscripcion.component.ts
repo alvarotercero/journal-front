@@ -34,6 +34,14 @@ export class FormularioSuscripcionComponent {
     this.arrCategorias = await this.categoriasService.getAll()
   }
 
+  /*
+  TODO pese a que ya funciona todo bien hay un error: al solicitar la suscripción SE CREA EL SUSCRIPTOR, luego le llega el mail con la
+  confirmación, si no confirma no se habrá finalizado el alta y no le llegarán noticias PERO el suscriptor SE HA CREADO en la base de datos,
+  si trata de volver a darse de alta porque a eliminado el mail de confirmación le saltará un error de que YA EXISTE EL SUSCRIPTOR y no podrá volver a darse de alta.
+  Ver cómo solucionarlo.
+  */
+
+
   async getDataForm() {
     if (this.miFormulario.invalid) {
       this.miFormulario.markAllAsTouched();
@@ -43,19 +51,16 @@ export class FormularioSuscripcionComponent {
         const existeEmail = await this.suscriptoresService.getExisteEmailSuscriptor(this.miFormulario.value.email);
         if (existeEmail != false) {//si el email existe la funcion devuelve el objeto suscriptor, sino devuelve false
           alert("el email " + this.miFormulario.value.email + " ya existe en la base de datos.");
-
+          this.miFormulario.reset();
         } else {
           const respuesta = await this.suscriptoresService.postCrearSuscriptor(this.miFormulario.value);
-          alert(respuesta);
-          //     this.router.navigate(['/dashboard'])
-
+          alert(respuesta.mensaje);
+          this.miFormulario.reset();
         }
       } catch (error: any) {
         console.log(error.error.message);
       }
-      this.miFormulario.reset()
     }
-
   }
 
   toggleCategoria(index: number) {

@@ -1,0 +1,23 @@
+<div class="card m-3">
+    <h3>Baja de suscripción</h3>
+    @if(token == undefined){
+    <div class="formulario">
+        <form [formGroup]="bajaSuscripcionForm" (ngSubmit)="getDataBajaSuscripcion()">
+
+            <div class="email">
+                <label class="form-label" for="email"></label>
+                <input class="form-control" type="text" id="email" placeholder="Introduce tu email"
+                    formControlName="email">
+            </div>
+
+            <input type="submit" value="Desactivar" class="desactivar-input">
+        </form>
+    </div>
+    }
+    @else{
+    <h3>La baja de suscriptor <strong>{{email}}</strong> se ha realizado correctamente.</h3>
+    }
+
+</div>
+<p>Email recuperado: {{email}}</p>
+<p>Token recuperado: {{token}}</p>
