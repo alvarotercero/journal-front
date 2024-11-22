@@ -5,18 +5,27 @@
         @if(checkControl('email', 'required') || checkControl('email', 'pattern')){
         <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Introduce un email válido</p>
         }
+        <div>
+            @for (categoria of arrCategorias; track categoria.id; let index = $index) {
 
-        @for (categoria of arrCategorias; track categoria.id; let index = $index) {
-        <label [for]="categoria.nombre">
-            <input type="checkbox" [id]="categoria.nombre" (change)="toggleCategoria(index)">
-            {{categoria.nombre}}
-        </label>
-        }
+            @if(colocacion=="abajo"){
+            <label class="checkLinea" [for]="categoria.nombre">
+                <input class="form-check-input mx-2" type="checkbox" [id]="categoria.nombre"
+                    (change)="toggleCategoria(index)">{{categoria.nombre}}</label>
+            }
+            @if(colocacion=="derecha"){
+            <label class="checkBlock" [for]="categoria.nombre">
+                <input class="form-check-input me-2" type="checkbox" [id]="categoria.nombre"
+                    (change)="toggleCategoria(index)">{{categoria.nombre}}</label>
+            }
+            }
+        </div>
         @if(miFormulario.get('categorias')?.hasError('sinCategoriaSeleccionada') &&
         (miFormulario.get('categorias')?.touched || miFormulario.get('categorias')?.dirty)) {
         <p class="error"><i class="fa-solid fa-circle-exclamation"></i> Selecciona al menos una categoría</p>
         }
-        <input type="submit" class="boton" value="Suscribirse">
+        <input class="btn btn-dark" type="submit" value="Suscribirse">
     </form>
-    <a href="http://localhost:4200/baja_suscriptor">Baja suscripción</a>
+    <a class="text-end mt-2 small text-decoration-none link-secondary" href="http://localhost:4200/baja_suscriptor">Baja
+        suscripción</a>
 </div>

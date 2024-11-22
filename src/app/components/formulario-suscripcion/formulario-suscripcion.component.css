@@ -37,3 +37,11 @@ label {
     font-size: 0.9rem;
     color: grey;
 }
+
+.checkLinea {
+    display: inline-block;
+}
+
+.checkBlock {
+    display: block;
+}

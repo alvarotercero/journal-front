@@ -26,6 +26,7 @@ export class PageCreacionComponent {
   noticiasService = inject(NoticiasService)
 
   usuarioId!: IUsuario
+  rolUsuario!: string
 
   usuariosService = inject(UsuariosService)
   arrEditores: IUsuario[] = []
@@ -67,6 +68,7 @@ export class PageCreacionComponent {
         Validators.required
       ]),
       redactor_id: new FormControl("", []),
+      cambios: new FormControl(null, [])
     });
 
     // Para generar el slug en tiempo real con el input del titular
@@ -99,6 +101,7 @@ export class PageCreacionComponent {
       this.crearNoticiaForm.patchValue({
         redactor_id: this.usuarioId.id
       });
+      this.rolUsuario = this.usuarioId.rol;
     });
   }
 
