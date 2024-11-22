@@ -8,7 +8,7 @@ import { INoticia } from '../interfaces/inoticia.interface';
 })
 export class NoticiasService {
 
-  private endpoint = 'http://localhost:3000/api/noticias/';
+  private endpoint = 'https://upgrade-news.onrender.com/api/noticias/';
   private httpClient = inject(HttpClient)
 
   getAll(seccion: string, categoria: string = '', limit: number): Promise<INoticia[]> {
