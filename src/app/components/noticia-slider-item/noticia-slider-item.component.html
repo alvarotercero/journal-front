@@ -2,8 +2,8 @@
     <figure>
         <img [src]="miNoticia?.imagen" class="d-block w-100" [alt]="miNoticia?.titular">
     </figure>
-    <div class="carousel-caption d-none d-md-block">
+    <div class="carousel-caption d-md-block">
         <h5>{{miNoticia?.titular}}</h5>
-        <p>{{miNoticia?.texto | recortarTexto : 200}}</p>
+        <p>{{miNoticia?.texto | recortarTexto}}</p>
     </div>
 </a>
