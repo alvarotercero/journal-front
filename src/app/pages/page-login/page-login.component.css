@@ -1,34 +1,26 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-.formulario {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px solid grey;
-    border-radius: 12px;
+.login {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 1.25rem;
+    border-radius: .75rem;
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2);
 }
 
-.formulario h1 {
+.login h1 {
     text-align: center;
-    padding: 0 0 20px 0;
+    margin: 20px 0;
     font-family: "Poppins", sans-serif;
     font-size: 2rem;
     font-weight: 800;
 }
 
-.formulario form {
+.login form {
     padding: 0 40px;
     box-sizing: border-box;
 }
 
 form .email {
-    border: none;
     position: relative;
     margin: 70px 0;
     display: flex;
@@ -39,6 +31,7 @@ form .email {
 
 form .email input {
     border: none;
+    border-radius: 0;
     border-bottom: 2px solid silver;
     outline: none;
     padding: 8px;
@@ -60,6 +53,7 @@ form .password input {
     outline: none;
     padding: 8px;
     font-size: 16px;
+    border-radius: 0;
 }
 
 .acceder-input {
@@ -70,6 +64,7 @@ form .password input {
     border: 1px solid rgba(0, 0, 0, 0.3);
     background-color: black;
     color: white;
+    margin-bottom: 1.25rem;
 }
 
 .acceder-input:hover {

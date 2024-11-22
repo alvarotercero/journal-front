@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="grid">
     @for (noticia of arrNoticiasGenerales; track noticia.id) {
     <app-noticia-card [miNoticia]="noticia" [esNoticiaGeneral]="true"></app-noticia-card>
     }@empty {

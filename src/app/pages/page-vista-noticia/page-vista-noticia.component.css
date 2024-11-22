@@ -15,3 +15,13 @@ img {
     height: 500px;
     object-fit: cover;
 }
+
+@media (width <=46.875rem) {
+    .widgets {
+        display: none;
+    }
+
+    .contenedor.grid {
+        grid-template-columns: 1fr;
+    }
+}

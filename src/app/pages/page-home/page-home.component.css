@@ -4,3 +4,17 @@
     gap: 1.875rem;
     margin-top: -0.9375rem;
 }
+
+@media (width <=46.875rem) {
+    .widgets {
+        display: none;
+    }
+
+    .contenedor.grid {
+        grid-template-columns: 1fr;
+    }
+
+    .noticias-generales-y-secundarias {
+        grid-template-columns: 1fr;
+    }
+}

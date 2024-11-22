@@ -1,8 +1,8 @@
-<nav class="contenedor">
-    <a [routerLink]="['/noticias', 'home']">
+<nav class="flex contenedor">
+    <a class="logo" [routerLink]="['/noticias', 'home']">
         <h1>Upgrade News</h1>
     </a>
-    <ul class="flex">
+    <ul class="flex navigation">
         <li><a [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
         @for (categoria of arrCategorias; track categoria.id) {
         <li><a [routerLink]="['/noticias', categoria.slug]" routerLinkActive="active">{{categoria.nombre}}</a></li>
@@ -14,7 +14,7 @@
         <div></div>
     </div>
     @if(token){
-    <a class="boton" [routerLink]="['/dashboard']"><span> DASHBOARD</span></a>
+    <a class="boton dashboard" [routerLink]="['/dashboard']"><span> DASHBOARD</span></a>
     }
 
     @if(!token){
@@ -22,7 +22,8 @@
     }
 
     @if(token){
-    <a class="boton" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i><span>Cerrar Sesión</span></a>
+    <a class="boton logout" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i><span>Cerrar
+            Sesión</span></a>
     }
 
 </nav>
