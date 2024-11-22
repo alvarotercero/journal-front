@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { RouterLink } from '@angular/router';
 import { UpperCasePipe } from '@angular/common';
 import { RecortarTextoPipe } from '../../pipes/recortar-texto.pipe';
+
 
 @Component({
   selector: 'app-noticia-edition-card',
@@ -14,6 +15,7 @@ import { RecortarTextoPipe } from '../../pipes/recortar-texto.pipe';
 
 export class NoticiaEditionCardComponent {
 
-  @Input() miNoticia?: INoticia;
+  @Input() miNoticia?: INoticia | any;
+
 
 }

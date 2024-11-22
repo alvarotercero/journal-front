@@ -3,7 +3,6 @@ import { INoticia } from '../../interfaces/inoticia.interface';
 import { NoticiaSliderItemComponent } from '../noticia-slider-item/noticia-slider-item.component';
 import { NoticiasService } from '../../services/noticias.service';
 
-
 @Component({
   selector: 'app-destacados',
   standalone: true,

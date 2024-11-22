@@ -4,6 +4,9 @@
     </figure>
     <div class="carousel-caption d-md-block">
         <h5>{{miNoticia?.titular}}</h5>
-        <p>{{miNoticia?.texto | recortarTexto}}</p>
+        <!-- Se utiliza [innerHTML] para permitir que las etiquetas <p> y otros elementos HTML que vienen en el texto de
+                    la base de datos se rendericen correctamente en la vista. -->
+        <p [innerHTML]="miNoticia?.texto?.length > 700 ? miNoticia?.texto.substring(0, 700) + '...' : miNoticia?.texto">
+        </p>
     </div>
 </a>

@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { INoticia } from '../../interfaces/inoticia.interface';
 import { RouterLink } from '@angular/router';
-import { RecortarTextoPipe } from '../../pipes/recortar-texto.pipe';
 
 type Error = {
   message: string
@@ -10,11 +9,11 @@ type Error = {
 @Component({
   selector: 'app-noticia-card',
   standalone: true,
-  imports: [RouterLink, RecortarTextoPipe],
+  imports: [RouterLink],
   templateUrl: './noticia-card.component.html',
   styleUrl: './noticia-card.component.css'
 })
 export class NoticiaCardComponent {
-  @Input() miNoticia?: INoticia
+  @Input() miNoticia?: INoticia | any;
   @Input() esNoticiaGeneral: boolean = false;
 }
