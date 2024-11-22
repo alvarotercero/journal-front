@@ -38,16 +38,15 @@ label {
     color: grey;
 }
 
-<<<<<<< HEAD
 .checkLinea {
     display: inline-block;
 }
 
 .checkBlock {
     display: block;
-=======
-a {
-    margin-top: 5px;
-    color: black;
->>>>>>> editor-noticia
+
+    a {
+        margin-top: 5px;
+        color: black;
+    }
 }
