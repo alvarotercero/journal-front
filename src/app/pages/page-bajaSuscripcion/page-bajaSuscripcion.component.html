@@ -4,9 +4,9 @@
         <div class="card m-3 p-3 col-xs-12 col-md-10 col-xl-6">
 
             @if(token == undefined){
-            <h4>¡Hemos oído que quieras marcharte!</h4>
+            <h4>¡Hemos oído que quieres marcharte!</h4>
             <p> Si estás seguro entonces escribe tu correo electrónico abajo.</p>
-            <div class="form-control">
+            <div class="form-control border-0">
                 <form [formGroup]="bajaSuscripcionForm" (ngSubmit)="getDataBajaSuscripcion()">
 
                     <div class="email form-text">
@@ -14,7 +14,8 @@
                         <input class="form-control" type="text" id="email" placeholder="Introduce tu email"
                             formControlName="email">
                     </div>
-                    <input class="btn btn-dark" type="submit" value="Baja" [disabled]="!bajaSuscripcionForm.valid">
+                    <input class="btn btn-dark my-2" type="submit" value="Quiero darme de baja"
+                        [disabled]="!bajaSuscripcionForm.valid">
                 </form>
             </div>
             <div> <img class="img-fluid" src="./images/dogalert.jpg" alt="Sad dog"></div>

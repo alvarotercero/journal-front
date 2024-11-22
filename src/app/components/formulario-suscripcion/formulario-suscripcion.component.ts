@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, ValidatorFn, Validators } from '@angular/forms';
 import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
   styleUrl: './formulario-suscripcion.component.css'
 })
 export class FormularioSuscripcionComponent {
+  @Input() colocacion: string = "";
   miFormulario: FormGroup;
   arrCategorias: ICategoria[] = [];
   categoriasService = inject(CategoriasService);
