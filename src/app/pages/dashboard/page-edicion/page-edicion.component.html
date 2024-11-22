@@ -180,8 +180,8 @@
         } @else {
         <div class="mb-3">
             <label for="cambios" class="form-label">Comentarios para el redactor:</label>
-            <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"
-                [attr.disabled]="true"></textarea>
+            <textarea style="background-color: #efefef; cursor:default;" id="cambios" class="form-control" rows="5"
+                formControlName="cambios" [attr.readonly]="rolUsuario === 'redactor'"></textarea>
         </div>
         <p class="text-muted">Solo el editor puede dejar comentarios para el redactor.</p>
         }
