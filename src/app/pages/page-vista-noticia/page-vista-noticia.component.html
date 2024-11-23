@@ -2,11 +2,9 @@
     <div class="vista-noticia">
         <figure>
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
-            <figcaption>
-                <h2 class="mt-5">{{miNoticia?.titular}}</h2>
-            </figcaption>
-        </figure>
 
+        </figure>
+        <h2>{{miNoticia?.titular}}</h2>
         <!-- Se utiliza [innerHTML] para permitir que las etiquetas <p> y otros elementos HTML que vienen en el texto de
             la base de datos se rendericen correctamente en la vista. -->
         <div [innerHTML]="miNoticia?.texto | traducirHtml"></div>
