@@ -6,6 +6,7 @@ header {
     top: 0;
     z-index: 100;
     padding: 0.5rem 0;
+    animation: slideDown 1.5s cubic-bezier(0.83, 0, 0.17, 1) forwards;
 }
 
 footer {
@@ -91,4 +92,16 @@ footer .contenedor .copyright {
     font-size: 14px;
     color: black;
     font-family: "Poppins", sans-serif;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }

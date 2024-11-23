@@ -1,13 +1,16 @@
-<nav class="flex contenedor">
+<div class="flex contenedor">
     <a class="logo" [routerLink]="['/noticias', 'home']">
         <img class="logoUpgrade" src="./images/upgradejournallogo.png" alt="">
     </a>
-    <ul class="flex navigation">
-        <li><a [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
-        @for (categoria of arrCategorias; track categoria.id) {
-        <li><a [routerLink]="['/noticias', categoria.slug]" routerLinkActive="active">{{categoria.nombre}}</a></li>
-        }
-    </ul>
+    <nav class="flex navigation">
+        <ul>
+            <li><a [routerLink]="['/noticias', 'home']" routerLinkActive="active">Home</a></li>
+            @for (categoria of arrCategorias; track categoria.id) {
+            <li><a [routerLink]="['/noticias', categoria.slug]" routerLinkActive="active">{{categoria.nombre}}</a></li>
+            }
+        </ul>
+    </nav>
+
     <button class="hamburger" (click)="toggleSidebar()">
         <div></div>
         <div></div>
@@ -26,4 +29,4 @@
             Sesión</span></a>
     }
 
-</nav>
+</div>

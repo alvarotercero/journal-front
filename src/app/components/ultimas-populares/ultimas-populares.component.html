@@ -1,5 +1,5 @@
 <div class="ultimas-populares">
-    <div class="seleccion">
+    <div class="seleccion" [class.active]="selectedOption === 'ultimas'">
         <label [class.active]="selectedOption === 'ultimas'">
             <input type="radio" name="opciones" [(ngModel)]="selectedOption" value="ultimas" />
             Últimas

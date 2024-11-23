@@ -5,3 +5,26 @@
     margin-top: 1.25rem;
     overflow: visible;
 }
+
+.slide-left {
+    opacity: 0.5;
+    /* Comienza siendo invisible */
+    transform: translateX(100px);
+    /* Comienza desplazado hacia abajo */
+    animation: slideLeft 1.5s ease-out forwards;
+    /* Define la animación */
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0.5;
+        transform: translateX(100px);
+        /* Estado inicial */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* Estado final */
+    }
+}

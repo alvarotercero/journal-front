@@ -1,8 +1,11 @@
-nav {
+.flex.contenedor {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
+}
 
+nav {
+    width: 100%;
 }
 
 .logoUpgrade {
@@ -32,11 +35,17 @@ h1 {
 .navigation.flex {
     flex: 1;
     margin: 0;
-    padding-left: 1rem;
     align-content: center;
     justify-content: flex-start;
     gap: 1rem;
 
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+    }
 
     li a {
         transition: 0.2s;
@@ -45,6 +54,11 @@ h1 {
             color: rgba(0, 0, 0, 0.5);
         }
     }
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
 
 .login {
@@ -63,15 +77,24 @@ h1 {
     font-weight: 700;
 }
 
-.boton {
-    margin-right: 1rem;
-}
-
 .logoUpgrade {
     width: 100px;
 }
 
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Inicialmente fuera de lugar */
+    animation: fadeIn 1.5s ease-in forwards;
+    /* Duración y tipo de animación */
+}
+
 @media (width <=46.875rem) {
+
+    .flex.contenedor {
+        justify-content: space-between;
+    }
+
     .hamburger {
         display: block;
         cursor: pointer;
@@ -114,6 +137,9 @@ h1 {
 }
 
 @media (46.9375rem <=width <=62.5rem) {
+    .flex.contenedor {
+        justify-content: space-between;
+    }
 
     .logout {
         span {

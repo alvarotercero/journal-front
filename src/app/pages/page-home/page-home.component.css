@@ -5,6 +5,53 @@
     margin-top: -0.9375rem;
 }
 
+.slide-left {
+    opacity: 0.5;
+    /* Comienza siendo invisible */
+    transform: translateX(100px);
+    /* Comienza desplazado hacia abajo */
+    animation: slideLeft 1.5s ease-out forwards;
+    /* Define la animación */
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0.5;
+        transform: translateX(100px);
+        /* Estado inicial */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        /* Estado final */
+    }
+}
+
+/* styles.css o styles.scss */
+.slide-up {
+    opacity: 0.5;
+    /* Comienza siendo invisible */
+    transform: translateY(100px);
+    /* Comienza desplazado hacia abajo */
+    animation: slideUp 1.5s ease-out forwards;
+    /* Define la animación */
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0.5;
+        transform: translateY(100px);
+        /* Estado inicial */
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        /* Estado final */
+    }
+}
+
 @media (width <=46.875rem) {
     .widgets {
         display: none;

@@ -6,6 +6,7 @@
 }
 
 .seleccion {
+    position: relative;
     display: flex;
     background-color: rgba(0, 0, 0, 0.1);
     align-items: center;
@@ -14,18 +15,29 @@
     border-radius: calc(5px + 0.25rem);
 }
 
-label.active {
+.seleccion::before {
+    content: '';
+    position: absolute;
+    width: calc(50% - 0.25rem);
+    height: calc(100% - 0.5rem);
+    left: 50%;
+    /* top: 50%; */
     background-color: white;
-    border-radius: 5px;
-    padding: 0.25rem;
-    color: black;
+    border-radius: calc(5px + 0.1rem);
+    transition: transform 0.3s ease;
+}
+
+.seleccion.active::before {
+    transform: translateX(-100%);
 }
 
 label {
+    border-radius: 5px;
+    padding: 0.25rem;
     display: block;
     position: relative;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 1.375rem;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -36,7 +48,10 @@ label {
     color: rgba(0, 0, 0, 0.7);
 }
 
-
+label.active {
+    color: black;
+    transition: 0.3s ease;
+}
 
 /* Hide the browser's default radio button */
 label input {
