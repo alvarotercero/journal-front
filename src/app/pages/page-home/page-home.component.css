@@ -5,6 +5,10 @@
     margin-top: -0.9375rem;
 }
 
+#noticias-destacadas {
+    margin-bottom: 2rem;
+}
+
 .slide-left {
     opacity: 0.5;
     /* Comienza siendo invisible */

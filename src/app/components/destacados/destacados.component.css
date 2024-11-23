@@ -1,8 +1,12 @@
 #carouselExampleDark {
     margin: 20px 0;
-    border-radius: .9375rem;
 }
 
 .carousel-indicators>button {
     background-color: white;
+}
+
+.carousel {
+    border-radius: .9375rem;
+    overflow: hidden;
 }
