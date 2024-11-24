@@ -23,11 +23,14 @@
                 <h3 class="text-revision">•{{miNoticia?.estado | uppercase}}</h3>
                 }
             </div>
-            <button class="miBtn" [routerLink]="['/dashboard', 'editar-noticia', miNoticia?.id]"
+
+            <button class="miBtn" [class.disabled]="rolUsuario === 'redactor' && miNoticia?.estado === 'publicado'"
+                (click)="intentarEditar()"
+                [routerLink]="rolUsuario === 'redactor' && miNoticia?.estado === 'publicado' ? null : ['/dashboard', 'editar-noticia', miNoticia?.id]"
                 aria-label="Editar noticia">
                 Editar <i class="fa-solid fa-pen-to-square colortext"></i>
             </button>
-        </div>
 
+        </div>
     </article>
 </div>
