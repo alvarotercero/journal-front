@@ -24,4 +24,9 @@ export class PageVistaNoticiaComponent {
     this.miNoticia = await this.noticiasService.getBySlug(this.noticiaSlug)
 
   }
+
+  goBack() {
+    window.history.back();
+  }
+
 }

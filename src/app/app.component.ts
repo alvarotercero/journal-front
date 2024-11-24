@@ -3,14 +3,30 @@ import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
 import { FormularioSuscripcionComponent } from "./components/formulario-suscripcion/formulario-suscripcion.component";
 import { SideBarComponent } from "./components/side-bar/side-bar.component";
+import { LoadingComponent } from "./components/loading/loading.component";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent, FormularioSuscripcionComponent, SideBarComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    NavBarComponent,
+    FormularioSuscripcionComponent,
+    SideBarComponent,
+    LoadingComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'cmsPeriodicoFrontEnd';
+  isLoading = true;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000);
+  }
 }

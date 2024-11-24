@@ -83,9 +83,9 @@ a {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(50px);
     /* Inicialmente fuera de lugar */
-    animation: fadeIn 1.5s ease-in forwards;
+    animation: fadeIn 0.1s ease-in forwards;
     /* Duración y tipo de animación */
 }
 

@@ -1,5 +1,9 @@
 <div class="grid contenedor">
     <div class="vista-noticia">
+        <button class="back-button" (click)="goBack()">
+            <i class="fa-solid fa-arrow-left text-white"></i>
+            Volver
+        </button>
         <figure>
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
 

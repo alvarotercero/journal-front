@@ -1,198 +1,200 @@
-<div class="container mt-4"></div>
+<div class="container mt-4 slide-up">
 
-<div>
-    <button style="margin-bottom: 20px;" type="button" class="btn btn-primary"
-        [routerLink]="['/dashboard', 'noticias']">Volver</button>
-</div>
-
-<h2 class="mb-4">Crear Noticia</h2>
-
-<div class="card p-4">
-    <form [formGroup]="crearNoticiaForm" (ngSubmit)="onSubmit()">
-
-        <!-- Titular -->
-        <div class="mb-3">
-            <label for="titular" class="form-label">Titular del artículo:</label>
-            <input type="text" id="titular" class="form-control" formControlName="titular">
-            @if(crearNoticiaForm.get('titular')?.invalid && crearNoticiaForm.get('titular')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-            @if(crearNoticiaForm.get('titular')?.errors?.['minlength'] && crearNoticiaForm.get('titular')?.touched){
-            <p class="text-danger">MINIMO 3 CARACTERES</p>
-            }
-            @if(crearNoticiaForm.get('titular')?.errors?.['maxlength'] && crearNoticiaForm.get('titular')?.touched){
-            <p class="text-danger">MAXIMO 50 CARACTERES</p>
-            }
-        </div>
-
-        <!-- Slug -->
-        <div class="mb-3">
-            <label for="slug" class="form-label">Slug:</label>
-            <input type="text" id="slug" class="form-control" formControlName="slug">
-            @if(crearNoticiaForm.get('slug')?.invalid && crearNoticiaForm.get('slug')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <div class="mb-3">
-            <label for="texto" class="form-label">Texto del artículo:</label>
-            <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
-            @if(crearNoticiaForm.get('texto')?.invalid && crearNoticiaForm.get('texto')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Categoria -->
-        <div class="mb-3">
-            <label for="categoria" class="form-label">Categoria:</label>
-            <select id="categoria" class="form-select" formControlName="categoria_id">
-                <option value="">Seleccione una categoria</option>
-                @for (categoria of arrCategorias; track categoria.id) {
-                <option [value]="categoria.id">{{categoria.nombre}}</option>
-                }
-            </select>
-            @if(crearNoticiaForm.get('categoria_id')?.invalid && crearNoticiaForm.get('categoria_id')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Imagen -->
-        <div class="mb-3">
-            <label for="imagen" class="form-label">Url de la imagen:</label>
-            <input type="text" id="imagen" class="form-control" formControlName="imagen">
-            @if(crearNoticiaForm.get('imagen')?.invalid && crearNoticiaForm.get('imagen')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Importancia -->
-        <div class="mb-3 mt-5 text-center">
-            <label class="form-label">Importancia:</label>
-            <div>
-                <div class="btn-group" role="group" aria-label="Importancia">
-                    <input type="radio" id="importanciaBaja" class="btn-check" formControlName="importancia"
-                        value="baja">
-                    <label class="btn btn-outline-primary" for="importanciaBaja">Baja</label>
-
-                    <input type="radio" id="importanciaMedia" class="btn-check" formControlName="importancia"
-                        value="media">
-                    <label class="btn btn-outline-primary" for="importanciaMedia">Media</label>
-
-                    <input type="radio" id="importanciaAlta" class="btn-check" formControlName="importancia"
-                        value="alta">
-                    <label class="btn btn-outline-primary" for="importanciaAlta">Alta</label>
-                </div>
-            </div>
-            @if(crearNoticiaForm.get('importancia')?.invalid && crearNoticiaForm.get('importancia')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Seccion -->
-        <div class="mb-3 text-center">
-            <label class="form-label">Seccion:</label>
-            <div>
-                <div class="btn-group" role="group" aria-label="Secciones">
-                    <input type="radio" id="principal" class="btn-check" formControlName="secciones" value="principal">
-                    <label class="btn btn-outline-primary" for="principal">Principal</label>
-
-                    <input type="radio" id="secundario" class="btn-check" formControlName="secciones"
-                        value="secundario">
-                    <label class="btn btn-outline-primary" for="secundario">Secundario</label>
-
-                    <input type="radio" id="destacado" class="btn-check" formControlName="secciones" value="destacado">
-                    <label class="btn btn-outline-primary" for="destacado">Destacado</label>
-                </div>
-            </div>
-            @if(crearNoticiaForm.get('secciones')?.invalid && crearNoticiaForm.get('secciones')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Estado -->
-        <div class="mb-3 text-center">
-            <label class="form-label">Estado:</label><br>
-            @if(rolUsuario !== 'redactor') {
-            <div class="btn-group" role="group" aria-label="Estado">
-                <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador">
-                <label class="btn btn-outline-danger" for="borrador">Borrador</label>
-
-                <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision">
-                <label class="btn btn-outline-primary" for="revision">Revision</label>
-
-                <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado">
-                <label class="btn btn-outline-success" for="publicado">Publicado</label>
-            </div>
-
-            } @else {
-
-            <div class="btn-group" role="group" aria-label="Estado">
-                <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador"
-                    [attr.disabled]="true">
-                <label class="btn btn-outline-danger" for="borrador">Borrador</label>
-
-                <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision"
-                    [attr.disabled]="true">
-                <label class="btn btn-outline-primary" for="revision">Revision</label>
-
-                <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado"
-                    [attr.disabled]="true">
-                <label class="btn btn-outline-success" for="publicado">Publicado</label>
-            </div>
-            <p class="text-muted">Solo el editor puede cambiar el estado de la noticia.</p>
-
-            }
-            @if(crearNoticiaForm.get('estado')?.invalid && crearNoticiaForm.get('estado')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Jefe Editor -->
-        <div class="mb-3">
-            <label>Editor</label>
-            <select id="editor" class="form-select" formControlName="editor_id">
-                <option value="">Seleccione un editor</option>
-                @for (editor of arrEditores; track editor.id) {
-                <option [value]="editor.id">{{editor.nombre}}</option>
-                }
-            </select>
-            @if(crearNoticiaForm.get('editor_id')?.invalid && crearNoticiaForm.get('editor_id')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Fecha de publicación -->
-        <div class="mb-3">
-            <label for="fecha_publicacion" class="form-label">Fecha de publicación:</label>
-            <input type="date" id="fecha_publicacion" class="form-control" formControlName="fecha_publicacion">
-            @if(crearNoticiaForm.get('fecha_publicacion')?.invalid &&
-            crearNoticiaForm.get('fecha_publicacion')?.touched){
-            <p class="text-danger">CAMPO OBLIGATORIO</p>
-            }
-        </div>
-
-        <!-- Comentarios/Instrucciones para el redactor (Solo accesible para el editor) -->
-        @if(rolUsuario !== 'redactor'){
-        <div class="mb-3">
-            <label for="cambios" class="form-label">Comentarios para el redactor:</label>
-            <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"></textarea>
-        </div>
-        } @else {
-        <div class="mb-3">
-            <label for="cambios" class="form-label">Comentarios para el redactor:</label>
-            <textarea style="background-color: #efefef; cursor:default;" id="cambios" class="form-control" rows="5"
-                formControlName="cambios" [attr.readonly]="rolUsuario === 'redactor'"></textarea>
-        </div>
-        <p class="text-muted">Solo el editor puede dejar comentarios para el redactor.</p>
-        }
-
-    </form>
-    <div class="button-container mt-3">
-        <button style="margin-right: 10px;" class="btn btn-crear-noticia" type="submit" (click)="onSubmit()"
-            [disabled]="crearNoticiaForm.invalid" [routerLink]="['/dashboard', 'noticias']">Crear
-            Noticia</button>
+    <div>
+        <button style="margin-bottom: 20px;" type="button" class="btn btn-primary"
+            [routerLink]="['/dashboard', 'noticias']">Volver</button>
     </div>
-    @if(crearNoticiaForm.invalid && crearNoticiaForm.touched){
-    <p class="text-danger text-center">COMPLETA TODOS LOS CAMPOS</p>
-    }
-</div>
+
+    <h2 class="mb-4">Crear Noticia</h2>
+
+    <div class="card p-4">
+        <form [formGroup]="crearNoticiaForm" (ngSubmit)="onSubmit()">
+
+            <!-- Titular -->
+            <div class="mb-3">
+                <label for="titular" class="form-label">Titular del artículo:</label>
+                <input type="text" id="titular" class="form-control" formControlName="titular">
+                @if(crearNoticiaForm.get('titular')?.invalid && crearNoticiaForm.get('titular')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+                @if(crearNoticiaForm.get('titular')?.errors?.['minlength'] && crearNoticiaForm.get('titular')?.touched){
+                <p class="text-danger">MINIMO 3 CARACTERES</p>
+                }
+                @if(crearNoticiaForm.get('titular')?.errors?.['maxlength'] && crearNoticiaForm.get('titular')?.touched){
+                <p class="text-danger">MAXIMO 50 CARACTERES</p>
+                }
+            </div>
+
+            <!-- Slug -->
+            <div class="mb-3">
+                <label for="slug" class="form-label">Slug:</label>
+                <input type="text" id="slug" class="form-control" formControlName="slug">
+                @if(crearNoticiaForm.get('slug')?.invalid && crearNoticiaForm.get('slug')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <div class="mb-3">
+                <label for="texto" class="form-label">Texto del artículo:</label>
+                <textarea id="texto" class="form-control" rows="5" formControlName="texto"></textarea>
+                @if(crearNoticiaForm.get('texto')?.invalid && crearNoticiaForm.get('texto')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Categoria -->
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoria:</label>
+                <select id="categoria" class="form-select" formControlName="categoria_id">
+                    <option value="">Seleccione una categoria</option>
+                    @for (categoria of arrCategorias; track categoria.id) {
+                    <option [value]="categoria.id">{{categoria.nombre}}</option>
+                    }
+                </select>
+                @if(crearNoticiaForm.get('categoria_id')?.invalid && crearNoticiaForm.get('categoria_id')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Imagen -->
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Url de la imagen:</label>
+                <input type="text" id="imagen" class="form-control" formControlName="imagen">
+                @if(crearNoticiaForm.get('imagen')?.invalid && crearNoticiaForm.get('imagen')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Importancia -->
+            <div class="mb-3 mt-5 text-center">
+                <label class="form-label">Importancia:</label>
+                <div>
+                    <div class="btn-group" role="group" aria-label="Importancia">
+                        <input type="radio" id="importanciaBaja" class="btn-check" formControlName="importancia"
+                            value="baja">
+                        <label class="btn btn-outline-primary" for="importanciaBaja">Baja</label>
+
+                        <input type="radio" id="importanciaMedia" class="btn-check" formControlName="importancia"
+                            value="media">
+                        <label class="btn btn-outline-primary" for="importanciaMedia">Media</label>
+
+                        <input type="radio" id="importanciaAlta" class="btn-check" formControlName="importancia"
+                            value="alta">
+                        <label class="btn btn-outline-primary" for="importanciaAlta">Alta</label>
+                    </div>
+                </div>
+                @if(crearNoticiaForm.get('importancia')?.invalid && crearNoticiaForm.get('importancia')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Seccion -->
+            <div class="mb-3 text-center">
+                <label class="form-label">Seccion:</label>
+                <div>
+                    <div class="btn-group" role="group" aria-label="Secciones">
+                        <input type="radio" id="principal" class="btn-check" formControlName="secciones"
+                            value="principal">
+                        <label class="btn btn-outline-primary" for="principal">Principal</label>
+
+                        <input type="radio" id="secundario" class="btn-check" formControlName="secciones"
+                            value="secundario">
+                        <label class="btn btn-outline-primary" for="secundario">Secundario</label>
+
+                        <input type="radio" id="destacado" class="btn-check" formControlName="secciones"
+                            value="destacado">
+                        <label class="btn btn-outline-primary" for="destacado">Destacado</label>
+                    </div>
+                </div>
+                @if(crearNoticiaForm.get('secciones')?.invalid && crearNoticiaForm.get('secciones')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Estado -->
+            <div class="mb-3 text-center">
+                <label class="form-label">Estado:</label><br>
+                @if(rolUsuario !== 'redactor') {
+                <div class="btn-group" role="group" aria-label="Estado">
+                    <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador">
+                    <label class="btn btn-outline-danger" for="borrador">Borrador</label>
+
+                    <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision">
+                    <label class="btn btn-outline-primary" for="revision">Revision</label>
+
+                    <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado">
+                    <label class="btn btn-outline-success" for="publicado">Publicado</label>
+                </div>
+
+                } @else {
+
+                <div class="btn-group" role="group" aria-label="Estado">
+                    <input class="btn-check" type="radio" id="borrador" formControlName="estado" value="borrador"
+                        [attr.disabled]="true">
+                    <label class="btn btn-outline-danger" for="borrador">Borrador</label>
+
+                    <input class="btn-check" type="radio" id="revision" formControlName="estado" value="revision"
+                        [attr.disabled]="true">
+                    <label class="btn btn-outline-primary" for="revision">Revision</label>
+
+                    <input class="btn-check" type="radio" id="publicado" formControlName="estado" value="publicado"
+                        [attr.disabled]="true">
+                    <label class="btn btn-outline-success" for="publicado">Publicado</label>
+                </div>
+                <p class="text-muted">Solo el editor puede cambiar el estado de la noticia.</p>
+
+                }
+                @if(crearNoticiaForm.get('estado')?.invalid && crearNoticiaForm.get('estado')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Jefe Editor -->
+            <div class="mb-3">
+                <label>Editor</label>
+                <select id="editor" class="form-select" formControlName="editor_id">
+                    <option value="">Seleccione un editor</option>
+                    @for (editor of arrEditores; track editor.id) {
+                    <option [value]="editor.id">{{editor.nombre}}</option>
+                    }
+                </select>
+                @if(crearNoticiaForm.get('editor_id')?.invalid && crearNoticiaForm.get('editor_id')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Fecha de publicación -->
+            <div class="mb-3">
+                <label for="fecha_publicacion" class="form-label">Fecha de publicación:</label>
+                <input type="date" id="fecha_publicacion" class="form-control" formControlName="fecha_publicacion">
+                @if(crearNoticiaForm.get('fecha_publicacion')?.invalid &&
+                crearNoticiaForm.get('fecha_publicacion')?.touched){
+                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                }
+            </div>
+
+            <!-- Comentarios/Instrucciones para el redactor (Solo accesible para el editor) -->
+            @if(rolUsuario !== 'redactor'){
+            <div class="mb-3">
+                <label for="cambios" class="form-label">Comentarios para el redactor:</label>
+                <textarea id="cambios" class="form-control" rows="5" formControlName="cambios"></textarea>
+            </div>
+            } @else {
+            <div class="mb-3">
+                <label for="cambios" class="form-label">Comentarios para el redactor:</label>
+                <textarea style="background-color: #efefef; cursor:default;" id="cambios" class="form-control" rows="5"
+                    formControlName="cambios" [attr.readonly]="rolUsuario === 'redactor'"></textarea>
+            </div>
+            <p class="text-muted">Solo el editor puede dejar comentarios para el redactor.</p>
+            }
+
+        </form>
+        <div class="button-container mt-3">
+            <button style="margin-right: 10px;" class="btn btn-crear-noticia" type="submit" (click)="onSubmit()"
+                [disabled]="crearNoticiaForm.invalid">Crear
+                Noticia</button>
+        </div>
+        @if(crearNoticiaForm.invalid && crearNoticiaForm.touched){
+        <p class="text-danger text-center">COMPLETA TODOS LOS CAMPOS</p>
+        }
+    </div>

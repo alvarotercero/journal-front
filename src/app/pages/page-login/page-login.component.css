@@ -72,3 +72,17 @@ form .password input {
     color: black;
     width: 100%;
 }
+
+.slide-up {
+    animation: slide-up 0.5s ease-in-out;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(10%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

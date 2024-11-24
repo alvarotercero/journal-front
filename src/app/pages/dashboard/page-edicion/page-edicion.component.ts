@@ -9,6 +9,7 @@ import { ICategoria } from '../../../interfaces/icategoria.interface';
 import { IUsuario } from '../../../interfaces/iusuario.interface';
 import { INoticia } from '../../../interfaces/inoticia.interface';
 import { Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-page-edicion',
@@ -39,7 +40,10 @@ export class PageEdicionComponent {
   // Rol del usuario en obtener el id del usuario obtengo el rol y lo guardo en esta variable
   rolUsuario!: string;
 
-  constructor() {
+  showToast: boolean = false;
+
+  // Inyectar el servicio de toastr para mostrar mensajes de éxito o error
+  constructor(private toastr: ToastrService) {
     this.editarNoticiaForm = new FormGroup({
       titular: new FormControl('', [
         Validators.required,
@@ -151,10 +155,20 @@ export class PageEdicionComponent {
       .replace(/\s+/g, '-');
   }
 
-  onSubmit() {
-    this.noticiasService.updateNoticia(this.editarNoticiaForm.value, this.noticiaId).then((data: INoticia) => {
-      console.table(data);
-      this.router.navigate(['/dashboard', 'noticias']);
-    });
+  async onSubmit() {
+    if (this.editarNoticiaForm.valid) {
+      try {
+        await this.noticiasService.updateNoticia(this.editarNoticiaForm.value, this.noticiaId);
+        // Muestra un mensaje de éxito
+        this.toastr.success('¡Noticia actualizada correctamente!', 'Éxito');
+        // Redirecciona a la página de noticias después de 1 segundo
+        setTimeout(() => {
+          this.router.navigate(['/dashboard', 'noticias']);
+        }, 1000);
+      } catch (error) {
+        // Muestra un mensaje de error
+        this.toastr.error('Error al actualizar la noticia', 'Error');
+      }
+    }
   }
 }

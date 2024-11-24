@@ -11,14 +11,14 @@
     /* Comienza siendo invisible */
     transform: translateX(100px);
     /* Comienza desplazado hacia abajo */
-    animation: slideLeft 1.5s ease-out forwards;
+    animation: slideLeft 0.8s ease-out forwards;
     /* Define la animación */
 }
 
 @keyframes slideLeft {
     from {
         opacity: 0.5;
-        transform: translateX(100px);
+        transform: translateX(50px);
         /* Estado inicial */
     }
 

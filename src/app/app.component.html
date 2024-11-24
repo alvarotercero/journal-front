@@ -1,3 +1,6 @@
+@if(isLoading){
+<app-loading></app-loading>
+} @else {
 <header>
   <app-nav-bar></app-nav-bar>
 </header>
@@ -29,7 +32,6 @@
       <a href="#about">Sobre nosotros</a>
       <a href="#contact">Contacto</a>
       <a href="#privacy">Privacidad</a>
-
     </div>
     <div class="formulario">
       <app-formulario-suscripcion [colocacion]="'abajo'"></app-formulario-suscripcion>
@@ -38,5 +40,5 @@
       &copy; 2024 Upgrade News. Todos los derechos reservados.
     </div>
   </div>
-
 </footer>
+}

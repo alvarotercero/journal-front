@@ -1,11 +1,11 @@
 <div class="contenedor grid">
     <div class="busqueda">
-        <h2>Resultados de búsqueda</h2>
+        <h2 class="mb-5 mt-3">Resultados de búsqueda:</h2>
         <section class="grid lista-busquedas">
             @for (noticia of arrNoticiasBuscadas; track noticia.id) {
             <app-noticia-card [miNoticia]="noticia" [esNoticiaGeneral]="true"></app-noticia-card>
             }@empty {
-            <h2>No encontramos ni una noticia 😢</h2>
+            <h3>No encontramos ni una noticia 😢</h3>
             }
         </section>
     </div>

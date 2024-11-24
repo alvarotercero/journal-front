@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ICategoria } from '../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../services/categorias.service';
 import { SidebarService } from '../../services/sidebar.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,11 +32,22 @@ export class NavBarComponent {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    Swal.fire({
+      title: '¿Estás seguro de que deseas cerrar sesión?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Cerrar sesión',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login']);
+      }
+    });
   }
   toggleSidebar() {
     this.sideBarService.toggleSidebar()
   }
+
 
 }

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { INoticia } from '../../../interfaces/inoticia.interface';
 import { ICategoria } from '../../../interfaces/icategoria.interface';
 import { CategoriasService } from '../../../services/categorias.service';
@@ -8,6 +8,7 @@ import { NoticiasService } from '../../../services/noticias.service';
 import { UsuariosService } from '../../../services/usuarios.service';
 import { IUsuario } from '../../../interfaces/iusuario.interface';
 import { Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-page-creacion',
@@ -21,17 +22,18 @@ export class PageCreacionComponent {
 
   arrCategorias: ICategoria[] = []
   crearNoticiaForm: FormGroup
-  noticia!: INoticia
+
   categoriasService = inject(CategoriasService)
   noticiasService = inject(NoticiasService)
+  usuariosService = inject(UsuariosService)
+  router = inject(Router)
 
+  noticia!: INoticia
   usuarioId!: IUsuario
   rolUsuario!: string
-
-  usuariosService = inject(UsuariosService)
   arrEditores: IUsuario[] = []
 
-  constructor() {
+  constructor(private toastr: ToastrService) {
     this.crearNoticiaForm = new FormGroup({
       titular: new FormControl('', [
         Validators.required,
@@ -111,6 +113,10 @@ export class PageCreacionComponent {
     this.noticiasService.insertNoticia(this.crearNoticiaForm.value).then((data: INoticia[]) => {
       console.table(data);
     });
+    this.toastr.success('¡Noticia creada correctamente!', 'Éxito');
+    setTimeout(() => {
+      this.router.navigate(['/dashboard', 'noticias']);
+    }, 1000);
   }
 
   // Función para generar el slug

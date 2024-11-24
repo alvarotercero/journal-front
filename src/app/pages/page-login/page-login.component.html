@@ -1,20 +1,20 @@
-<div class="login">
+<div class="login slide-up">
     <h1>Login</h1>
     <form [formGroup]="loginForm" (ngSubmit)="getDataLogin()">
 
         <div class="email">
-            <label class="form-label" for="loginEmail"></label>
-            <input class="form-control" type="text" id="loginEmail" placeholder="Introduce tu email"
+            <label class="form-label" for="loginEmail">Email:</label>
+            <input class="form-control" type="email" id="loginEmail" placeholder="Introduce tu email"
                 formControlName="email">
         </div>
 
-
         <div class="password">
-            <label class="form-label" for="password"></label>
-            <input class="form-control" type="password" id="password" placeholder="Introduce tu password"
+            <label class="form-label" for="password">Contraseña:</label>
+            <input class="form-control" type="password" id="password" placeholder="Introduce tu contraseña"
                 formControlName="contraseña">
         </div>
 
         <input type="submit" value="Acceder" class="acceder-input">
+
     </form>
 </div>
