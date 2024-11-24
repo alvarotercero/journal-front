@@ -5,7 +5,7 @@
 
             @if(token == undefined){
             <h4>¡Hemos oído que quieres marcharte!</h4>
-            <p> Si estás seguro entonces escribe tu correo electrónico abajo.</p>
+            <p> Si estás seguro, entonces escribe tu correo electrónico abajo.</p>
             <div class="form-control border-0">
                 <form [formGroup]="bajaSuscripcionForm" (ngSubmit)="getDataBajaSuscripcion()">
 
@@ -24,8 +24,8 @@
             @else{
             <div>
                 <h4>¡Hasta otra!</h4>
-                <p>Sentimos mucho que nos dejes <strong>{{email}}</strong>. Per siempre serás bienvenido.</p>
-                <p>La baja de suscriptor se ha realizado correctamente. Ya no recibirás más correos con las noticias.
+                <p>Sentimos mucho que nos dejes <strong>{{email}}</strong>. Pero siempre serás bienvenido si cambias de idea.</p>
+                <p>La baja de suscriptor se ha realizado correctamente. Ya no recibirás más correos con las noticias de Upgrade News.
                 </p>
             </div>
             <div> <img class="img-fluid" src="./images/saddog.jpg" alt="Sad dog"></div>
