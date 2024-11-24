@@ -37,7 +37,7 @@ export class PageEdicionComponent {
 
   // Rol del usuario en obtener el id del usuario obtengo el rol y lo guardo en esta variable
   rolUsuario!: string;
-
+  usuarioId!: IUsuario;
   showToast: boolean = false;
 
   // Inyectar el servicio de toastr para mostrar mensajes de éxito o error
@@ -101,6 +101,13 @@ export class PageEdicionComponent {
     // Para obtener los editores
     this.usuariosService.getEditores().then((data: IUsuario[]) => {
       this.arrEditores = data;
+    });
+
+    // Para obtener el id del usuario y bloquear acceso al cambio del estado
+    this.usuariosService.getUsuarioPorId().then((data: IUsuario) => {
+      this.usuarioId = data;
+      this.rolUsuario = this.usuarioId.rol;
+      console.log(this.rolUsuario);
     });
 
     if (this.rolUsuario === 'redactor') {

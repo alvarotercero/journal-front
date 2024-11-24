@@ -96,7 +96,7 @@ export class PageCreacionComponent {
       console.log(this.arrEditores);
     });
 
-    // Para obtener el id del usuario // COMO OBTENGO EL ID.....
+    // Para obtener el id del usuario y bloquear acceso al cambio del estado
     this.usuariosService.getUsuarioPorId().then((data: IUsuario) => {
       this.usuarioId = data;
       console.log(this.usuarioId);
