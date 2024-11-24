@@ -24,7 +24,7 @@ export class PageBusquedaComponent {
       this.query = params.q
       let parsedQuery: string = this.query.replace(' ', '&')
       try {
-        // this.arrNoticiasBuscadas = await this.noticiasService.getByName(parsedQuery, 30)
+        this.arrNoticiasBuscadas = await this.noticiasService.getByName(parsedQuery, 30)
         console.log(await this.noticiasService.getByName(parsedQuery, 30));
 
       } catch (error) {
