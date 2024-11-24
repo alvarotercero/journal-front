@@ -91,25 +91,25 @@
             </div>
 
             <!-- Seccion -->
-            <div class="mb-3 text-center">
-                <label class="form-label">Seccion:</label>
+            <div class="mb-4 text-center">
+                <label class="form-label fw-bold">Sección:</label>
                 <div>
                     <div class="btn-group" role="group" aria-label="Secciones">
                         <input type="radio" id="principal" class="btn-check" formControlName="secciones"
                             value="principal">
-                        <label class="btn btn-outline-primary" for="principal">Principal</label>
+                        <label class="btn btn-dark" for="principal">Principal</label>
 
                         <input type="radio" id="secundario" class="btn-check" formControlName="secciones"
                             value="secundario">
-                        <label class="btn btn-outline-primary" for="secundario">Secundario</label>
+                        <label class="btn btn-dark" for="secundario">Secundario</label>
 
                         <input type="radio" id="destacado" class="btn-check" formControlName="secciones"
                             value="destacado">
-                        <label class="btn btn-outline-primary" for="destacado">Destacado</label>
+                        <label class="btn btn-dark" for="destacado">Destacado</label>
                     </div>
                 </div>
                 @if(editarNoticiaForm.get('secciones')?.invalid && editarNoticiaForm.get('secciones')?.touched){
-                <p class="text-danger">CAMPO OBLIGATORIO</p>
+                <p class="text-danger fw-bold">CAMPO OBLIGATORIO</p>
                 }
             </div>
 

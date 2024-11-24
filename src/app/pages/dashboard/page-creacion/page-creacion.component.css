@@ -203,3 +203,69 @@ textarea {
 .colortext {
     color: white;
 }
+
+/* CSS de checkboxes */
+
+.btn-group[aria-label="Secciones"] .btn-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.btn-group[aria-label="Secciones"] .btn {
+    padding: 10px 20px;
+    border: 2px solid #1A1A1A;
+    background-color: white;
+    color: #1A1A1A;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-group[aria-label="Secciones"] .btn:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-group[aria-label="Secciones"] .btn-check:checked+.btn {
+    background-color: #1A1A1A;
+    color: white;
+}
+
+.btn-group[aria-label="Secciones"] .btn:first-of-type {
+    border-radius: 8px 0 0 8px;
+}
+
+.btn-group[aria-label="Secciones"] .btn:last-of-type {
+    border-radius: 0 8px 8px 0;
+}
+
+/* CSS de checkboxes */
+
+.btn-group[aria-label="Importancia"] .btn-check {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.btn-group[aria-label="Importancia"] .btn {
+    padding: 10px 20px;
+    border: 2px solid #1A1A1A;
+    background-color: white;
+    color: #1A1A1A;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.btn-group[aria-label="Importancia"] .btn:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-group[aria-label="Importancia"] .btn-check:checked+.btn {
+    background-color: #1A1A1A;
+    color: white;
+}
+
+.btn-group[aria-label="Importancia"] .btn:first-of-type {
+    border-radius: 8px 0 0 8px;
+}
+
+.btn-group[aria-label="Importancia"] .btn:last-of-type {
+    border-radius: 0 8px 8px 0;
+}
