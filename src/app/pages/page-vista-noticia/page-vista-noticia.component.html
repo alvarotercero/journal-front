@@ -1,9 +1,5 @@
 <div class="grid contenedor">
     <div class="vista-noticia">
-        <button class="miBtn" (click)="goBack()">
-            <i class="fa-solid fa-arrow-left text-white"></i>
-            Volver
-        </button>
         <figure>
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
 
@@ -12,6 +8,10 @@
         <!-- Se utiliza [innerHTML] para permitir que las etiquetas <p> y otros elementos HTML que vienen en el texto de
             la base de datos se rendericen correctamente en la vista. -->
         <div [innerHTML]="miNoticia?.texto | traducirHtml"></div>
+        <button class="miBtn" (click)="goBack()">
+            <i class="fa-solid fa-arrow-left text-white"></i>
+            Volver
+        </button>
     </div>
     <aside class="widgets">
         <app-aside></app-aside>
