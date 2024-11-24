@@ -1,18 +1,20 @@
 <div class="div-noticia">
     <article>
 
-        <div class="content-left">
+        <div class="content-left family">
             <h3>{{miNoticia?.titular}}</h3>
             <img [src]="miNoticia?.imagen" [alt]="miNoticia?.titular">
         </div>
 
         <div class="caja-derecha">
-            <div class="noticiaTexto">
+
+            <div class="noticiaTexto family">
                 <!-- Se utiliza [innerHTML] para permitir que las etiquetas <p> y otros elementos HTML que vienen en el texto de
                     la base de datos se rendericen correctamente en la vista. -->
                 <p>{{miNoticia?.texto | recortarTexto}}</p>
             </div>
-            <div class="content-right">
+
+            <div class="content-right familyEstado">
                 @if (miNoticia?.estado === 'borrador') {
                 <h3 class="text-borrador">•{{miNoticia?.estado | uppercase}}</h3>
                 }
@@ -24,12 +26,14 @@
                 }
             </div>
 
-            <button class="miBtn" [class.disabled]="rolUsuario === 'redactor' && miNoticia?.estado === 'publicado'"
-                (click)="intentarEditar()"
-                [routerLink]="rolUsuario === 'redactor' && miNoticia?.estado === 'publicado' ? null : ['/dashboard', 'editar-noticia', miNoticia?.id]"
-                aria-label="Editar noticia">
-                Editar <i class="fa-solid fa-pen-to-square colortext"></i>
-            </button>
+            <div>
+                <button class="miBtn" [class.disabled]="rolUsuario === 'redactor' && miNoticia?.estado === 'publicado'"
+                    (click)="intentarEditar()"
+                    [routerLink]="rolUsuario === 'redactor' && miNoticia?.estado === 'publicado' ? null : ['/dashboard', 'editar-noticia', miNoticia?.id]"
+                    aria-label="Editar noticia">
+                    Editar <i class="fa-solid fa-pen-to-square colortext"></i>
+                </button>
+            </div>
 
         </div>
     </article>

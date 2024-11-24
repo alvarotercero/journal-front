@@ -31,8 +31,6 @@ export class PageEdicionComponent {
   arrCategorias: ICategoria[] = [];
   arrEditores: IUsuario[] = [];
 
-  redactorId!: number;
-  usuarioId!: IUsuario;
   noticia!: INoticia;
   noticiaId!: any;
   //  Defino noticiaId aqui para poder usarlo en la función obtenerNoticia y en la función de editar la noticia
@@ -105,20 +103,9 @@ export class PageEdicionComponent {
       this.arrEditores = data;
     });
 
-    // Para obtener el id del usuario
-    this.usuariosService.getUsuarioPorId().then((data: IUsuario) => {
-      this.usuarioId = data;
-      this.editarNoticiaForm.patchValue({
-        redactor_id: this.usuarioId.id
-      });
-      // Guardo el rol del usuario en esta variable
-      this.rolUsuario = this.usuarioId.rol;
-    });
-
     if (this.rolUsuario === 'redactor') {
       this.editarNoticiaForm.get('estado')?.disable();
     }
-
   }
 
   obtenerNoticia() {
