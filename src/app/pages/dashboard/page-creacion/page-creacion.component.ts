@@ -109,6 +109,10 @@ export class PageCreacionComponent {
 
   // Función para enviar el formulario
   async onSubmit() {
+    if (this.crearNoticiaForm.invalid) {
+      this.toastr.error('No pueden haber campos en blanco', 'Error');
+      return;
+    }
     console.table(this.crearNoticiaForm.value);
     this.noticiasService.insertNoticia(this.crearNoticiaForm.value).then((data: INoticia[]) => {
       console.table(data);

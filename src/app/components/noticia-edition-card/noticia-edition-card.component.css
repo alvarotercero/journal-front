@@ -30,26 +30,6 @@ img {
     border-radius: 8px;
 }
 
-.miBtn {
-    display: flex;
-    justify-content: center;
-    height: 50px;
-    background-color: #888888;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    text-align: center;
-    align-items: center;
-}
-
-.miBtn:hover {
-    background-color: #777777;
-    transform: scale(1.05);
-}
-
 .text-borrador,
 .text-revision,
 .text-publicado {
@@ -82,4 +62,103 @@ img {
 .caja-derecha {
     display: flex;
     flex-direction: row;
+}
+
+@media (width <=46.875rem) {
+
+    .div-noticia {
+        flex-direction: column;
+    }
+
+    article {
+        flex-direction: column;
+    }
+
+    img {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .caja-derecha {
+        flex-direction: column;
+    }
+
+    .content-right,
+    .content-left {
+        margin-right: 0;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .noticiaTexto {
+        margin-right: 0;
+        width: auto;
+        font-size: 0.8rem;
+    }
+}
+
+@media (46.9375rem <=width <=62.5rem) {
+
+    .div-noticia {
+        flex-direction: column;
+    }
+
+    .div-noticia {
+        width: 100vw;
+    }
+}
+
+/*--------*/
+/* CSS de botones */
+.miBtn {
+    appearance: none;
+    background-color: #1A1A1A;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+    height: 65px;
+}
+
+.miBtn:disabled {
+    pointer-events: none;
+}
+
+.miBtn:hover {
+    color: black;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-5px);
+
+    .colortext {
+        color: black;
+    }
+}
+
+.miBtn:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.colortext {
+    color: white;
 }

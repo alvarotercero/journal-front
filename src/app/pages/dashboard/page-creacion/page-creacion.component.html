@@ -1,8 +1,8 @@
 <div class="container mt-4 slide-up">
 
     <div>
-        <button style="margin-bottom: 20px;" type="button" class="btn btn-primary"
-            [routerLink]="['/dashboard', 'noticias']">Volver</button>
+        <button style="margin-bottom: 20px;" type="button" class="miBtn2" [routerLink]="['/dashboard', 'noticias']"
+            style="margin-left: auto;"> <i class="fa-solid fa-arrow-left colortext mr-2"> </i> Volver </button>
     </div>
 
     <h2 class="mb-4">Crear Noticia</h2>
@@ -190,11 +190,7 @@
 
         </form>
         <div class="button-container mt-3">
-            <button style="margin-right: 10px;" class="btn btn-crear-noticia" type="submit" (click)="onSubmit()"
-                [disabled]="crearNoticiaForm.invalid">Crear
+            <button style="margin-right: 10px;" class="miBtn" type="submit" (click)="onSubmit()">Crear
                 Noticia</button>
         </div>
-        @if(crearNoticiaForm.invalid && crearNoticiaForm.touched){
-        <p class="text-danger text-center">COMPLETA TODOS LOS CAMPOS</p>
-        }
     </div>
