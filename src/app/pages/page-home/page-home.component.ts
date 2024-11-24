@@ -4,6 +4,7 @@ import { NoticiasGeneralesComponent } from "../../components/noticias-generales/
 import { NoticiasSecundariasComponent } from "../../components/noticias-secundarias/noticias-secundarias.component";
 import { ActivatedRoute } from '@angular/router';
 import { AsideComponent } from "../../components/aside/aside.component";
+import { CategoriasService } from '../../services/categorias.service';
 
 @Component({
   selector: 'app-page-home',

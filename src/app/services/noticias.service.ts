@@ -14,7 +14,7 @@ export class NoticiasService {
   private httpClient = inject(HttpClient)
 
   getAll(seccion: string, categoria: string = '', limit: number): Promise<INoticia[]> {
-    if (categoria) {
+    if (categoria !== 'home') {
       return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}?seccion=${seccion}&categoria=${categoria}&num=${limit}`))
     }
     return firstValueFrom(this.httpClient.get<INoticia[]>(`${this.endpoint}?seccion=${seccion}&num=${limit}`))

@@ -10,11 +10,12 @@ import { PageVistaNoticiaComponent } from './pages/page-vista-noticia/page-vista
 import { loginGuard } from './guards/login.guard';
 import { PageCreacionComponent } from './pages/dashboard/page-creacion/page-creacion.component';
 import { PageBusquedaComponent } from './pages/page-busqueda/page-busqueda.component';
+import { categoriaGuard } from './guards/categoria.guard';
 
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'noticias/home' },
-    { path: 'noticias/:categoria', component: PageHomeComponent },
+    { path: 'noticias/:categoria', canActivate: [categoriaGuard], component: PageHomeComponent },
     { path: 'login', component: PageLoginComponent },
     { path: 'noticias/:categoria/:noticiaSlug', component: PageVistaNoticiaComponent },
     { path: 'busqueda', component: PageBusquedaComponent },
